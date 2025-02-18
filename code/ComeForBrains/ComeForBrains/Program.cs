@@ -1,14 +1,22 @@
 ﻿using SadConsole.Configuration;
 
-Settings.WindowTitle = "My SadConsole Game";
+namespace ComeForBrains;
 
-Builder gameStartup = new Builder()
-    .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
-    .SetStartingScreen<ComeForBrains.Scenes.RootScreen>()
-    .IsStartingScreenFocused(true)
-    .ConfigureFonts(true)
-    ;
+static class Program
+{
+    public static void Main()
+    {
+        Settings.WindowTitle = "My SadConsole Game";
 
-Game.Create(gameStartup);
-Game.Instance.Run();
-Game.Instance.Dispose();
+        Builder gameStartup = new Builder()
+            .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
+            .SetStartingScreen<ComeForBrains.Scenes.RootScreen>()
+            .IsStartingScreenFocused(true)
+            .ConfigureFonts(true)
+            ;
+
+        Game.Create(gameStartup);
+        Game.Instance.Run();
+        Game.Instance.Dispose();
+    }
+}
