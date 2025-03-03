@@ -3,7 +3,7 @@ from os.path import join
 import subprocess as sp
 import sys
 
-if(len(sys.argv) < 1 or sys.argv[1] == "--help" or sys.argv[1] == "-h"):
+if(len(sys.argv) < 2 or sys.argv[1] == "--help" or sys.argv[1] == "-h"):
     print("Usage: python build_diagrams.py [config_path] [dir_path] [format]",
           "Defaults: confog_path='.', dir_path='.', format='png'")
     exit()
