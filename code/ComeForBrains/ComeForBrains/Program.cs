@@ -1,16 +1,19 @@
-﻿using SadConsole.Configuration;
+﻿using ComeForBrains.GameStates;
+using SadConsole.Configuration;
 
 namespace ComeForBrains;
 
 static class Program
 {
+    private readonly static Localization L = Localization.GetInstance();
+
     public static void Main()
     {
-        Settings.WindowTitle = "My SadConsole Game";
+        Settings.WindowTitle = L["Come for brains"];
 
         Builder gameStartup = new Builder()
             .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
-            .SetStartingScreen<ComeForBrains.Scenes.RootScreen>()
+            .SetStartingScreen<MainMenuState>()
             .IsStartingScreenFocused(true)
             .ConfigureFonts(true)
             ;
