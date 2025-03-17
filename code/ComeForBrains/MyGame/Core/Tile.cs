@@ -2,24 +2,12 @@ using System;
 
 namespace ComeForBrains.Core;
 
-public class Tile : NamedEntity
+public class Tile : DescribedEntity
 {
     public int PercentOfPassability { get; internal set; } = HundredPercent;
-    public string Description
-    {
-        get => L[description];
-        internal set => description = value;
-    }
     
-    public Tile(string name) : base(name)
-    {}
-    public Tile() : base(OpenSpaceName)
+    public Tile(string name, string description) : base(name, description)
     {}
 
-    private string description = OpenSpaceDescription;
-
-
-    internal const string OpenSpaceName = "OpenSpace";
-    internal const string OpenSpaceDescription = "OpenSpaceDescription";
     private const int HundredPercent = 100;
 }
