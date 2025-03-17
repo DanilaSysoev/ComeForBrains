@@ -1,4 +1,5 @@
 using System;
+using ComeForBrains.Core;
 
 namespace ComeForBrains;
 
@@ -13,7 +14,9 @@ public class Localization
     private static Localization LoadLocalization()
     {
         return new Localization(new Dictionary<string, string>() {
-            {"Come for brains", "Приходите за мозгами"}
+            {"Come for brains", "Приходите за мозгами"},
+            {Tile.OpenSpaceName, "Открытое пространство"},
+            {Tile.OpenSpaceDescription, "Пустое пространство"},
         });
     }
 
