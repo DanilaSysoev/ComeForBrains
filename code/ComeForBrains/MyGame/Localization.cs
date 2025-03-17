@@ -25,7 +25,7 @@ public class Localization
             if (dictionary.ContainsKey(key)) {
                 return dictionary[key];
             }
-            return "ERROR! Can't find key: " + key;
+            return key;
         }
     }
 }
