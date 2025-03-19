@@ -1,4 +1,4 @@
-namespace ComeForBrains.Core.MapBuilding;
+namespace ComeForBrains.Core.Building;
 
 public interface IMapBuilder
 {

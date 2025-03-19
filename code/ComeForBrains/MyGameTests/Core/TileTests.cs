@@ -40,7 +40,7 @@ public class TileTests
     [Test]
     public void Create_EmptyTile_PassabilityEqualsBaseWeight()
     {
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
     [Test]
     public void Create_EmptyContainer_CountEqualsZero()
@@ -52,7 +52,7 @@ public class TileTests
     public void Add_OneItem_PassabilityEqualsBaseMinusItemPenalty()
     {
         tile.Place(item);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(70));
+        Assert.That(tile.Passability, Is.EqualTo(70));
     }
     [Test]
     public void Add_OneItem_CountEqualsOne()
@@ -65,7 +65,7 @@ public class TileTests
     {
         tile.Place(item1);
         tile.Place(item2);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(65));
+        Assert.That(tile.Passability, Is.EqualTo(65));
     }
     [Test]
     public void Add_TwoItem_CountEqualsTwo()
@@ -78,14 +78,14 @@ public class TileTests
     public void Add_AddNoneEmptyContainer_PassabilityEqualsBaseMinusContainerPenalty()
     {
         tile.Place(container);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(55));
+        Assert.That(tile.Passability, Is.EqualTo(55));
     }
     [Test]
     public void Add_AddStoredItem_PassabilityEqualsBaseMinusContainerPenalty()
     {
         tile.Place(container);
         tile.Place(storedItem);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(55));
+        Assert.That(tile.Passability, Is.EqualTo(55));
     }
 
 
@@ -94,7 +94,7 @@ public class TileTests
     {
         tile.Place(item);
         tile.Remove(item);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
     [Test]
     public void Remove_OneItemThenRemove_CountEqualsZero()
@@ -117,7 +117,7 @@ public class TileTests
         tile.Place(item1);
         tile.Place(item2);
         tile.Remove(item1);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(70));
+        Assert.That(tile.Passability, Is.EqualTo(70));
     }
     [Test]
     public void Remove_TwoItemThenRemoveTwo_WeightEqualsBase()
@@ -126,14 +126,14 @@ public class TileTests
         tile.Place(item2);
         tile.Remove(item1);
         tile.Remove(item2);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
     [Test]
     public void Remove_AddNoneEmptyContainerThenRemove_PassabilityEqualsBase()
     {
         tile.Place(container);
         tile.Remove(container);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
     [Test]
     public void Remove_AddStoredItemThenRemove_PassabilityEqualsBaseMinusContainerPenalty()
@@ -141,18 +141,18 @@ public class TileTests
         tile.Place(container);
         tile.Place(storedItem);
         tile.Remove(storedItem);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(55));
+        Assert.That(tile.Passability, Is.EqualTo(55));
     }
     [Test]
     public void Remove_NotExistentItem_PassabilityEqualsBase()
     {
         tile.Remove(item);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
     [Test]
     public void Remove_NotExistentStoredItem_PassabilityEqualsBase()
     {
         tile.Remove(storedItem);
-        Assert.That(tile.PercentOfPassability, Is.EqualTo(75));
+        Assert.That(tile.Passability, Is.EqualTo(75));
     }
 }

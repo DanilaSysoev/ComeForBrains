@@ -1,4 +1,6 @@
 using ComeForBrains.Core;
+using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.Items;
 
 namespace MyGameTests.Core.Items;
@@ -28,7 +30,9 @@ public class ContainerTests
     [SetUp]
     public void Setup()
     {
-        context = new GameContext();
+        context = new GameContext(
+            new Person(new DefaultAttributesBuilder("", 0, 0, 0, 0, 0))
+        );
         tile = new Tile("", "");
         container = new Container("container", "", 30, 15, tile);
         item = new DummyItem();
@@ -160,11 +164,11 @@ public class ContainerTests
     [Test]
     public void Interact_TwoItemsInContainer_TilePassabilityNotChanged()
     {
-        var old = tile.PercentOfPassability;
+        var old = tile.Passability;
         container.Add(item1);
         container.Add(item2);
         container.Interact(context);
-        Assert.That(old, Is.EqualTo(tile.PercentOfPassability));
+        Assert.That(old, Is.EqualTo(tile.Passability));
     }
     [Test]
     public void Interact_InteractTwoTimes_ItemsNotInTile()

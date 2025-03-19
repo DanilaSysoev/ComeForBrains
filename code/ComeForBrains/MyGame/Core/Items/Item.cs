@@ -2,8 +2,8 @@ namespace ComeForBrains.Core.Items;
 
 public abstract class Item : DescribedEntity
 {
-    public virtual int Weight { get => weight; }
-    public int PassabilityPenalty { get; init; }
+    public virtual double Weight { get => weight; }
+    public double PassabilityPenalty { get; init; }
 
     public Container? Container { get; internal set; }
     public bool Stored => Container is not null;
@@ -11,8 +11,8 @@ public abstract class Item : DescribedEntity
     protected Item(
         string name,
         string description,
-        int weight,
-        int passabilityPenalty
+        double weight,
+        double passabilityPenalty
     ) : base(name, description)
     {
         this.weight = weight;
@@ -26,8 +26,10 @@ public abstract class Item : DescribedEntity
     {
         return obj is Item item &&
                base.Equals(obj) &&
-               weight == item.weight &&
-               PassabilityPenalty == item.PassabilityPenalty;
+               Math.Abs(weight -
+                        item.weight) < 0.0000001 &&
+               Math.Abs(PassabilityPenalty -
+                        item.PassabilityPenalty) < 0.0000001;
     }
     public override int GetHashCode()
     {
@@ -36,5 +38,5 @@ public abstract class Item : DescribedEntity
                                 PassabilityPenalty);
     }
 
-    private readonly int weight;
+    private readonly double weight;
 }

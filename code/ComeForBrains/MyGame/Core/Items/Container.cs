@@ -4,14 +4,14 @@ namespace ComeForBrains.Core.Items;
 
 public class Container : Item, IEnumerable<Item>
 {
-    public override int Weight => totalWeigth;
+    public override double Weight => totalWeigth;
     public Tile? Tile { get; init; }
 
     public Container(
         string name,
         string description,
-        int weight,
-        int passabilityPenalty,
+        double weight,
+        double passabilityPenalty,
         Tile? tile = null
     ) : base(name, description, weight, passabilityPenalty)
     {
@@ -76,7 +76,7 @@ public class Container : Item, IEnumerable<Item>
         isOpened = true;
     }
 
-    private int totalWeigth;
+    private double totalWeigth;
     private bool isOpened = false;
     private readonly List<Item> items = new();
 }

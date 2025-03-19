@@ -1,4 +1,4 @@
-using ComeForBrains.Core.MapBuilding;
+using ComeForBrains.Core.Building;
 
 namespace ComeForBrains.Core;
 

@@ -1,4 +1,5 @@
 ﻿using ComeForBrains.GameStates;
+using ComeForBrains.Service;
 using SadConsole.Configuration;
 
 namespace ComeForBrains;
@@ -9,6 +10,8 @@ static class Program
 
     public static void Main()
     {
+        RandomProvider.Initialize(new SystemRandom());
+
         Settings.WindowTitle = L["Come for brains"];
 
         Builder gameStartup = new Builder()

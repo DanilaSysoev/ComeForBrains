@@ -4,27 +4,27 @@ namespace ComeForBrains.Core;
 
 public class Tile : DescribedEntity
 {
-    public int PercentOfPassability { get; internal set; }
+    public double Passability { get; internal set; }
     
     public Tile(
         string name,
         string description,
-        int percentOfPassability = HundredPercent
+        double percentOfPassability = AbsolutePassable
     ) : base(name, description)
     {
-        PercentOfPassability = percentOfPassability;
+        Passability = percentOfPassability;
     }
 
     public void Place(Item item)
     {
         items.Add(item);
         if(!item.Stored)
-            PercentOfPassability -= item.PassabilityPenalty;
+            Passability -= item.PassabilityPenalty;
     }
     public void Remove(Item item)
     {
         if(items.Remove(item) && !item.Stored)
-            PercentOfPassability += item.PassabilityPenalty;
+            Passability += item.PassabilityPenalty;
     }
     public bool Contains(Item item)
     {
@@ -35,5 +35,5 @@ public class Tile : DescribedEntity
 
     private readonly List<Item> items = new();
 
-    private const int HundredPercent = 100;
+    private const int AbsolutePassable = 1;
 }
