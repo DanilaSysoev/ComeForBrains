@@ -1,9 +1,9 @@
 using ComeForBrains.Core;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.Items;
-using MyGameTests.Helpers;
+using ComeForBrainsTests.Helpers;
 
-namespace MyGameTests.Core.Items;
+namespace ComeForBrainsTests.Core.Items;
 
 public class MedicineTests
 {

@@ -1,8 +1,7 @@
-using System;
 using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Characters;
 
-namespace MyGameTests.Helpers;
+namespace ComeForBrainsTests.Helpers;
 
 public class DummyPersonBuilder : IPersonBuilder
 {

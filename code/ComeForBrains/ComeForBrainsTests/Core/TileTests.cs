@@ -1,8 +1,7 @@
-using System;
 using ComeForBrains.Core;
 using ComeForBrains.Core.Items;
 
-namespace MyGameTests.Core;
+namespace ComeForBrainsTests.Core;
 
 public class TileTests
 {

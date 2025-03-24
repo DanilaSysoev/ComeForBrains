@@ -1,7 +1,7 @@
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.Items;
 
-namespace MyGameTests.Core.Characters;
+namespace ComeForBrainsTests.Core.Characters;
 
 public class InventoryTests
 {

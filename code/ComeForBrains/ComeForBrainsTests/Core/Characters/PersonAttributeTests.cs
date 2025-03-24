@@ -1,6 +1,6 @@
 using ComeForBrains.Core.Characters;
 
-namespace MyGameTests.Core.Characters;
+namespace ComeForBrainsTests.Core.Characters;
 
 public class PersonAttributeTests
 {

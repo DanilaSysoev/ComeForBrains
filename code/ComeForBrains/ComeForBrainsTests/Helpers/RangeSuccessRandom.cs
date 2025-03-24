@@ -1,6 +1,6 @@
 using ComeForBrains.Service;
 
-namespace MyGameTests.Helpers;
+namespace ComeForBrainsTests.Helpers;
 
 public class RangeSuccessRandom : IRandom
 {

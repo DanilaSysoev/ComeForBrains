@@ -1,7 +1,6 @@
 using ComeForBrains.Core;
-using NUnit.Framework;
 
-namespace MyGameTests.Core;
+namespace ComeForBrainsTests.Core;
 
 public class SettlementTests
 {

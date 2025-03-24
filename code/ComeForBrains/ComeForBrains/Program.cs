@@ -15,7 +15,7 @@ static class Program
         Settings.WindowTitle = L["Come for brains"];
 
         Builder gameStartup = new Builder()
-            .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
+            .SetScreenSize(GameSettings.GameWidth, GameSettings.GameHeight)
             .SetStartingScreen<MainMenuState>()
             .IsStartingScreenFocused(true)
             .ConfigureFonts(true)

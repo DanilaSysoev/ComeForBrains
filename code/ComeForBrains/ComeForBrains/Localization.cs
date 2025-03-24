@@ -12,6 +12,18 @@ public class Localization
     {
         return new Localization(new Dictionary<string, string>() {
             {"Come for brains", "Приходите за мозгами"},
+            {"Head", "Голова"},
+            {"Face", "Лицо"},
+            {"Neck", "Шея"},
+            {"Shoulders", "Плечи"},
+            {"Forearms", "Предплечья"},
+            {"Wrists", "Запястья"},
+            {"Chest", "Грудь"},
+            {"Back", "Спина"},
+            {"Stomach", "Живот"},
+            {"Thighs", "Бедра"},
+            {"Shins", "Голени"},
+            {"Feet", "Стопы"}
         });
     }
 

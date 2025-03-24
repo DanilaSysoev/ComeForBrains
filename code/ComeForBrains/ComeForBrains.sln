@@ -2,9 +2,9 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGame", "MyGame\MyGame.csproj", "{8A781A1E-47E7-4D50-87B1-E586BE2FDC63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrains", "ComeForBrains\ComeForBrains.csproj", "{8A781A1E-47E7-4D50-87B1-E586BE2FDC63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGameTests", "MyGameTests\MyGameTests.csproj", "{FA473ED9-3528-4A04-B4D2-F5476255FC34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrainsTests", "ComeForBrainsTests\ComeForBrainsTests.csproj", "{FA473ED9-3528-4A04-B4D2-F5476255FC34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

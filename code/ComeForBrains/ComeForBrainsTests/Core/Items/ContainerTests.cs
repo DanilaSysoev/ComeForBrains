@@ -3,7 +3,7 @@ using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.Items;
 
-namespace MyGameTests.Core.Items;
+namespace ComeForBrainsTests.Core.Items;
 
 
 public class ContainerTests
