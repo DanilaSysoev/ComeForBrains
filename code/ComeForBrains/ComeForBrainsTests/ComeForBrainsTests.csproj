@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../ComeForBrains/ComeForBrains.csproj" />
+    <ProjectReference Include="..\ComeForBrains\ComeForBrains.csproj" />
   </ItemGroup>
 
 </Project>
