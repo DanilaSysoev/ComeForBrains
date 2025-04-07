@@ -1,4 +1,4 @@
-using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.Characters;
 using ComeForBrains.Core.Items;
 using ComeForBrains.Exceptions;
 
@@ -34,6 +34,9 @@ public class Person
     public double InfectionTime { get; internal set; }
 
     public IEnumerable<Armor> Armors => armors;
+    public Weapon? Weapon => weapon;
+
+    public GameContext GameContext { get; internal set; } = null!;
 
     public Person(IPersonBuilder builder)
     {   
@@ -85,6 +88,33 @@ public class Person
         }
         return true;
     }
+    public void Unequip(Armor armor)
+    {
+        if(armors.Remove(armor))
+        {
+            foreach(var bodyPart in armor.BodyParts)
+            {
+                armorValuesByPart[bodyPart] -= armor.ArmorValue;
+                armorThiknessByPart[bodyPart] -= armor.Thikness;
+            }
+        }
+    }
+    public void Unequip(Weapon weapon)
+    {
+        this.weapon = null;
+    }
+    public double GetArmorValue(BodyPart bodyPart)
+    {
+        return armorValuesByPart[bodyPart];
+    }
+    public double GetArmorThikness(BodyPart bodyPart)
+    {
+        return armorThiknessByPart[bodyPart];
+    }
+    public void Equip(Weapon weapon)
+    {
+        this.weapon = weapon;
+    }
     public void Equip(Armor armor)
     {
         if(!CanEquip(armor))
@@ -100,17 +130,6 @@ public class Person
         }
         armors.Add(armor);
     }
-    public void Unequip(Armor armor)
-    {
-        if(armors.Remove(armor))
-        {
-            foreach(var bodyPart in armor.BodyParts)
-            {
-                armorValuesByPart[bodyPart] -= armor.ArmorValue;
-                armorThiknessByPart[bodyPart] -= armor.Thikness;
-            }
-        }
-    }
 
 
     private readonly double strength;
@@ -122,6 +141,8 @@ public class Person
     private readonly List<Armor> armors = new();
     private readonly Dictionary<BodyPart, double> armorValuesByPart = new();
     private readonly Dictionary<BodyPart, double> armorThiknessByPart = new();
+
+    private Weapon? weapon;
 
     private double CalculateFeature(double feature)
     {

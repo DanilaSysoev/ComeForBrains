@@ -1,12 +1,14 @@
 using ComeForBrains.Core;
-using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.Characters;
 using ComeForBrains.Core.Characters;
+using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Core.Items;
+using ComeForBrainsTests.Helpers;
 
 namespace ComeForBrainsTests.Core.Items;
 
-
-public class ContainerTests
+[TestFixture]
+public class ContainerTests : Tests
 {
     class DummyItem : Item
     {
@@ -31,7 +33,9 @@ public class ContainerTests
     public void Setup()
     {
         context = new GameContext(
-            new Person(new DefaultAttributesBuilder("", 0, 0, 0, 0, 0))
+            new PersonContextBuilder(
+                new Person(new DefaultAttributesBuilder("", 0, 0, 0, 0, 0))
+            )
         );
         tile = new Tile("", "");
         container = new Container("container", "", 30, 15, tile);

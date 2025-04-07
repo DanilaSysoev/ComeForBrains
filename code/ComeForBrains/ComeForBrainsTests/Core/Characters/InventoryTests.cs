@@ -3,7 +3,8 @@ using ComeForBrains.Core.Items;
 
 namespace ComeForBrainsTests.Core.Characters;
 
-public class InventoryTests
+[TestFixture]
+public class InventoryTests : Tests
 {
     private Inventory inventory = null!;
     private Medicine m1 = null!;

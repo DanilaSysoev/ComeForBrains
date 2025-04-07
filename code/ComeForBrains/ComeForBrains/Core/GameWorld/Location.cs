@@ -1,4 +1,4 @@
-namespace ComeForBrains.Core;
+namespace ComeForBrains.Core.GameWorld;
 
 public class Location : NamedEntity
 {

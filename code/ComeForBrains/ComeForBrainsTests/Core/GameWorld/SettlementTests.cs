@@ -1,8 +1,9 @@
-using ComeForBrains.Core;
+using ComeForBrains.Core.GameWorld;
 
-namespace ComeForBrainsTests.Core;
+namespace ComeForBrainsTests.Core.GameWorld;
 
-public class SettlementTests
+[TestFixture]
+public class SettlementTests : Tests
 {
     [Test]
     public void Creation_WithSomeLocations_AllLocationsExistsByName()

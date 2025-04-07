@@ -1,7 +1,12 @@
+using ComeForBrains.Core.Building.Items;
+using ComeForBrains.Service;
+
 namespace ComeForBrains.Core.Items;
 
 public abstract class Item : DescribedEntity
 {
+    public ulong Id { get; init; }
+
     public virtual double Weight { get => weight; }
     public double PassabilityPenalty { get; init; }
 
@@ -15,9 +20,18 @@ public abstract class Item : DescribedEntity
         double passabilityPenalty
     ) : base(name, description)
     {
+        Id = IdProvider.NextId();
         this.weight = weight;
 
         PassabilityPenalty = passabilityPenalty;
+    }
+
+    protected Item(ItemBuilder builder)
+        : base(builder.Name, builder.Description)
+    {
+        Id = IdProvider.NextId();
+        weight = builder.Weight;
+        PassabilityPenalty = builder.PassabilityPenalty;
     }
 
     public abstract void Interact(GameContext context);
@@ -25,17 +39,11 @@ public abstract class Item : DescribedEntity
     public override bool Equals(object? obj)
     {
         return obj is Item item &&
-               base.Equals(obj) &&
-               Math.Abs(weight -
-                        item.weight) < 0.0000001 &&
-               Math.Abs(PassabilityPenalty -
-                        item.PassabilityPenalty) < 0.0000001;
+               Id == item.Id;
     }
     public override int GetHashCode()
     {
-        return HashCode.Combine(base.GetHashCode(),
-                                weight,
-                                PassabilityPenalty);
+        return Id.GetHashCode();
     }
 
     private readonly double weight;

@@ -1,9 +1,10 @@
-using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.Characters;
 using ComeForBrains.Core.Characters;
 
 namespace ComeForBrainsTests.Core.Characters;
 
-public class PersonTests
+[TestFixture]
+public class PersonTests : Tests
 {
     private DefaultAttributesBuilder builder = null!;
     private Person person = null!;

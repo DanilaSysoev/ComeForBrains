@@ -5,7 +5,8 @@ using ComeForBrainsTests.Helpers;
 
 namespace ComeForBrainsTests.Core.Items;
 
-public class MedicineTests
+[TestFixture]
+public class MedicineTests : Tests
 {
     private GameContext gameContext = null!;
     private Person person = null!;
@@ -17,7 +18,9 @@ public class MedicineTests
     public void Setup()
     {
         person = new Person(new DummyPersonBuilder());
-        gameContext = new GameContext(person);
+        gameContext = new GameContext(
+            new PersonContextBuilder(person)
+        );
         m0 = new Medicine("m0", "d0", 1, 10, 0);
         m1 = new Medicine("m1", "d1", 1, 10, 1);
         m2 = new Medicine("m2", "d2", 1, 10, 4);

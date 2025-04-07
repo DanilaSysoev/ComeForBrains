@@ -1,3 +1,4 @@
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Service;
 
 namespace ComeForBrains.Core.Items;
@@ -23,6 +24,14 @@ public class InfectionKiller : Item
         EffectiveTime = effectiveTime;
     }
 
+    public InfectionKiller(InfectionKillerBuilder builder)
+        : base(builder)
+    {
+        SuccessChance = builder.SuccessChance;
+        HealthDamage = builder.HealthDamage;
+        EffectiveTime = builder.EffectiveTime;
+    }
+    
     public override void Interact(GameContext context)
     {
         context.Person.Health.Value -= HealthDamage;
@@ -34,20 +43,5 @@ public class InfectionKiller : Item
         }
 
         context.Person.Inventory.RemoveItem(this);
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return obj is InfectionKiller ic &&
-               base.Equals(obj) &&
-               SuccessChance == ic.SuccessChance &&
-               Math.Abs(HealthDamage - ic.HealthDamage) < 0.000001 &&
-               Math.Abs(EffectiveTime - ic.EffectiveTime) < 0.000001;
-    }
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(
-            base.GetHashCode(), SuccessChance, HealthDamage, EffectiveTime
-        );
     }
 }

@@ -1,9 +1,11 @@
 using ComeForBrains.Core;
+using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Core.Items;
 
-namespace ComeForBrainsTests.Core;
+namespace ComeForBrainsTests.Core.GameWorld;
 
-public class TileTests
+[TestFixture]
+public class TileTests : Tests
 {
     class DummyItem : Item
     {

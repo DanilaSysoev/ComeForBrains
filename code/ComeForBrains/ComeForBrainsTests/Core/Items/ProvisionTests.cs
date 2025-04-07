@@ -5,7 +5,8 @@ using ComeForBrainsTests.Helpers;
 
 namespace ComeForBrainsTests.Core.Items;
 
-public class ProvisionTests
+[TestFixture]
+public class ProvisionTests : Tests
 {
     private GameContext gameContext = null!;
     private Person person = null!;
@@ -20,7 +21,9 @@ public class ProvisionTests
     public void SetUp()
     {
         person = new Person(new DummyPersonBuilder());
-        gameContext = new GameContext(person);
+        gameContext = new GameContext(
+            new PersonContextBuilder(person)
+        );
         p0 = new Provision("p0", "d0", 1, 1, 10, 0, 0);
         p1 = new Provision("p1", "d1", 1, 1, 0, 10, 0);
         p2 = new Provision("p2", "d2", 1, 1, 0, 0, 10);

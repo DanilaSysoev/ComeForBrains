@@ -2,7 +2,8 @@ using ComeForBrains.Core.Characters;
 
 namespace ComeForBrainsTests.Core.Characters;
 
-public class PersonAttributeTests
+[TestFixture]
+public class PersonAttributeTests : Tests
 {
     [Test]
     public void Create_WithoutPenalties_ReturnZeroValue()

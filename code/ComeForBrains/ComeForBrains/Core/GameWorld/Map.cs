@@ -1,6 +1,6 @@
-using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.GameWorld;
 
-namespace ComeForBrains.Core;
+namespace ComeForBrains.Core.GameWorld;
 
 public class Map
 {

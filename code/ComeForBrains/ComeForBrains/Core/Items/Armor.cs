@@ -1,3 +1,4 @@
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.Characters;
 
 namespace ComeForBrains.Core.Items;
@@ -29,6 +30,15 @@ public class Armor : Item
         this.infectionModifier = infectionModifier;
         this.armorValue = armorValue;
         this.energyConsumptionModifier = energyConsumptionModifier;
+    }
+    public Armor(ArmorBuilder builder)
+        : base(builder)
+    {
+        bodyParts = builder.BodyParts.ToList();
+        thikness = builder.Thikness;
+        infectionModifier = builder.InfectionModifier;
+        armorValue = builder.ArmorValue;
+        energyConsumptionModifier = builder.EnergyConsumptionModifier;
     }
 
     public override void Interact(GameContext context)

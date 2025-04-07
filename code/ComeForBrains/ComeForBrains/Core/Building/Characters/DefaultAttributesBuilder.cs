@@ -1,6 +1,6 @@
 using ComeForBrains.Core.Characters;
 
-namespace ComeForBrains.Core.Building;
+namespace ComeForBrains.Core.Building.Characters;
 
 public class DefaultAttributesBuilder : IPersonBuilder
 {

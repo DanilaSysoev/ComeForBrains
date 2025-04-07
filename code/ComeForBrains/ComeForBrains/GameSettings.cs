@@ -1,6 +1,6 @@
 ﻿namespace ComeForBrains;
 
-static class GameSettings
+public static class GameSettings
 {
     public readonly static int GameWidth = 90;
     public readonly static int GameHeight = 30;

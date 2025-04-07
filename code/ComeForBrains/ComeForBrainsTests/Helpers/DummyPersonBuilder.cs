@@ -1,4 +1,4 @@
-using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.Characters;
 using ComeForBrains.Core.Characters;
 
 namespace ComeForBrainsTests.Helpers;

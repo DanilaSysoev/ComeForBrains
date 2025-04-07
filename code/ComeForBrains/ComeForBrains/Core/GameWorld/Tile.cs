@@ -1,6 +1,6 @@
 using ComeForBrains.Core.Items;
 
-namespace ComeForBrains.Core;
+namespace ComeForBrains.Core.GameWorld;
 
 public class Tile : DescribedEntity
 {

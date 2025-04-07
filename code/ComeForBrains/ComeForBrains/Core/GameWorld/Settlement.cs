@@ -1,6 +1,4 @@
-using System;
-
-namespace ComeForBrains.Core;
+namespace ComeForBrains.Core.GameWorld;
 
 public class Settlement : NamedEntity
 {

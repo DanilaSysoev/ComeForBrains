@@ -6,7 +6,8 @@ using ComeForBrainsTests.Helpers;
 
 namespace ComeForBrainsTests.Core.Items;
 
-public class InfectionKillerTests
+[TestFixture]
+public class InfectionKillerTests : Tests
 {
     private GameContext gameContext = null!;
     private Person person = null!;
@@ -19,7 +20,9 @@ public class InfectionKillerTests
         RandomProvider.Initialize(new RangeSuccessRandom(0, 50));
 
         person = new Person(new DummyPersonBuilder());
-        gameContext = new GameContext(person);
+        gameContext = new GameContext(
+            new PersonContextBuilder(person)
+        );
         ic0 = new InfectionKiller("ic0", "d0", 1, 1, 30, 20, 100);
         ic1 = new InfectionKiller("ic1", "d1", 1, 1, 80, 30, 10);
 
