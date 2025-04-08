@@ -28,4 +28,11 @@
     <ProjectReference Include="..\ComeForBrains\ComeForBrains.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="../ComeForBrains/Localizations/**/*">
+        <Link>Localizations/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
