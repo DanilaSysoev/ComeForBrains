@@ -1,19 +1,29 @@
 using ComeForBrains.Core.GameWorld;
+using ComeForBrainsTests.Helpers;
 
 namespace ComeForBrainsTests.Core.GameWorld;
 
 [TestFixture]
 public class SettlementTests : Tests
 {
+    private List<Location> locations = null!;
+    Location l1 = null!;
+    Location l2 = null!;
+    Location l3 = null!;
+
+    [SetUp]
+    public void Setup()
+    {
+        l1 = new Location(new DummyLocationBuilder("L1", new DummyMapBuilder(10, 10)));
+        l2 = new Location(new DummyLocationBuilder("L2", new DummyMapBuilder(20, 20)));
+        l3 = new Location(new DummyLocationBuilder("L3", new DummyMapBuilder(30, 30)));
+
+        locations = new () {l1, l2, l3};
+    }
+
     [Test]
     public void Creation_WithSomeLocations_AllLocationsExistsByName()
     {
-        List<Location> locations = new () {
-            new Location("L1"),
-            new Location("L2"),
-            new Location("L3"),
-        };
-
         Settlement settlement = new Settlement("S", locations);
 
         Assert.That(settlement.GetLocation("L1"), Is.EqualTo(locations[0]));
@@ -23,12 +33,6 @@ public class SettlementTests : Tests
     [Test]
     public void Create_WithSomeLocations_AllLocationsContainsSettlementReference()
     {
-        List<Location> locations = new () {
-            new Location("L1"),
-            new Location("L2"),
-            new Location("L3"),
-        };
-
         Settlement settlement = new Settlement("S", locations);
 
         Assert.That(locations[0].Settlement, Is.SameAs(settlement));
