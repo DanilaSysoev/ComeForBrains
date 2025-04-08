@@ -13,6 +13,16 @@ public class RangeSuccessRandom : IRandom
     public int MinSuccess { get; }
     public int MaxSuccess { get; }
 
+    public double NextDouble(double max)
+    {
+        return 0;
+    }
+
+    public double NextDouble(double min, double max)
+    {
+        return 0;
+    }
+
     public bool Try(int chance)
     {
         return chance >= MinSuccess && chance < MaxSuccess;

@@ -7,4 +7,6 @@ public interface IGameContextBuilder
 {
     Person BuildPerson();
     Camp BuildCamp();
+
+    uint DayNumber { get; }
 }

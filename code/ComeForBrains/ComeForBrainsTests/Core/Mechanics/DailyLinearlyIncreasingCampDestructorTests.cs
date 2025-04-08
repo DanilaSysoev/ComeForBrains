@@ -1,9 +1,7 @@
-using System;
 using ComeForBrains.Core;
 using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Core.Items;
-using ComeForBrains.Core.Mechanics;
 using ComeForBrains.Core.Mechanics.Base;
 using ComeForBrainsTests.Helpers;
 
@@ -22,18 +20,27 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
     [SetUp]
     public void Setup()
     {
+        InitForDay(0);
+    }
+
+    private void InitForDay(uint day)
+    {
         gameContext = new GameContext(
             new PersonContextBuilder(
                 new ComeForBrains.Core.Characters.Person(
                     new DummyPersonBuilder()
                 )
             )
+            {
+                DayNumber = day
+            }
         );
         camp = gameContext.Camp;
         campDestructor = camp.Destructor;
 
         ce1 = new CampElement(
-            new CampElementBuilder {
+            new CampElementBuilder
+            {
                 FortificationValue = 100,
                 ComfortValue = 90,
                 Srength = 100,
@@ -41,7 +48,8 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
             }
         );
         ce2 = new CampElement(
-            new CampElementBuilder {
+            new CampElementBuilder
+            {
                 FortificationValue = 50,
                 ComfortValue = 30,
                 Srength = 100,
@@ -66,11 +74,20 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
     [Test]
     public void DamageCamp_OneDay_DamageEqualBasePlusOneIncreasing()
     {
-        gameContext.GoToNextDay();
+        InitForDay(1);
         campDestructor.DamageCamp(gameContext);
         Assert.That(ce1.Fortification, Is.EqualTo(85).Within(.00001));
         Assert.That(ce2.Fortification, Is.EqualTo(42.5).Within(.00001));
         Assert.That(ce1.Comfort, Is.EqualTo(76.5).Within(.00001));
         Assert.That(ce2.Comfort, Is.EqualTo(25.5).Within(.00001));
+    }
+
+    [Test]
+    public void DamageCamp_ZeroDay_DamagedTwoElements()
+    {
+        gameContext.GoToNextDay();
+        campDestructor.DamageCamp(gameContext);
+        Assert.That(campDestructor.GetLastDamagedElements(), Contains.Item(ce1));
+        Assert.That(campDestructor.GetLastDamagedElements(), Contains.Item(ce2));
     }
 }

@@ -22,4 +22,6 @@ public class PersonContextBuilder : IGameContextBuilder
     }
 
     private readonly Person person;
+
+    public uint DayNumber { get; set; }
 }

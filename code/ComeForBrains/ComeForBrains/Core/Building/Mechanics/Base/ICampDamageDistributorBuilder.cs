@@ -1,6 +1,6 @@
 using ComeForBrains.Core.Mechanics.Base;
 
-namespace ComeForBrains.Core.Building.Mechanics;
+namespace ComeForBrains.Core.Building.Mechanics.Base;
 
 public interface ICampDamageDistributorBuilder
 {

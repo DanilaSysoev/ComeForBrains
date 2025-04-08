@@ -16,7 +16,7 @@ public class GameContext
     {
         Person = builder.BuildPerson();
         Camp = builder.BuildCamp();
-        DayNumber = 0;
+        DayNumber = builder.DayNumber;
 
         Person.GameContext = this;
         Camp.GameContext = this;
@@ -28,7 +28,7 @@ public class GameContext
         ++DayNumber;
     }
 
-    public void MoveToCamp()
+    public void MovePersonToCamp()
     {
         PersonInCamp = true;
     }
@@ -36,9 +36,6 @@ public class GameContext
 
     private void EndOfDayOperaions()
     {
-        System.Console.BackgroundColor = ConsoleColor.Red;
-        System.Console.ForegroundColor = ConsoleColor.White;
-        System.Console.WriteLine("You need implement method EndOfDayOparations");
-        System.Console.ResetColor();
+        Camp.DamageCampAtNight();
     }
 }

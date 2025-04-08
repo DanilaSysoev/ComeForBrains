@@ -1,6 +1,6 @@
 using System;
 using ComeForBrains.Core;
-using ComeForBrains.Core.Building.Mechanics;
+using ComeForBrains.Core.Building.Mechanics.Base;
 using ComeForBrains.Core.Mechanics.Base;
 
 namespace ComeForBrainsTests.Helpers;

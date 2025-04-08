@@ -10,6 +10,9 @@ public class Camp
     public double Fortification => fortification;
     public double Comfort => comfort;    
     public IEnumerable<CampElement> CampElements => allElements;
+    public IEnumerable<CampElement> ExternalCampElements => externalElements;
+    public IEnumerable<CampElement> InternalCampElements => internalElements;
+    
     public GameContext GameContext { get; internal set; } = null!;
     public ICampDestructor Destructor => destructor;
 
@@ -44,6 +47,10 @@ public class Camp
         else
             externalElements.Remove(campElement);
         CalculateFortificationAndComfort();
+    }
+    public void DamageCampAtNight()
+    {
+        destructor.DamageCamp(GameContext);
     }
 
 

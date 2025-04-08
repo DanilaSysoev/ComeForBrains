@@ -9,4 +9,5 @@ public static class GameSettings
     public readonly static long BaseWeight = 50;
     public readonly static double MaxArmorThikness = 1.0;
     public static readonly double ArmorBaseValue = 0;
+    public static readonly int NemberOfIterationsInRandomDistributor = 10;
 }
