@@ -1,30 +1,30 @@
+using System.Text.Json;
+
 namespace ComeForBrains;
 
 public class Localization
 {
     public static Localization GetInstance() {
+        if (instance is null) {
+            throw new InvalidOperationException(
+                "Localization is not initialized"
+            );
+        }
         return instance;
     }
 
-    private static Localization instance = LoadLocalization();
+    private static Localization? instance;
 
-    private static Localization LoadLocalization()
+    public static void LoadLocalization()
     {
-        return new Localization(new Dictionary<string, string>() {
-            {"Come for brains", "Приходите за мозгами"},
-            {"Head", "Голова"},
-            {"Face", "Лицо"},
-            {"Neck", "Шея"},
-            {"Shoulders", "Плечи"},
-            {"Forearms", "Предплечья"},
-            {"Wrists", "Запястья"},
-            {"Chest", "Грудь"},
-            {"Back", "Спина"},
-            {"Stomach", "Живот"},
-            {"Thighs", "Бедра"},
-            {"Shins", "Голени"},
-            {"Feet", "Стопы"}
-        });
+        var dict = JsonSerializer.Deserialize<Dictionary<string, string>>(
+            File.ReadAllText(
+                Path.Combine(GameSettings.PathToLocalizations,
+                             GameSettings.Locale,
+                             "Localization.json")
+            )
+        );        
+        instance = new Localization(dict ?? new Dictionary<string, string>());
     }
 
     private readonly Dictionary<string, string> dictionary;
