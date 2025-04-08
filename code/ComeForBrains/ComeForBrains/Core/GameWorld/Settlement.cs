@@ -1,3 +1,5 @@
+using ComeForBrains.Core.Building.GameWorld;
+
 namespace ComeForBrains.Core.GameWorld;
 
 public class Settlement : NamedEntity
@@ -8,9 +10,19 @@ public class Settlement : NamedEntity
         internal set => world = value;
     }
 
-    public Settlement(string name,
-                      IEnumerable<Location> locations)
-        : base(name)
+    public Settlement(ISettlementBuilder builder)
+        : base(builder.BuildName())
+    {
+        foreach(var location in builder.BuildLocations())
+        {
+            locations.Add(location.Name, location);
+            location.Settlement = this;
+        }
+    }
+
+    public Settlement(
+        string name, IEnumerable<Location> locations
+    ) : base(name)
     {
         foreach(var location in locations)
         {
