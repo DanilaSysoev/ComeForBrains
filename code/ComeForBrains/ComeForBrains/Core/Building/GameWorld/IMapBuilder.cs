@@ -4,8 +4,10 @@ namespace ComeForBrains.Core.Building.GameWorld;
 
 public interface IMapBuilder
 {
-    public int GetWidth();
-    public int GetHeight();
+    void Build();
 
-    public Tile GetTile(int line, int column);
+    int GetWidth();
+    int GetHeight();
+
+    Tile GetTile(int line, int column);
 }
