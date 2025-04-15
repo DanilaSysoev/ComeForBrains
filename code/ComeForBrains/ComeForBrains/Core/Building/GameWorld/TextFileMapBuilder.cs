@@ -10,17 +10,17 @@ public class TextFileMapBuilder : IMapBuilder
         mapDataProvider = new FromTextFileMapDataProvider(
             Path.Combine(pathToData, "Map.txt")
         );
-        jsonProvider = new FromFileJsonProvider(
+        tileDescriptorsDataProvieder = new FromFileJsonProvider(
             Path.Combine(pathToData, "Tiles.json")
         );
     }
     public TextFileMapBuilder(
         IMapDataProvider mapDataProvider,
-        IJsonProvider jsonProvider
+        IJsonProvider tileDescriptorsDataProvieder
     )
     {
         this.mapDataProvider = mapDataProvider;
-        this.jsonProvider = jsonProvider;
+        this.tileDescriptorsDataProvieder = tileDescriptorsDataProvieder;
     }
 
     public void Build()
@@ -78,10 +78,12 @@ public class TextFileMapBuilder : IMapBuilder
 
     private TileDescriptor[] ReadTileDescriptors()
     {
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        var options = new JsonSerializerOptions {
+            PropertyNameCaseInsensitive = true
+        };
 
         var tileDescriptors = JsonSerializer.Deserialize<TileDescriptor[]>(
-            jsonProvider.GetJson(), options
+            tileDescriptorsDataProvieder.GetJson(), options
         );
         if (tileDescriptors is null)
             throw new InvalidOperationException("No tile descriptors found");
@@ -140,5 +142,5 @@ public class TextFileMapBuilder : IMapBuilder
     private Dictionary<char, TileDescriptor> tdBySymbol = null!;
 
     private readonly IMapDataProvider mapDataProvider;
-    private readonly IJsonProvider jsonProvider;
+    private readonly IJsonProvider tileDescriptorsDataProvieder;
 }

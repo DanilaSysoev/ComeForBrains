@@ -35,6 +35,15 @@ public class TextFileMapBuilderTests : Tests
         Assert.That(mapBuilder.GetHeight(), Is.EqualTo(4));
     }
     [Test]
+    public void Build_BuildingMapWithUndefinedSymbols_ThrowsError()
+    {
+        mapBuilder = new TextFileMapBuilder(
+            new DummyBadMapDataProvider(),
+            new DummyTileDescriptorJsonProvider()
+        );
+        Assert.Throws<InvalidOperationException>(() => mapBuilder.Build());
+    }
+    [Test]
     public void Build_BuildingMap_TilesIsCorrect()
     {
         mapBuilder.Build();

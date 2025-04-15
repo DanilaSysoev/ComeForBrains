@@ -14,7 +14,7 @@ public class Map
         Width = builder.GetWidth();
         Height = builder.GetHeight();
 
-        tiles = new Tile[Width, Height];
+        tiles = new Tile[Height, Width];
         for (int line = 0; line < Height; line++)
             for (int column = 0; column < Width; column++)
                 tiles[line, column] = builder.GetTile(line, column);
@@ -29,7 +29,7 @@ public class Map
 
     public override string ToString()
     {
-        return $"Map: {Width}x{Height}";
+        return $"Map: {Height}x{Width}";
     }
 
 
