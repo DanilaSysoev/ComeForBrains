@@ -20,16 +20,15 @@
     <PackageReference Include="SadConsole.Host.MonoGame" Version="10.5.0" />
     <PackageReference Include="SadConsole.Extended" Version="10.5.0" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Include="./Localizations/**/*">
-        <Link>Localizations/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+    <None Include="./Worlds/**/*">
+        <Link>Worlds/%(RecursiveDir)/%(FileName)%(Extension)</Link>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="./Worlds/**/*">
-        <Link>Worlds/%(RecursiveDir)/%(FileName)%(Extension)</Link>
+    <None Include="./Data/**/*">
+        <Link>Data/%(RecursiveDir)/%(FileName)%(Extension)</Link>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

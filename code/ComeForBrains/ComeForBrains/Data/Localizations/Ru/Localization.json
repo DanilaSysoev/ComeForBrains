@@ -9,6 +9,7 @@
     "Chest": "Грудь",
     "Back": "Спина",
     "Stomach": "Живот",
+    "Pelvis": "Таз",
     "Thighs": "Бедра",
     "Shins": "Голени",
     "Feet": "Стопы",
@@ -17,5 +18,13 @@
     "CabbageFarm": "Капустная ферма",
     "BeetWarehouse": "Склад свеклы",
     "Mill": "Мелница",
-    "Backery": "Пекарня"
+    "Backery": "Пекарня",
+    "BrickWall": "Корпичная стена",
+    "BrickWallDescription": "Прочная стена из кирпича",
+    "Ground": "Земля",
+    "GroundDescription": "Твердая сухая земля",
+    "Dirt": "Грязь",
+    "DirtDescription": "Скользкая грязь, затрудняющая передвижение",
+    "Grass": "Трава",
+    "GrassDescription": "Высокая трава"
 }

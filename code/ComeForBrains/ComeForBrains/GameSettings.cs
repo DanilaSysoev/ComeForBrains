@@ -11,6 +11,6 @@ public static class GameSettings
     public readonly static double ArmorBaseValue = 0;
     public readonly static int NemberOfIterationsInRandomDistributor = 10;
     public readonly static string Locale = "Ru";
-    public readonly static string PathToLocalizations = "Localizations";
+    public readonly static string PathToLocalizations = Path.Combine("Data", "Localizations");
     public readonly static string PathToWorlds = "Worlds";
 }

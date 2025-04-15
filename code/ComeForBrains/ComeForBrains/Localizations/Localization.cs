@@ -1,10 +1,10 @@
 using System.Text.Json;
 
-namespace ComeForBrains;
+namespace ComeForBrains.Localizations;
 
-public class Localization
+public class Localization : ILocalization
 {
-    public static Localization GetInstance() {
+    public static ILocalization GetInstance() {
         if (instance is null) {
             throw new InvalidOperationException(
                 "Localization is not initialized"
@@ -13,7 +13,7 @@ public class Localization
         return instance;
     }
 
-    private static Localization? instance;
+    private static ILocalization? instance;
 
     public static void LoadLocalization()
     {
@@ -23,8 +23,11 @@ public class Localization
                              GameSettings.Locale,
                              "Localization.json")
             )
-        );        
+        );
         instance = new Localization(dict ?? new Dictionary<string, string>());
+    }
+    public static void LoadLocalization(ILocalization localization) {
+        instance = localization;
     }
 
     private readonly Dictionary<string, string> dictionary;

@@ -1,4 +1,4 @@
-using ComeForBrains;
+using ComeForBrains.Localizations;
 using ComeForBrains.Service;
 using ComeForBrainsTests.Helpers;
 
@@ -11,6 +11,6 @@ public class Tests
     {
         IdProvider.Clear();
         IdProvider.Initialize(new DummyIdProvider());
-        Localization.LoadLocalization();
+        Localization.LoadLocalization(new DummyLocalization());
     }
 }

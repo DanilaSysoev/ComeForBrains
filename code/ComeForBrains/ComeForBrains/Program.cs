@@ -1,12 +1,13 @@
 ﻿using ComeForBrains.GameStates;
 using ComeForBrains.Service;
 using SadConsole.Configuration;
+using ComeForBrains.Localizations;
 
 namespace ComeForBrains;
 
 static class Program
 {
-    private readonly static Localization L = Localization.GetInstance();
+    private readonly static ILocalization L = Localization.GetInstance();
 
     public static void Main()
     {
