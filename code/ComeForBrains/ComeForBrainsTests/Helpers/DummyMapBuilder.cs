@@ -28,4 +28,8 @@ public class DummyMapBuilder : IMapBuilder
     {
         return new Tile($"T{line}", $"D{column}");
     }
+
+    public void Build()
+    {
+    }
 }
