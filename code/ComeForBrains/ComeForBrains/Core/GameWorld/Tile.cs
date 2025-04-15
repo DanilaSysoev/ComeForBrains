@@ -9,10 +9,10 @@ public class Tile : DescribedEntity
     public Tile(
         string name,
         string description,
-        double percentOfPassability = AbsolutePassable
+        double passability = AbsolutePassable
     ) : base(name, description)
     {
-        Passability = percentOfPassability;
+        Passability = passability;
     }
 
     public void Place(Item item)

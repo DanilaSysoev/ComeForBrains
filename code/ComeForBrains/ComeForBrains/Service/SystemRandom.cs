@@ -13,9 +13,9 @@ public class SystemRandom : IRandom
         random = new(seed);
     }
 
-    public bool Try(int chance)
+    public bool Try(double chance)
     {
-        return random.Next(100) < chance;
+        return random.NextDouble() < chance;
     }
 
     public double NextDouble(double max)

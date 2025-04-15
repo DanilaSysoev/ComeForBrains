@@ -9,6 +9,8 @@ public class Map
 
     public Map(IMapBuilder builder)
     {
+        builder.Build();
+
         Width = builder.GetWidth();
         Height = builder.GetHeight();
 

@@ -23,7 +23,7 @@ public class RangeSuccessRandom : IRandom
         return 0;
     }
 
-    public bool Try(int chance)
+    public bool Try(double chance)
     {
         return chance >= MinSuccess && chance < MaxSuccess;
     }

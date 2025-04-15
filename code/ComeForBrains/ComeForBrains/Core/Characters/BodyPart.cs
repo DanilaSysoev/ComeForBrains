@@ -11,6 +11,7 @@ public enum BodyPart
     Chest,
     Back,
     Stomach,
+    Pelvis,
     Thighs,
     Shins,
     Feet

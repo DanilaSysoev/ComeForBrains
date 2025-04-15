@@ -19,7 +19,7 @@ public class AlwaysPredeclaredRandom : IRandom
         return (max - min) * value + min;
     }
 
-    public bool Try(int chance)
+    public bool Try(double chance)
     {
         return false;
     }

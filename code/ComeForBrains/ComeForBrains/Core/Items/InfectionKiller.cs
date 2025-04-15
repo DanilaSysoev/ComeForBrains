@@ -5,7 +5,7 @@ namespace ComeForBrains.Core.Items;
 
 public class InfectionKiller : Item
 {
-    public int SuccessChance { get; init; }
+    public double SuccessChance { get; init; }
     public double HealthDamage { get; init; }
     public double EffectiveTime { get; init; }
 
@@ -14,7 +14,7 @@ public class InfectionKiller : Item
         string description,
         double weight,
         double passabilityPenalty,
-        int successChance,
+        double successChance,
         double healthDamage,
         double effectiveTime
     ) : base(name, description, weight, passabilityPenalty)

@@ -1,0 +1,26 @@
+[
+    {
+        "symbol": "#",
+        "name": "BrickWall",
+        "description": "BrickWallDescription",
+        "passability": 0
+    },
+    {
+        "symbol": " ",
+        "name": "Ground",
+        "description": "GroundDescription",
+        "passability": 1.0
+    },
+    {
+        "symbol": "~",
+        "name": "Dirt",
+        "description": "DirtDescription",
+        "passability": 0.8
+    },
+    {
+        "symbol": "\"",
+        "name": "Grass",
+        "description": "GrassDescription",
+        "passability": 0.9
+    }
+]
