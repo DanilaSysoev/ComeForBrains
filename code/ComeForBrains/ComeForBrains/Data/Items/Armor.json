@@ -1,1 +1,34 @@
-[]
+[
+    {
+        "Name": "JacketName",
+        "Description": "JacketDescription",
+        "Weight": 1500,
+        "PassabilityPenalty": 0.02,
+        "BodyParts": [
+            "Shoulders",
+            "Forearms",
+            "Chest",
+            "Back",
+            "Stomach"
+        ],
+        "Thikness": 0.4,
+        "ArmorValue": 3,
+        "InfectionModifier": 0.2,
+        "EnergyConsumptionModifier": 0.05
+    },
+    {
+        "Name": "JeansName",
+        "Description": "JeansDescription",
+        "Weight": 1500,
+        "PassabilityPenalty": 0.02,
+        "BodyParts": [
+            "Pelvis",
+            "Thighs",
+            "Shins"
+        ],
+        "Thikness": 0.4,
+        "ArmorValue": 3,
+        "InfectionModifier": 0.2,
+        "EnergyConsumptionModifier": 0.05
+    }
+]

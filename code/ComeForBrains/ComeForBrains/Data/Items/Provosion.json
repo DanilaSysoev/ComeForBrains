@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "BreadName",
+        "Description": "BreadDescription",
+        "Weight": 300,
+        "PassabilityPenalty": 0.02,
+        "SatietyPower": 30, 
+        "ThirstPower": -10,
+        "EnergyPower": 0    
+    },
+    {
+        "Name": "WaterName",
+        "Description": "WaterDescription",
+        "Weight": 500,
+        "PassabilityPenalty": 0.02,
+        "SatietyPower": 0,
+        "ThirstPower": 25,
+        "EnergyPower": 5    
+    }
+]

@@ -1,0 +1,8 @@
+[
+    {
+        "Name": "WoodenBoxName",
+        "Description": "WoodenBoxDescription",
+        "Weight": 2500,
+        "PassabilityPenalty": 0.2
+    }
+]

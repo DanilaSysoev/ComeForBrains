@@ -26,5 +26,43 @@
     "Dirt": "Грязь",
     "DirtDescription": "Скользкая грязь, затрудняющая передвижение",
     "Grass": "Трава",
-    "GrassDescription": "Высокая трава"
+    "GrassDescription": "Высокая трава",
+
+
+    "JacketName": "Куртка",
+    "JacketDescription": "Прочная кожаная куртка",
+    "JeansName": "Джинсы",
+    "JeansDescription": "прочные плотные джинсы",
+
+
+    "SheetOfIronName": "Лист железа",
+    "SheetOfIronDescription": "Прочный железный лист",
+    "ArmchairName": "Кресло",
+    "ArmchairDescription": "Удобное кресло",
+
+
+    "WoodenBoxName": "Деревянная ящик",
+    "WoodenBoxDescription": "Простой деревянный ящик",
+
+
+    "BengalLightName": "Бенгальский огонь",
+    "BengalLightDescription": "Горит очень жарко",
+
+
+    "AnalginName": "Анальгин",
+    "AnalginDescription": "Простое обезболивающее",
+
+
+    "KnifeName": "Нож",
+    "KnifeDescription": "Простой кухонный нож",
+
+
+    "PistoleName": "Пистолет",
+    "PistoleDescription": "Восьмизарядный пистолет",
+
+
+    "BreadName": "Хлеб",
+    "BreadDescription": "Белый хлеб",
+    "WaterName": "Вода",
+    "WaterDescription": "Бутылка чистой воды"
 }

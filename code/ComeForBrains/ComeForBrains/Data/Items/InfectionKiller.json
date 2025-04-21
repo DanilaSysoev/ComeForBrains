@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "BengalLightName",
+        "Description": "BengalLightDescription",
+        "Weight": 20,
+        "PassabilityPenalty": 0.0001,
+        "SuccessChance": 0.75,
+        "EffectiveTime": 1000,
+        "HealthDamage": 10
+    }
+]

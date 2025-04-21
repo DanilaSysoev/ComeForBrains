@@ -1,0 +1,14 @@
+[
+    {
+        "Name": "KnifeName",
+        "Description": "KnifeDescription",
+        "Weight": 250,
+        "PassabilityPenalty": 0.01,
+        "BaseDamage": 20,
+        "InstantKillChance": 0.1,
+        "BaseAccuracy": 0.9,
+        "EnergyConsumptionModifier": 0.05,
+        "MinEffectiveDistance": 0.1,
+        "MaxEffectiveDistance": 1.1
+    }
+]

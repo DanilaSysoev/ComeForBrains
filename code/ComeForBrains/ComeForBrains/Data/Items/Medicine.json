@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "AnalginName",
+        "Description": "AnalginDescription",
+        "Weight": 3,
+        "PassabilityPenalty": 0.0001,
+        "HealingPower": 5,
+        "Count": 10
+    }
+]

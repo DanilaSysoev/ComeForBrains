@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "SheetOfIronName",
+        "Description": "SheetOfIronDescription",
+        "Weight": 10000,
+        "PassabilityPenalty": 0.1,
+        "Strength": 1000,
+        "Fortification": 20,
+        "Comfort": 0
+    },
+    {
+        "Name": "ArmchairName",
+        "Description": "ArmchairDescription",
+        "Weight": 25000,
+        "PassabilityPenalty": 0.7,
+        "Strength": 100,
+        "Fortification": 0,
+        "Comfort": 20
+    }
+]
