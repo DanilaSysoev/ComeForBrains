@@ -1,5 +1,5 @@
-[
-    {
+{
+    "Analgin": {
         "Name": "AnalginName",
         "Description": "AnalginDescription",
         "Weight": 3,
@@ -7,4 +7,4 @@
         "HealingPower": 5,
         "Count": 10
     }
-]
+}

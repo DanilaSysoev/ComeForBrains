@@ -28,8 +28,8 @@ public class CampElement : Item
     {
         baseFortification = builder.FortificationValue;
         baseComfort = builder.ComfortValue;
-        maxStrength = builder.MaxSrength;
-        strength = builder.Srength;
+        maxStrength = builder.MaxStrength;
+        strength = builder.Strength;
         elementType = builder.ElementType;
     }
 

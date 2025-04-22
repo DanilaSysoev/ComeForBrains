@@ -1,4 +1,5 @@
 using System.Collections;
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.GameWorld;
 
 namespace ComeForBrains.Core.Items;
@@ -21,6 +22,11 @@ public class Container : Item, IEnumerable<Item>
         Tile = tile;
         if (Tile is not null)
             Tile.Place(this);
+    }
+    public Container(ContainerBuilder builder)
+        : base(builder)
+    {
+        totalWeigth = builder.Weight;
     }
 
     public override void Interact(GameContext context)

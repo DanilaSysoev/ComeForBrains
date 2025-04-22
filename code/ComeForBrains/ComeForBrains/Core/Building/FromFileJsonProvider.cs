@@ -1,4 +1,4 @@
-namespace ComeForBrains.Core.Building.GameWorld;
+namespace ComeForBrains.Core.Building;
 
 public class FromFileJsonProvider : IJsonProvider
 {

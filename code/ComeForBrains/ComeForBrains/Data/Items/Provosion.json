@@ -1,5 +1,5 @@
-[
-    {
+{
+    "Bread": {
         "Name": "BreadName",
         "Description": "BreadDescription",
         "Weight": 300,
@@ -8,7 +8,7 @@
         "ThirstPower": -10,
         "EnergyPower": 0    
     },
-    {
+    "Water": {
         "Name": "WaterName",
         "Description": "WaterDescription",
         "Weight": 500,
@@ -17,4 +17,4 @@
         "ThirstPower": 25,
         "EnergyPower": 5    
     }
-]
+}

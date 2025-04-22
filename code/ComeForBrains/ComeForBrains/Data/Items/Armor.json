@@ -1,10 +1,10 @@
-[
-    {
+{
+    "Jacket": {
         "Name": "JacketName",
         "Description": "JacketDescription",
         "Weight": 1500,
         "PassabilityPenalty": 0.02,
-        "BodyParts": [
+        "BodyPartNames": [
             "Shoulders",
             "Forearms",
             "Chest",
@@ -16,12 +16,12 @@
         "InfectionModifier": 0.2,
         "EnergyConsumptionModifier": 0.05
     },
-    {
+    "Jeans": {
         "Name": "JeansName",
         "Description": "JeansDescription",
         "Weight": 1500,
         "PassabilityPenalty": 0.02,
-        "BodyParts": [
+        "BodyPartNames": [
             "Pelvis",
             "Thighs",
             "Shins"
@@ -31,4 +31,4 @@
         "InfectionModifier": 0.2,
         "EnergyConsumptionModifier": 0.05
     }
-]
+}

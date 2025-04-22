@@ -2,23 +2,23 @@ using ComeForBrains.Core.Building;
 
 namespace ComeForBrainsTests.Helpers;
 
-public class DummyLocationJsonProvider : IJsonProvider
+public class DummyBadLocationJsonProvider : IJsonProvider
 {
     public string GetJson()
     {
         return
         @"{
             ""Name"": ""Mill"",
-            ""Armors"": [
-                {
-                    ""Name"": ""Jacket"",
-                    ""Position"": [2, 0]
-                }
-            ],
-            ""RangedWeapons"": [            
+            ""RangedWeapon"": [
                 {
                     ""Name"": ""Pistol"",
                     ""Position"": [0, 0]
+                }
+            ],
+            ""Armor"": [
+                {
+                    ""Name"": ""Jacket"",
+                    ""Position"": [1, 0]
                 }
             ],
             ""Containers"": [
@@ -27,7 +27,7 @@ public class DummyLocationJsonProvider : IJsonProvider
                     ""Content"": [
                         ""Analgin""
                     ],
-                    ""Position"": [1, 1]
+                    ""Position"": [10, 10]
                 },
                 {
                     ""Name"": ""WoodenBox"",
@@ -37,7 +37,7 @@ public class DummyLocationJsonProvider : IJsonProvider
                     ],
                     ""Position"": [2, 1]
                 }
-            ]            
+            ]
         }";
     }
 }

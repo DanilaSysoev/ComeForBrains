@@ -34,27 +34,27 @@ public class RandomExternalPrioritizedCampDamageDistributorTests : Tests
             new CampElementBuilder {
                 FortificationValue = 100,
                 ComfortValue = 90,
-                Srength = 100,
-                MaxSrength = 100,
-                ElementType = CampElementType.External
+                Strength = 100,
+                MaxStrength = 100,
+                ElementTypeName = "External"
             }
         );
         ce2 = new CampElement(
             new CampElementBuilder {
                 FortificationValue = 50,
                 ComfortValue = 30,
-                Srength = 100,
-                MaxSrength = 100,
-                ElementType = CampElementType.External
+                Strength = 100,
+                MaxStrength = 100,
+                ElementTypeName = "External"
             }
         );
         ce3 = new CampElement(
             new CampElementBuilder {
                 FortificationValue = 50,
                 ComfortValue = 30,
-                Srength = 100,
-                MaxSrength = 100,
-                ElementType = CampElementType.Internal
+                Strength = 100,
+                MaxStrength = 100,
+                ElementTypeName = "Internal"
             }
         );
 

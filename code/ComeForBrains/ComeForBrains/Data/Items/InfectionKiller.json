@@ -1,5 +1,5 @@
-[
-    {
+{
+    "BengalLight": {
         "Name": "BengalLightName",
         "Description": "BengalLightDescription",
         "Weight": 20,
@@ -8,4 +8,4 @@
         "EffectiveTime": 1000,
         "HealthDamage": 10
     }
-]
+}

@@ -43,8 +43,8 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
             {
                 FortificationValue = 100,
                 ComfortValue = 90,
-                Srength = 100,
-                MaxSrength = 100
+                Strength = 100,
+                MaxStrength = 100
             }
         );
         ce2 = new CampElement(
@@ -52,8 +52,8 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
             {
                 FortificationValue = 50,
                 ComfortValue = 30,
-                Srength = 100,
-                MaxSrength = 100
+                Strength = 100,
+                MaxStrength = 100
             }
         );
 

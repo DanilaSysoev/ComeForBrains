@@ -1,7 +1,7 @@
-[
-    {
-        "Name": "PistoleName",
-        "Description": "PistoleDescription",
+{
+    "Pistol": {
+        "Name": "PistolName",
+        "Description": "PistolDescription",
         "Weight": 900,
         "PassabilityPenalty": 0.02,
         "BaseDamage": 30,
@@ -12,4 +12,4 @@
         "MaxEffectiveDistance": 15.0,
         "NoiseDistance": 50.0
     }
-]
+}

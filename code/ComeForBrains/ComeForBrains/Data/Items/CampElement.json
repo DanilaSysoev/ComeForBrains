@@ -1,20 +1,22 @@
-[
-    {
+{
+    "SheetOfIron": {
         "Name": "SheetOfIronName",
         "Description": "SheetOfIronDescription",
         "Weight": 10000,
         "PassabilityPenalty": 0.1,
-        "Strength": 1000,
-        "Fortification": 20,
-        "Comfort": 0
+        "MaxStrength": 1000,
+        "FortificationValue": 20,
+        "ComfortValue": 0,
+        "ElementTypeName": "External"
     },
-    {
+    "Armchair": {
         "Name": "ArmchairName",
         "Description": "ArmchairDescription",
         "Weight": 25000,
         "PassabilityPenalty": 0.7,
-        "Strength": 100,
-        "Fortification": 0,
-        "Comfort": 20
+        "MaxStrength": 100,
+        "FortificationValue": 0,
+        "ComfortValue": 20,
+        "ElementTypeName": "Internal"
     }
-]
+}

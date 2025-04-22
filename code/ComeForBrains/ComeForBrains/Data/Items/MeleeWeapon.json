@@ -1,5 +1,5 @@
-[
-    {
+{
+    "Knife": {
         "Name": "KnifeName",
         "Description": "KnifeDescription",
         "Weight": 250,
@@ -11,4 +11,4 @@
         "MinEffectiveDistance": 0.1,
         "MaxEffectiveDistance": 1.1
     }
-]
+}

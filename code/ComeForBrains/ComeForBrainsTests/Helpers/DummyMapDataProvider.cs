@@ -6,12 +6,12 @@ public class DummyMapDataProvider : IMapDataProvider
 {
     public string[] GetMapData()
     {
-        return new string[]
-        {
+        return
+        [
             ".#.",
             "# #",
             "# #",
             ".#."
-        };
+        ];
     }
 }

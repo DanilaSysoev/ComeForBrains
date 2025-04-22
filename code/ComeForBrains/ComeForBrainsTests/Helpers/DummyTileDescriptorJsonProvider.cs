@@ -1,4 +1,4 @@
-using ComeForBrains.Core.Building.GameWorld;
+using ComeForBrains.Core.Building;
 
 namespace ComeForBrainsTests.Helpers;
 

@@ -1,4 +1,5 @@
 using ComeForBrains.Core.Building.GameWorld;
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.GameWorld;
 
 namespace ComeForBrainsTests.Helpers;
@@ -24,6 +25,9 @@ public class DummyLocationBuilder : ILocationBuilder
         return name;
     }
 
+    public void PlaceItems(Map map, IItemsBuilders itemsBuilders)
+    {
+    }
 
     private readonly IMapBuilder mapBuilder;
     private readonly string name;
