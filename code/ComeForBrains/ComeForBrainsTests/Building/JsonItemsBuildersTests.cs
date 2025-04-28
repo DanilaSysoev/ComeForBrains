@@ -171,7 +171,7 @@ public class JsonItemsBuildersTests
         Assert.That(pistol.Description, Is.EqualTo("PistolDescription"));
         Assert.That(pistol.Weight, Is.EqualTo(900));
         Assert.That(pistol.PassabilityPenalty, Is.EqualTo(0.02).Within(0.0000001));
-        Assert.That(pistol.EnergyConsumptionModifier, Is.EqualTo(0.0).Within(0.0000001));
+        Assert.That(pistol.EnergyConsumptionModifier, Is.EqualTo(0.05).Within(0.0000001));
         Assert.That(pistol.BaseDamage, Is.EqualTo(30).Within(0.00001));
         Assert.That(pistol.BaseAccuracy, Is.EqualTo(0.9).Within(0.000001));
         Assert.That(pistol.MinEffectiveDistance, Is.EqualTo(1.5).Within(0.000001));

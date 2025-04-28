@@ -93,7 +93,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "FortificationValue");
             CorrectionItemProperty(descriptor, builder, "ComfortValue");
             CorrectionItemProperty(descriptor, builder, "MaxStrength");
-            CorrectionItemProperty(descriptor, builder, "Strength");
+            CorrectionStrengthProperty(descriptor, builder);
 
             CampElement campElement = new(builder);
             map[descriptor.Line, descriptor.Column].Place(campElement);
@@ -229,6 +229,18 @@ public class JsonFilesLocationBuilder : ILocationBuilder
         }
     }
 
+    private static void CorrectionStrengthProperty(
+        CampElementDescriptor descriptor,
+        CampElementBuilder builder
+    )
+    {
+        var value = descriptor.Strength;
+        if (value is null)
+            builder.Strength = builder.MaxStrength;
+        else
+            builder.Strength = value.Value;
+    }
+
     private static void CorrectionItemProperty<TDescriptor, TBuilder>(
         TDescriptor descriptor,
         TBuilder builder,
@@ -277,7 +289,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
         public double? FortificationValue { get; set; }
         public double? ComfortValue { get; set; }
         public double? MaxStrength { get; set; }
-        public double? Strength { get; set; }
+        public double? Strength { get; set; } = null;
     }
 
     private sealed class InfectionKillerDescriptor : ItemDescriptor

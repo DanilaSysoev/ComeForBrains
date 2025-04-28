@@ -1,3 +1,4 @@
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.GameWorld;
 using ComeForBrainsTests.Helpers;
 
@@ -10,13 +11,23 @@ public class SettlementTests : Tests
     Location l1 = null!;
     Location l2 = null!;
     Location l3 = null!;
+    readonly IItemsBuilders itemsBuilders = new FromJsonItemBuilders(
+        new DummyArmorJsonProvider(),
+        new DummyCampElementJsonProvider(),
+        new DummyContainerJsonProvider(),
+        new DummyInfectionKillerJsonProvider(),
+        new DummyMedicineJsonProvider(),
+        new DummyMeleeWeaponJsonProvider(),
+        new DummyProvosionJsonProvider(),
+        new DummyRangedWeaponJsonProvider()
+    );
 
     [SetUp]
     public void Setup()
     {
-        l1 = new Location(new DummyLocationBuilder("L1", new DummyMapBuilder(10, 10)));
-        l2 = new Location(new DummyLocationBuilder("L2", new DummyMapBuilder(20, 20)));
-        l3 = new Location(new DummyLocationBuilder("L3", new DummyMapBuilder(30, 30)));
+        l1 = new Location(new DummyLocationBuilder("L1", new DummyMapBuilder(10, 10)), itemsBuilders);
+        l2 = new Location(new DummyLocationBuilder("L2", new DummyMapBuilder(20, 20)), itemsBuilders);
+        l3 = new Location(new DummyLocationBuilder("L3", new DummyMapBuilder(30, 30)), itemsBuilders);
 
         locations = new () {l1, l2, l3};
     }

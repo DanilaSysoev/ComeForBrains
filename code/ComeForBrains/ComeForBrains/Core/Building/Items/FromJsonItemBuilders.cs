@@ -114,10 +114,10 @@ public class FromJsonItemBuilders : IItemsBuilders
             throw new ArgumentException($"Item Builder from '{itemBuildersJson.GetJson()}' is null");
         return itemBuilders;
     }
-    private static void AddToGeneral<T>(Dictionary<string, T> builders)
+    private void AddToGeneral<T>(Dictionary<string, T> typifiedBuilders)
         where T : ItemBuilder
     {
-        foreach (var builder in builders)
+        foreach (var builder in typifiedBuilders)
         {
             if (!builders.ContainsKey(builder.Key))
                 builders.Add(builder.Key, builder.Value);

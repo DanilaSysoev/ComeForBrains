@@ -192,7 +192,7 @@ class DummyRangedWeaponJsonProvider : IJsonProvider
                     ""BaseDamage"": 30,
                     ""InstantKillChance"": 0.1,
                     ""BaseAccuracy"": 0.9,
-                    ""EnergyConsumptionModifier"": 0.0,
+                    ""EnergyConsumptionModifier"": 0.05,
                     ""MinEffectiveDistance"": 1.5,
                     ""MaxEffectiveDistance"": 15.0,
                     ""NoiseDistance"": 50.0

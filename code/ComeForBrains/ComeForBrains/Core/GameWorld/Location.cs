@@ -1,4 +1,5 @@
 using ComeForBrains.Core.Building.GameWorld;
+using ComeForBrains.Core.Building.Items;
 
 namespace ComeForBrains.Core.GameWorld;
 
@@ -12,10 +13,11 @@ public class Location : NamedEntity
         internal set => settlement = value;
     }
 
-    public Location(ILocationBuilder builder)
+    public Location(ILocationBuilder builder, IItemsBuilders itemsBuilders)
         : base(builder.BuildName())
     {
         Map = builder.BuildMap();
+        builder.PlaceItems(Map, itemsBuilders);
     }
 
     public Location(string name, Map map) : base(name)
