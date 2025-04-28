@@ -7,4 +7,5 @@ public interface ISettlementBuilder
 {
     IEnumerable<Location> BuildLocations();
     string BuildName();
+    void AddConnections(Settlement settlement);
 }

@@ -1,9 +1,10 @@
 {
+    "Name": "Borshevka",
     "Locations": [
         "CabbageFarm",
         "BeetWarehouse"
     ],
-    "Connections": [
-        { "Kvasovo": 10 }
-    ]
+    "Connections": {
+        "Kvasovo": 10
+    }
 }

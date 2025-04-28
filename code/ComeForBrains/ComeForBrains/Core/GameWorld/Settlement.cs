@@ -18,10 +18,13 @@ public class Settlement : NamedEntity
             locations.Add(location.Name, location);
             location.Settlement = this;
         }
+        builder.AddConnections(this);
     }
 
     public Settlement(
-        string name, IEnumerable<Location> locations
+        string name,
+        IEnumerable<Location> locations,
+        IDictionary<string, int>? distances = null
     ) : base(name)
     {
         foreach(var location in locations)
@@ -29,6 +32,9 @@ public class Settlement : NamedEntity
             this.locations.Add(location.Name, location);
             location.Settlement = this;
         }
+        if (distances != null)
+            foreach (var (settlementName, distance) in distances)
+                AddConnection(settlementName, distance);
     }
 
     public void AddConnection(string settlementName, int distance)

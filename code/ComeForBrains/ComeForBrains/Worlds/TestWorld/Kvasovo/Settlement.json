@@ -1,9 +1,10 @@
 {
+    "Name": "Kvasovo",
     "Locations": [
         "Mill",
         "Backery"
     ],
-    "Connections": [
-        { "Borshevka": 15 }
-    ]
+    "Connections": {
+        "Borshevka": 15
+    }
 }
