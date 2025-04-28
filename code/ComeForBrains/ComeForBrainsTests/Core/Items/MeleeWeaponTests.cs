@@ -6,13 +6,13 @@ namespace ComeForBrainsTests.Core.Items;
 [TestFixture]
 public class MeleeWeaponTests : Tests
 {
-    WeaponBuilder builder = null!;
+    MeleeWeaponBuilder builder = null!;
     MeleeWeapon weapon = null!;
 
     [SetUp]
     public void Setup()
     {
-        builder = new WeaponBuilder()
+        builder = new MeleeWeaponBuilder()
         {
             BaseAccuracy = .65,
             BaseDamage = 10,

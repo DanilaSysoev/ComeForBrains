@@ -12,4 +12,18 @@ public class ProvisionBuilder : ItemBuilder
     {
         return new Provision(this);
     }
+
+    public override ItemBuilder Copy()
+    {
+        return new ProvisionBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty,
+            SatietyPower = SatietyPower,
+            ThirstPower = ThirstPower,
+            EnergyPower = EnergyPower
+        };
+    }
 }

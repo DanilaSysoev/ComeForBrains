@@ -4,7 +4,7 @@ namespace ComeForBrains.Core.Items;
 
 public class MeleeWeapon : Weapon
 {
-    public MeleeWeapon(WeaponBuilder builder)
+    public MeleeWeapon(MeleeWeaponBuilder builder)
         : base(builder)
     {
     }

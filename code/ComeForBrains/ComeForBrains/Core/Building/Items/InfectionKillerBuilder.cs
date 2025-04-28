@@ -12,4 +12,18 @@ public class InfectionKillerBuilder : ItemBuilder
     {
         return new InfectionKiller(this);
     }
+
+    public override ItemBuilder Copy()
+    {
+        return new InfectionKillerBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty,
+            SuccessChance = SuccessChance,
+            HealthDamage = HealthDamage,
+            EffectiveTime = EffectiveTime
+        };
+    }
 }

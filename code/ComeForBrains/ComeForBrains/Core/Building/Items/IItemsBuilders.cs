@@ -8,7 +8,7 @@ public interface IItemsBuilders
     ContainerBuilder GetContainerBuilder(string containerName);
     MedicineBuilder GetMedicineBuilder(string medicineName);
     ProvisionBuilder GetProvisionBuilder(string provisionName);
-    WeaponBuilder GetMeleeWeaponBuilder(string meleeWeaponName);
+    MeleeWeaponBuilder GetMeleeWeaponBuilder(string meleeWeaponName);
     RangedWeaponBuilder GetRangedWeaponBuilder(string rangedWeaponName);
 
     ItemBuilder GetBuilder(string name);

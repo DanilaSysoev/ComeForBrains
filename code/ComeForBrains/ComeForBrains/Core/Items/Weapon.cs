@@ -11,7 +11,7 @@ public abstract class Weapon : Item
     public double MinEffectiveDistance => minEffectiveDistance;
     public double MaxEffectiveDistance => maxEffectiveDistance;
 
-    protected Weapon(WeaponBuilder builder)
+    protected Weapon(MeleeWeaponBuilder builder)
         : base(builder)
     {
         baseDamage = builder.BaseDamage;

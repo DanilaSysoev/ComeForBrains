@@ -2,18 +2,23 @@ using ComeForBrains.Core.Items;
 
 namespace ComeForBrains.Core.Building.Items;
 
-public class RangedWeaponBuilder : MeleeWeaponBuilder
+public class MeleeWeaponBuilder : ItemBuilder
 {
-    public double NoiseDistance { get; set; }
+    public double BaseDamage { get; set; }
+    public double InstantKillChance { get; set; }
+    public double BaseAccuracy { get; set; }
+    public double EnergyConsumptionModifier { get; set; }
+    public double MinEffectiveDistance { get; set; }
+    public double MaxEffectiveDistance { get; set; }
 
     public override Item Build()
     {
-        return new RangedWeapon(this);
+        return new MeleeWeapon(this);
     }
 
     public override ItemBuilder Copy()
     {
-        return new RangedWeaponBuilder()
+        return new MeleeWeaponBuilder()
         {
             Name = Name,
             Description = Description,
@@ -24,8 +29,7 @@ public class RangedWeaponBuilder : MeleeWeaponBuilder
             BaseAccuracy = BaseAccuracy,
             EnergyConsumptionModifier = EnergyConsumptionModifier,
             MinEffectiveDistance = MinEffectiveDistance,
-            MaxEffectiveDistance = MaxEffectiveDistance,
-            NoiseDistance = NoiseDistance
+            MaxEffectiveDistance = MaxEffectiveDistance
         };
     }
 }

@@ -16,4 +16,20 @@ public class CampElementBuilder : ItemBuilder
     {
         return new CampElement(this);
     }
+
+    public override ItemBuilder Copy()
+    {
+        return new CampElementBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty,
+            FortificationValue = FortificationValue,
+            ComfortValue = ComfortValue,
+            ElementTypeName = ElementType.ToString(),
+            MaxStrength = MaxStrength,
+            Strength = Strength
+        };
+    }
 }

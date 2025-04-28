@@ -8,4 +8,15 @@ public class ContainerBuilder : ItemBuilder
     {
         return new Container(this);
     }
+
+    public override ItemBuilder Copy()
+    {
+        return new ContainerBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty
+        };
+    }
 }

@@ -11,4 +11,17 @@ public class MedicineBuilder : ItemBuilder
     {
         return new Medicine(this);
     }
+
+    public override ItemBuilder Copy()
+    {
+        return new MedicineBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty,
+            HealingPower = HealingPower,
+            Count = Count
+        };
+    }
 }

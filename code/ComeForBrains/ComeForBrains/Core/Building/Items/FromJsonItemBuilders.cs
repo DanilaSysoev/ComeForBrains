@@ -36,7 +36,7 @@ public class FromJsonItemBuilders : IItemsBuilders
             CreateBuilders<MedicineBuilder>(medicinesBuildersJson);
         AddToGeneral(medicinesBuilders);
         meleeWeaponsBuilders =
-            CreateBuilders<WeaponBuilder>(meleeWeaponsBuildersJson);
+            CreateBuilders<MeleeWeaponBuilder>(meleeWeaponsBuildersJson);
         AddToGeneral(meleeWeaponsBuilders);
         provisionsBuilders =
             CreateBuilders<ProvisionBuilder>(provisionsBuildersJson);
@@ -71,7 +71,7 @@ public class FromJsonItemBuilders : IItemsBuilders
         return GetBuilder(medicineName, medicinesBuilders);
     }
 
-    public WeaponBuilder GetMeleeWeaponBuilder(string meleeWeaponName)
+    public MeleeWeaponBuilder GetMeleeWeaponBuilder(string meleeWeaponName)
     {
         return GetBuilder(meleeWeaponName, meleeWeaponsBuilders);
     }
@@ -95,11 +95,11 @@ public class FromJsonItemBuilders : IItemsBuilders
     private static T GetBuilder<T>(
         string name,
         Dictionary<string, T> builders
-    )
+    ) where T : ItemBuilder
     {
         if(!builders.TryGetValue(name, out var builder))
             throw new ItemBuilderNotFoundException(name);
-        return builder;
+        return (T)builder.Copy();
     }
 
     private static Dictionary<string, T>
@@ -135,7 +135,7 @@ public class FromJsonItemBuilders : IItemsBuilders
     private readonly
     Dictionary<string, MedicineBuilder> medicinesBuilders;
     private readonly
-    Dictionary<string, WeaponBuilder> meleeWeaponsBuilders;
+    Dictionary<string, MeleeWeaponBuilder> meleeWeaponsBuilders;
     private readonly
     Dictionary<string, ProvisionBuilder> provisionsBuilders;
     private readonly

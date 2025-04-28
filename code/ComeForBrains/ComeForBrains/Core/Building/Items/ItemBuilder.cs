@@ -10,4 +10,5 @@ public abstract class ItemBuilder
     public double PassabilityPenalty { get; set; }
 
     public abstract Item Build();
+    public abstract ItemBuilder Copy();
 }

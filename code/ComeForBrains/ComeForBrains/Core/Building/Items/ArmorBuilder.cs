@@ -17,6 +17,22 @@ public class ArmorBuilder : ItemBuilder
         return new Armor(this);
     }
 
+    public override ItemBuilder Copy()
+    {
+        return new ArmorBuilder()
+        {
+            Name = Name,
+            Description = Description,
+            Weight = Weight,
+            PassabilityPenalty = PassabilityPenalty,
+            Thikness = Thikness,
+            InfectionModifier = InfectionModifier,
+            ArmorValue = ArmorValue,
+            EnergyConsumptionModifier = EnergyConsumptionModifier,
+            BodyPartNames = BodyPartNames
+        };
+    }
+
     private List<BodyPart> GetBodyParts()
     {
         if (bodyParts is null)            
