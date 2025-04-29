@@ -5,6 +5,52 @@ namespace ComeForBrains.Core.Building.Items;
 
 public class FromJsonItemBuilders : IItemsBuilders
 {
+    public FromJsonItemBuilders(string pathToFiles)
+    {
+        builders = new Dictionary<string, ItemBuilder>();
+
+        armorBuilders =
+            CreateBuilders<ArmorBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "Armor.json"))
+            );
+        AddToGeneral(armorBuilders);
+        campElementsBuilders =
+            CreateBuilders<CampElementBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "CampElement.json"))
+            );
+        AddToGeneral(campElementsBuilders);
+        containersBuilders =
+            CreateBuilders<ContainerBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "Container.json"))
+            );
+        AddToGeneral(containersBuilders);
+        infectionKillersBuilders =
+            CreateBuilders<InfectionKillerBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "InfectionKiller.json"))
+            );
+        AddToGeneral(infectionKillersBuilders);
+        medicinesBuilders =
+            CreateBuilders<MedicineBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "Medicine.json"))
+            );
+        AddToGeneral(medicinesBuilders);
+        meleeWeaponsBuilders =
+            CreateBuilders<MeleeWeaponBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "MeleeWeapon.json"))
+            );
+        AddToGeneral(meleeWeaponsBuilders);
+        provisionsBuilders =
+            CreateBuilders<ProvisionBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "Provision.json"))
+            );
+        AddToGeneral(provisionsBuilders);
+        rangedWeaponsBuilders =
+            CreateBuilders<RangedWeaponBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "RangedWeapon.json"))
+            );
+        AddToGeneral(rangedWeaponsBuilders);
+    }
+
 #pragma warning disable S107
     public FromJsonItemBuilders(
 #pragma warning restore S107
