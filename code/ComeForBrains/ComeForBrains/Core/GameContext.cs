@@ -1,16 +1,19 @@
 using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.GameWorld;
+using ComeForBrains.Engine;
 
 namespace ComeForBrains.Core;
 
-public class GameContext
+public class GameContext : IGameContext
 {
     public Person Person { get; init; }
     public Camp Camp { get; init; }
     public uint DayNumber { get; private set; }
 
     public bool PersonInCamp { get; private set; } = true;
+
+    public bool IsGameEnded { get; set; }
 
     public GameContext(IGameContextBuilder builder)
     {
