@@ -1,0 +1,76 @@
+{
+    "Come for brains": "Come for brains",
+    "Head": "Head",
+    "Face": "Face",
+    "Neck": "Neck",
+    "Shoulders": "Shoulders",
+    "Forearms": "Forearms",
+    "Wrists": "Wrists",
+    "Chest": "Chest",
+    "Back": "Back",
+    "Stomach": "Stomach",
+    "Pelvis": "Pelvis",
+    "Thighs": "Thighs",
+    "Shins": "Shins",
+    "Feet": "Feet",
+    "Borshevka": "Borshevka",
+    "Kvasovo": "Kvasovo",
+    "CabbageFarm": "Cabbage Farm",
+    "BeetWarehouse": "Beet Warehouse",
+    "Mill": "Mill",
+    "Backery": "Backery",
+    "BrickWall": "Brick Wall",
+    "BrickWallDescription": "Strong Brick Wall",
+    "Ground": "Ground",
+    "GroundDescription": "Hard dry ground",
+    "Dirt": "Dirt",
+    "DirtDescription": "Slippery mud makes it difficult to move",
+    "Grass": "Grass",
+    "GrassDescription": "Tall grass",
+
+
+    "JacketName": "Jacket",
+    "JacketDescription": "Durable leather jacket",
+    "JeansName": "Jeans",
+    "JeansDescription": "Durable, thick jeans",
+
+
+    "SheetOfIronName": "Sheet Of Iron",
+    "SheetOfIronDescription": "Strong Sheet Of Iron",
+    "ArmchairName": "Armchair",
+    "ArmchairDescription": "Comfortable chair",
+
+
+    "WoodenBoxName": "Wooden Box",
+    "WoodenBoxDescription": "Simple wooden Box",
+
+
+    "BengalLightName": "Bengal Light",
+    "BengalLightDescription": "It burns very hot",
+
+
+    "AnalginName": "Analgin",
+    "AnalginDescription": "Simple painkiller",
+
+
+    "KnifeName": "Knife",
+    "KnifeDescription": "Simple kitchen knife",
+
+
+    "PistolName": "Pistol",
+    "PistolDescription": "Eight-shot pistol",
+
+
+    "BreadName": "Bread",
+    "BreadDescription": "White bread",
+
+    "WaterName": "Water",
+    "WaterDescription": "A bottle of clean water",
+
+    "GameTitle": "  ____                       \n / ___|___  _ __ ___   ___   \n| |   / _ \\| '_ ` _ \\ / _ \\  \n| |__| (_) | | | | | |  __/  \n \\____\\___/|_| |_| |_|\\___|  \n       / _| ___  _ __        \n      | |_ / _ \\| '__|       \n      |  _| (_) | |          \n _    |_|  \\___/|_|          \n| |__  _ __ __ _(_)_ __  ___ \n| '_ \\| '__/ _` | | '_ \\/ __|\n| |_) | | | (_| | | | | \\__ \\\n|_.__/|_|  \\__,_|_|_| |_|___/",
+    
+    "StartGame": "Start game",
+    "QuitGame": "Quit",
+    "MainMenu": "Main menu",
+    "KillPerson": "Kill person"
+}

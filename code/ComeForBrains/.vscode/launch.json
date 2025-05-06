@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "C#: Sad Console Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/ComeForBrainsSadConsoleUi/ComeForBrainsSadConsoleUi.csproj"
+        },
+        {
             "name": "C#: ConsoleUI Debug",
             "type": "dotnet",
             "request": "launch",

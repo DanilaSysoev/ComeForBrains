@@ -5,17 +5,17 @@ namespace ComeForBrainsTests.Helpers;
 
 public class DummyPersonBuilder : IPersonBuilder
 {
-    public int GetBaseInfectionChance()
+    public double GetBaseInfectionChance()
     {
         return 10;
     }
 
-    public int GetDexterity()
+    public double GetDexterity()
     {
         return 10;
     }
 
-    public int GetDistanceAccuracy()
+    public double GetDistanceAccuracy()
     {
         return 10;
     }
@@ -30,7 +30,7 @@ public class DummyPersonBuilder : IPersonBuilder
         return new PersonAttribute(0, 100, new List<AttributePenalty>());
     }
 
-    public int GetMeleeFight()
+    public double GetMeleeFight()
     {
         return 10;
     }
@@ -45,12 +45,12 @@ public class DummyPersonBuilder : IPersonBuilder
         return new PersonAttribute(0, 100, new List<AttributePenalty>());
     }
 
-    public int GetSpeed()
+    public double GetSpeed()
     {
         return 10;
     }
 
-    public int GetStrength()
+    public double GetStrength()
     {
         return 10;
     }

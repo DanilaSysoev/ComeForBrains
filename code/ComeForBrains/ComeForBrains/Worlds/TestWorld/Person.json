@@ -1,0 +1,97 @@
+{
+    "Name": "Person",
+    "Energy": {
+        "MinValue": 0,
+        "MaxValue": 100,
+        "Value": 100,
+        "Penalties": [
+            {
+                "FromInclusive": 50,
+                "ToExclusive": 80,
+                "Value": 0.2
+            },
+            {
+                "FromInclusive": 30,
+                "ToExclusive": 50,
+                "Value": 0.5
+            },
+            {
+                "FromInclusive": 0,
+                "ToExclusive": 30,
+                "Value": 0.8
+            }
+        ]
+    },
+    "Health": {
+        "MinValue": 0,
+        "MaxValue": 100,
+        "Value": 100,
+        "Penalties": [
+            {
+                "FromInclusive": 50,
+                "ToExclusive": 80,
+                "Value": 0.2
+            },
+            {
+                "FromInclusive": 30,
+                "ToExclusive": 50,
+                "Value": 0.5
+            },
+            {
+                "FromInclusive": 0,
+                "ToExclusive": 30,
+                "Value": 0.8
+            }
+        ]
+    },
+    "Satiety": {
+        "MinValue": 0,
+        "MaxValue": 100,
+        "Value": 100,
+        "Penalties": [
+            {
+                "FromInclusive": 40,
+                "ToExclusive": 60,
+                "Value": 0.2
+            },
+            {
+                "FromInclusive": 20,
+                "ToExclusive": 40,
+                "Value": 0.5
+            },
+            {
+                "FromInclusive": 0,
+                "ToExclusive": 20,
+                "Value": 0.8
+            }
+        ]
+    },
+    "Thirst":  {
+        "MinValue": 0,
+        "MaxValue": 100,
+        "Value": 100,
+        "Penalties": [
+            {
+                "FromInclusive": 40,
+                "ToExclusive": 60,
+                "Value": 0.2
+            },
+            {
+                "FromInclusive": 20,
+                "ToExclusive": 40,
+                "Value": 0.5
+            },
+            {
+                "FromInclusive": 0,
+                "ToExclusive": 20,
+                "Value": 0.8
+            }
+        ]
+    },
+    "BaseInfectionChance": 25,
+    "Strength": 12,
+    "Dexterity": 14,
+    "DistanceAccuracy": 10,
+    "MeleeFight": 12,
+    "Speed": 100
+}

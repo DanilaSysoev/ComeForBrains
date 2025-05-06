@@ -3,7 +3,7 @@ namespace ComeForBrains.Core.Characters;
 public class AttributePenalty
 {
     public AttributePenalty(
-        int fromInclusive, int toExclusive, double value
+        double fromInclusive, double toExclusive, double value
     )
     {
         FromInclusive = fromInclusive;
@@ -11,7 +11,7 @@ public class AttributePenalty
         Value = value;
     }
 
-    public int FromInclusive { get; init; }
-    public int ToExclusive { get; init; }
-    public double Value { get; init; }
+    public double FromInclusive { get; set; }
+    public double ToExclusive { get; set; }
+    public double Value { get; set; }
 }

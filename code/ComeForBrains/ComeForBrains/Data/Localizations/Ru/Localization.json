@@ -19,7 +19,7 @@
     "BeetWarehouse": "Склад свеклы",
     "Mill": "Мелница",
     "Backery": "Пекарня",
-    "BrickWall": "Корпичная стена",
+    "BrickWall": "Кирпичная стена",
     "BrickWallDescription": "Прочная стена из кирпича",
     "Ground": "Земля",
     "GroundDescription": "Твердая сухая земля",
@@ -32,7 +32,7 @@
     "JacketName": "Куртка",
     "JacketDescription": "Прочная кожаная куртка",
     "JeansName": "Джинсы",
-    "JeansDescription": "прочные плотные джинсы",
+    "JeansDescription": "Прочные плотные джинсы",
 
 
     "SheetOfIronName": "Лист железа",
@@ -57,12 +57,17 @@
     "KnifeDescription": "Простой кухонный нож",
 
 
-    "PistoleName": "Пистолет",
-    "PistoleDescription": "Восьмизарядный пистолет",
+    "PistolName": "Пистолет",
+    "PistolDescription": "Восьмизарядный пистолет",
 
 
     "BreadName": "Хлеб",
     "BreadDescription": "Белый хлеб",
     "WaterName": "Вода",
-    "WaterDescription": "Бутылка чистой воды"
+    "WaterDescription": "Бутылка чистой воды",
+    "GameTitle": "  ____                       \n / ___|___  _ __ ___   ___   \n| |   / _ \\| '_ ` _ \\ / _ \\  \n| |__| (_) | | | | | |  __/  \n \\____\\___/|_| |_| |_|\\___|  \n       / _| ___  _ __        \n      | |_ / _ \\| '__|       \n      |  _| (_) | |          \n _    |_|  \\___/|_|          \n| |__  _ __ __ _(_)_ __  ___ \n| '_ \\| '__/ _` | | '_ \\/ __|\n| |_) | | | (_| | | | | \\__ \\\n|_.__/|_|  \\__,_|_|_| |_|___/",
+    "StartGame": "Начать игру",
+    "QuitGame": "Завершить игру",
+    "MainMenu": "Главное меню",
+    "KillPerson": "Убить персонажа"
 }

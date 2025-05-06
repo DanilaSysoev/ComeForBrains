@@ -20,11 +20,16 @@ public class Game : IGame
     {
         while (!context.IsGameEnded)
         {
-            drawProcessor.Draw(context);
-            var command = commandProvider.GetNextCommand(context);
-            command.Execute(context);
-            updateProcessor.Update(context, this);
+            GameIteration();
         }
+    }
+
+    public void GameIteration()
+    {
+        drawProcessor.Draw(context);
+        var command = commandProvider.GetNextCommand(context);
+        command.Execute(context);
+        updateProcessor.Update(context, this);
     }
 
     public void SetState(

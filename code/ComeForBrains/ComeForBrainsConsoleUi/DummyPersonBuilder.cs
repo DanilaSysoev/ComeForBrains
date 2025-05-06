@@ -5,17 +5,17 @@ namespace ComeForBrainsConsoleUi;
 
 public class DummyPersonBuilder : IPersonBuilder
 {
-    public int GetBaseInfectionChance()
+    public double GetBaseInfectionChance()
     {
         return 0;
     }
 
-    public int GetDexterity()
+    public double GetDexterity()
     {
         return 0;
     }
 
-    public int GetDistanceAccuracy()
+    public double GetDistanceAccuracy()
     {
         return 0;
     }
@@ -30,7 +30,7 @@ public class DummyPersonBuilder : IPersonBuilder
         return new PersonAttribute(0, 0, new List<AttributePenalty>());
     }
 
-    public int GetMeleeFight()
+    public double GetMeleeFight()
     {
         return 0;
     }
@@ -45,12 +45,12 @@ public class DummyPersonBuilder : IPersonBuilder
         return new PersonAttribute(0, 0, new List<AttributePenalty>());
     }
 
-    public int GetSpeed()
+    public double GetSpeed()
     {
         return 0;
     }
 
-    public int GetStrength()
+    public double GetStrength()
     {
         return 0;
     }

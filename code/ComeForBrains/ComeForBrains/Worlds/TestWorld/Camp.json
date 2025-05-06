@@ -1,0 +1,5 @@
+{
+    "type": "DailyLinearlyIncreasing",
+    "baseDamage": 100,
+    "dailyDamageIncrease": 20
+}

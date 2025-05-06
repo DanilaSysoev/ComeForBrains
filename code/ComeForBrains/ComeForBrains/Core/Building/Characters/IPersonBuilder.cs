@@ -11,11 +11,10 @@ public interface IPersonBuilder
     PersonAttribute GetSatiety();
     PersonAttribute GetThirst();
 
-    int GetBaseInfectionChance();
-    
-    int GetStrength();
-    int GetDexterity();
-    int GetDistanceAccuracy();
-    int GetMeleeFight();
-    int GetSpeed();
+    double GetBaseInfectionChance();    
+    double GetStrength();
+    double GetDexterity();
+    double GetDistanceAccuracy();
+    double GetMeleeFight();
+    double GetSpeed();
 }

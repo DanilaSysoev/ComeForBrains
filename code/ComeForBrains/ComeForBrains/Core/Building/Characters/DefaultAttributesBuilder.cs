@@ -6,11 +6,11 @@ public class DefaultAttributesBuilder : IPersonBuilder
 {
     public DefaultAttributesBuilder(
         string personName,
-        int strength,
-        int dexterity,
-        int distanceAccuracy,
-        int meleeFight,
-        int speed = DefaultSpeed
+        double strength,
+        double dexterity,
+        double distanceAccuracy,
+        double meleeFight,
+        double speed = DefaultSpeed
     )
     {
         this.personName = personName;
@@ -41,32 +41,32 @@ public class DefaultAttributesBuilder : IPersonBuilder
     {
         return CreateAttribute(20, 40, 60);
     }
-    public int GetBaseInfectionChance()
+    public double GetBaseInfectionChance()
     {
         return 25;
     }
-    public int GetStrength()
+    public double GetStrength()
     {
         return strength;
     }
-    public int GetDexterity()
+    public double GetDexterity()
     {
         return dexterity;
     }
-    public int GetDistanceAccuracy()
+    public double GetDistanceAccuracy()
     {
         return distanceAccuracy;
     }
-    public int GetMeleeFight()
+    public double GetMeleeFight()
     {
         return meleeFight;
     }
-    public int GetSpeed()
+    public double GetSpeed()
     {
         return speed;
     }
 
-    private static PersonAttribute CreateAttribute(int low, int mid, int high)
+    private static PersonAttribute CreateAttribute(double low, double mid, double high)
     {
         return new PersonAttribute(
             MinValue,
@@ -80,18 +80,18 @@ public class DefaultAttributesBuilder : IPersonBuilder
     }
 
     private readonly string personName;
-    private readonly int strength;
-    private readonly int dexterity;
-    private readonly int distanceAccuracy;
-    private readonly int meleeFight;
-    private readonly int speed;
+    private readonly double strength;
+    private readonly double dexterity;
+    private readonly double distanceAccuracy;
+    private readonly double meleeFight;
+    private readonly double speed;
     
-    private const int MinValue = 0;
-    private const int MaxValue = 100;
+    private const double MinValue = 0;
+    private const double MaxValue = 100;
 
     private const double LowPenalty = 0.2;
     private const double MidPenalty = 0.5;
     private const double HighPenalty = 0.8;
 
-    private const int DefaultSpeed = 100;
+    private const double DefaultSpeed = 100;
 }

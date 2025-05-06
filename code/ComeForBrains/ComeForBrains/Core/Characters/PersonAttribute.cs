@@ -22,6 +22,18 @@ public class PersonAttribute
         Value = MaxValue;
         this.penalties = new(penalties);
     }
+    public PersonAttribute(
+        double minValue,
+        double maxValue,
+        double value,
+        IEnumerable<AttributePenalty> penalties
+    )
+    {
+        MinValue = minValue;
+        MaxValue = maxValue;
+        Value = value;
+        this.penalties = new(penalties);
+    }
 
     public double GetPenalty()
     {

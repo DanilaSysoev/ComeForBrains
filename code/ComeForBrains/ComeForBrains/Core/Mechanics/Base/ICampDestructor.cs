@@ -1,4 +1,3 @@
-using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Core.Items;
 
 namespace ComeForBrains.Core.Mechanics.Base;
