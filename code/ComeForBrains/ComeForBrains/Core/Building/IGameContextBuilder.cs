@@ -9,4 +9,5 @@ public interface IGameContextBuilder
     Camp BuildCamp();
 
     uint DayNumber { get; }
+    DayStage DayStage { get; }
 }

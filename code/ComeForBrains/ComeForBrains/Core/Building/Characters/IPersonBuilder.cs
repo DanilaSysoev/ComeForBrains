@@ -14,6 +14,7 @@ public interface IPersonBuilder
     double GetBaseInfectionChance();    
     double GetStrength();
     double GetDexterity();
+    double GetPhysique();
     double GetDistanceAccuracy();
     double GetMeleeFight();
     double GetSpeed();

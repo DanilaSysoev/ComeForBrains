@@ -40,6 +40,11 @@ public class DummyPersonBuilder : IPersonBuilder
         return "Dummy";
     }
 
+    public double GetPhysique()
+    {
+        return 0;
+    }
+
     public PersonAttribute GetSatiety()
     {
         return new PersonAttribute(0, 0, new List<AttributePenalty>());

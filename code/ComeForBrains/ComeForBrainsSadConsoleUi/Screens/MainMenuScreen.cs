@@ -1,3 +1,4 @@
+using ComeForBrainsSadConsoleUi.Screens.Components;
 using SadConsole.Input;
 
 namespace ComeForBrainsSadConsoleUi.Screens;
@@ -61,6 +62,7 @@ public class MainMenuScreen : GameScreen
 
     private static void ToCampState()
     {
+        Environment.Create();
         Game.Instance.Screen = new CampScreen();
     }
 

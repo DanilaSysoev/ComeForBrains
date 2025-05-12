@@ -8,6 +8,7 @@ public class DefaultAttributesBuilder : IPersonBuilder
         string personName,
         double strength,
         double dexterity,
+        double physique,
         double distanceAccuracy,
         double meleeFight,
         double speed = DefaultSpeed
@@ -16,6 +17,7 @@ public class DefaultAttributesBuilder : IPersonBuilder
         this.personName = personName;
         this.strength = strength;
         this.dexterity = dexterity;
+        this.physique = physique;
         this.distanceAccuracy = distanceAccuracy;
         this.meleeFight = meleeFight;
         this.speed = speed;
@@ -53,6 +55,10 @@ public class DefaultAttributesBuilder : IPersonBuilder
     {
         return dexterity;
     }
+    public double GetPhysique()
+    {
+        return physique;
+    }
     public double GetDistanceAccuracy()
     {
         return distanceAccuracy;
@@ -82,6 +88,7 @@ public class DefaultAttributesBuilder : IPersonBuilder
     private readonly string personName;
     private readonly double strength;
     private readonly double dexterity;
+    private readonly double physique;
     private readonly double distanceAccuracy;
     private readonly double meleeFight;
     private readonly double speed;

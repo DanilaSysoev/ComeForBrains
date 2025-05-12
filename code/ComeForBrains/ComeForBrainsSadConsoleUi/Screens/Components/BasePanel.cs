@@ -10,5 +10,5 @@ public class BasePanel : ScreenSurface
         Surface.DefaultForeground = SadUiGameSettings.DefaultForeground;
     }
 
-    public static ILocalization L => MyGame.L;
+    public static ILocalization L => Environment.L;
 }

@@ -13,7 +13,7 @@ public class CampMenuPanel : BorderedPanel
         DrawBorder();
     }
 
-    private void CreateButtons(ControlHost controls)
+    private static void CreateButtons(ControlHost controls)
     {
         int buttonWidth = CalculateButtonWidth();        
 
@@ -29,7 +29,7 @@ public class CampMenuPanel : BorderedPanel
         ) + 4;
     }
 
-    private void CreateToMainMenu(ControlHost controls, int buttonWidth)
+    private static void CreateToMainMenu(ControlHost controls, int buttonWidth)
     {
         var button = new ButtonBox(buttonWidth, ButtonHeight);
         button.Text = L["MainMenu"];
@@ -42,7 +42,7 @@ public class CampMenuPanel : BorderedPanel
         controls.Add(button);
     }
 
-    private void CreateKillPerson(ControlHost controls, int buttonWidth)
+    private static void CreateKillPerson(ControlHost controls, int buttonWidth)
     {        
         var button = new ButtonBox(buttonWidth, ButtonHeight);
         button.Text = L["KillPerson"];
@@ -55,13 +55,13 @@ public class CampMenuPanel : BorderedPanel
         controls.Add(button);
     }
 
-    private void KillPersonAndGoToMainMenu()
+    private static void KillPersonAndGoToMainMenu()
     {
-        Game.Instance.Screen = new MainMenuScreen();
+        GameScreen.SwitchToScreen(new MainMenuScreen());
     }
-    private void SaveWorldAndGoToMainMenu()
+    private static void SaveWorldAndGoToMainMenu()
     {
-        Game.Instance.Screen = new MainMenuScreen();
+        GameScreen.SwitchToScreen(new MainMenuScreen());
     }
 
     private const int ButtonHeight = 3;

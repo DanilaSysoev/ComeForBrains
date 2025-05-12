@@ -1,6 +1,6 @@
 using SadConsole.Input;
 
-namespace ComeForBrainsSadConsoleUi.Screens;
+namespace ComeForBrainsSadConsoleUi.Screens.Components;
 
 public class Menu : ScreenSurface
 {

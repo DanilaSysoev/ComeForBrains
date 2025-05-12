@@ -72,5 +72,31 @@
     "StartGame": "Start game",
     "QuitGame": "Quit",
     "MainMenu": "Main menu",
-    "KillPerson": "Kill person"
+    "KillPerson": "Kill person",
+
+    "SatietyName": "Satiety",
+    "EnergyName": "Energy",
+    "HealthName": "Health",
+    "ThirstName": "Thirst",
+
+    "StrengthName": "Str",
+    "DexterityName": "Dex",
+    "PhysiqueName": "Phy",
+    "DistanceAccuracyName": "DA",
+    "MeleeFightName": "MF",
+
+    "MaxWeight": "LC",
+    "Speed": "S",
+    "kg": "kg",
+
+    "ToStorge": "Go to storage",
+    "ToPrepareRaid": "Prepare raid",
+    "Sleep": "Sleep",
+    
+    "SleepButton": "Sleep",
+
+    "RIP": " ____    ___   ____  \n|  _ \\  |_ _| |  _ \\ \n| |_) |  | |  | |_) |\n|  _ <   | |  |  __/ \n|_| \\_\\ |___| |_|    ",
+    "Day": "Day",
+    "Midday": "Midday",
+    "Night": "Night"
 }

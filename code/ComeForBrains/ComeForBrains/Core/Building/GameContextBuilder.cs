@@ -10,15 +10,19 @@ public class GameContextBuilder : IGameContextBuilder
     public GameContextBuilder(
         IPersonBuilder personBuilder,
         ICampBuilder campBuilder,
-        uint dayNumber
+        uint dayNumber,
+        string dayStageName
     )
     {
         DayNumber = dayNumber;
         this.personBuilder = personBuilder;
         this.campBuilder = campBuilder;
+        DayStageName = dayStageName;
     }
 
     public uint DayNumber { get; set; }
+    public string DayStageName { get; set; }
+    public DayStage DayStage => Enum.Parse<DayStage>(DayStageName);
 
     public Camp BuildCamp()
     {

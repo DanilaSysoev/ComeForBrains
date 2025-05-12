@@ -12,7 +12,7 @@ public class PersonTests : Tests
     [SetUp]
     public void Setup()
     {
-        builder = new("name", 1000, 1000, 1000, 1000, 1000);
+        builder = new("name", 1000, 1000, 1000, 1000, 1000, 1000);
         person = new Person(builder);
     }
 

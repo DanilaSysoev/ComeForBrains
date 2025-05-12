@@ -24,6 +24,11 @@ public class BaseJsonPersonBuilder : IPersonBuilder
         return personDescriptor.Dexterity;
     }
 
+    public double GetPhysique()
+    {
+        return personDescriptor.Physique;
+    }
+
     public double GetDistanceAccuracy()
     {
         return personDescriptor.DistanceAccuracy;
@@ -92,26 +97,27 @@ public class BaseJsonPersonBuilder : IPersonBuilder
 
     private sealed class PersonAttributeDescriptor
     {
-        public double MinValue = 0;
-        public double MaxValue = 0;
-        public double Value = 0;
+        public double MinValue { get; set; } = 0;
+        public double MaxValue { get; set; } = 0;
+        public double Value { get; set; } = 0;
 
-        public List<AttributePenalty> Penalties = new();
+        public List<AttributePenalty> Penalties { get; set; } = new();
     }
 
     private sealed class PersonDescriptor
     {
-        public string Name = "";
-        public PersonAttributeDescriptor Energy = new();
-        public PersonAttributeDescriptor Health = new();
-        public PersonAttributeDescriptor Satiety = new();
-        public PersonAttributeDescriptor Thirst = new();
-        public double BaseInfectionChance = 0;
-        public double Strength = 0;
-        public double Dexterity = 0;
-        public double DistanceAccuracy = 0;
-        public double MeleeFight = 0;
-        public double Speed = 0;
+        public string Name { get; set; } = "";
+        public PersonAttributeDescriptor Energy { get; set; } = new();
+        public PersonAttributeDescriptor Health { get; set; } = new();
+        public PersonAttributeDescriptor Satiety { get; set; } = new();
+        public PersonAttributeDescriptor Thirst { get; set; } = new();
+        public double BaseInfectionChance { get; set; } = 0;
+        public double Strength { get; set; } = 0;
+        public double Dexterity { get; set; } = 0;
+        public double Physique { get; set; } = 0;
+        public double DistanceAccuracy { get; set; } = 0;
+        public double MeleeFight { get; set; } = 0;
+        public double Speed { get; set; } = 0;
     }
 
     private readonly PersonDescriptor personDescriptor;

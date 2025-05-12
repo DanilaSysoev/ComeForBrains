@@ -2,12 +2,34 @@ namespace ComeForBrains.Core.Characters;
 
 public class PersonAttribute
 {
-    public double MinValue { get; init; }
-    public double MaxValue { get; init; }
+    public double MinValue
+    {
+        get => minValue;
+        set
+        {
+            minValue = value;
+            if (minValue > MaxValue)
+                minValue = MaxValue;
+            if (Value < minValue)
+                Value = minValue;
+        }
+    }
+    public double MaxValue
+    {
+        get => maxValue;
+        set
+        {
+            maxValue = value;
+            if (MinValue > maxValue)
+                maxValue = MinValue;
+            if (Value > maxValue)
+                Value = maxValue;
+        }
+    }
     public double Value
     {
-        get => attributeValue;
-        set => attributeValue = Math.Clamp(value, MinValue, MaxValue);
+        get => value;
+        set => this.value = Math.Clamp(value, MinValue, MaxValue);
     }
     public IEnumerable<AttributePenalty> Penalties => penalties;
 
@@ -43,6 +65,8 @@ public class PersonAttribute
         return 0;
     }
 
-    private double attributeValue;
+    private double value;
+    private double minValue;
+    private double maxValue;
     private readonly List<AttributePenalty> penalties;
 }

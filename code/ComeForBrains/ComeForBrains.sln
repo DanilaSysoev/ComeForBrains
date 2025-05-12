@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrains", "ComeForBra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrainsTests", "ComeForBrainsTests\ComeForBrainsTests.csproj", "{A55C4ACD-5E2D-4870-B71F-1ABE754575E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrainsConsoleUi", "ComeForBrainsConsoleUi\ComeForBrainsConsoleUi.csproj", "{42C9631D-3476-43A9-B250-FF4FB4D88790}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeForBrainsSadConsoleUi", "ComeForBrainsSadConsoleUi\ComeForBrainsSadConsoleUi.csproj", "{F1DE47E7-1E56-4058-8DDB-AE10156A3114}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{A55C4ACD-5E2D-4870-B71F-1ABE754575E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A55C4ACD-5E2D-4870-B71F-1ABE754575E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A55C4ACD-5E2D-4870-B71F-1ABE754575E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42C9631D-3476-43A9-B250-FF4FB4D88790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42C9631D-3476-43A9-B250-FF4FB4D88790}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42C9631D-3476-43A9-B250-FF4FB4D88790}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42C9631D-3476-43A9-B250-FF4FB4D88790}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F1DE47E7-1E56-4058-8DDB-AE10156A3114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F1DE47E7-1E56-4058-8DDB-AE10156A3114}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1DE47E7-1E56-4058-8DDB-AE10156A3114}.Release|Any CPU.ActiveCfg = Release|Any CPU

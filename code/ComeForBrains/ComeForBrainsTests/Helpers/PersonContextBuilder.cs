@@ -1,3 +1,4 @@
+using ComeForBrains.Core;
 using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.GameWorld;
@@ -24,4 +25,6 @@ public class PersonContextBuilder : IGameContextBuilder
     private readonly Person person;
 
     public uint DayNumber { get; set; }
+
+    public DayStage DayStage { get; set; }
 }

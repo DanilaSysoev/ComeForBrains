@@ -32,7 +32,7 @@ public class BaseJsonCampBuilder : ICampBuilder
 
     private sealed class CampBuilderDescriptor
     {
-        public double baseDamage = 0;
-        public double dailyDamageIncrease = 0;
+        public double baseDamage { get; set; } = 0;
+        public double dailyDamageIncrease { get; set; } = 0;
     }
 }

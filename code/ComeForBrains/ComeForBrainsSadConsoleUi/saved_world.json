@@ -1,4 +1,5 @@
 {
     "name": "TestWorld",
-    "dayNumber": "0"
+    "dayNumber": "0",
+    "dayStage": "Day"
 }

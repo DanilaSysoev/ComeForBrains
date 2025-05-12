@@ -16,12 +16,14 @@ public class Person
 
     public double Strength => CalculateFeature(strength);
     public double Dexterity => CalculateFeature(dexterity);
+    public double Physique => CalculateFeature(physique);
     public double DistanceAccuracy => CalculateFeature(distanceAccuracy);
     public double MeleeFight => CalculateFeature(meleeFight);
     public double Speed => CalculateSpeed();
 
     public double StrengthModifier => CalculateModifier(strength);
     public double DexterityModifier => CalculateModifier(dexterity);
+    public double PhysiqueModifier => CalculateModifier(physique);
     public double DistanceAccuracyModifier => CalculateModifier(distanceAccuracy);
     public double MeleeFightModifier => CalculateModifier(meleeFight);
     public double OverloadModifier => CalculateOverloadModifier();
@@ -49,6 +51,7 @@ public class Person
 
         strength = builder.GetStrength();
         dexterity = builder.GetDexterity();
+        physique = builder.GetPhysique();
         distanceAccuracy = builder.GetDistanceAccuracy();
         meleeFight = builder.GetMeleeFight();
         speed = builder.GetSpeed();
@@ -134,6 +137,7 @@ public class Person
 
     private readonly double strength;
     private readonly double dexterity;
+    private readonly double physique;
     private readonly double distanceAccuracy;
     private readonly double meleeFight;
     private readonly double speed;

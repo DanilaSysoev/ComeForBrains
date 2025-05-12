@@ -32,7 +32,8 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
                 )
             )
             {
-                DayNumber = day
+                DayNumber = day,
+                DayStage = DayStage.Night
             }
         );
         camp = gameContext.Camp;
@@ -84,8 +85,8 @@ public class DailyLinearlyIncreasingCampDestructorTests : Tests
 
     [Test]
     public void DamageCamp_ZeroDay_DamagedTwoElements()
-    {
-        gameContext.GoToNextDay();
+    {        
+        gameContext.DayStageSwitcher.Switch();
         campDestructor.DamageCamp(gameContext);
         Assert.That(campDestructor.GetLastDamagedElements(), Contains.Item(ce1));
         Assert.That(campDestructor.GetLastDamagedElements(), Contains.Item(ce2));
