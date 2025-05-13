@@ -30,13 +30,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
 
     public string BuildName()
     {
-        LocationDescriptor locationDescriptor = BuildDescriptor();
+        ItemsStorageDescriptor locationDescriptor = BuildDescriptor();
         return locationDescriptor.Name;
     }
 
-    private LocationDescriptor BuildDescriptor()
+    private ItemsStorageDescriptor BuildDescriptor()
     {
-        var locationDescriptor = JsonSerializer.Deserialize<LocationDescriptor>(
+        var locationDescriptor = JsonSerializer.Deserialize<ItemsStorageDescriptor>(
             locationDataProvider.GetJson()
         );
         if (locationDescriptor is null)
@@ -59,7 +59,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
 
 
     private static void BuildArmors(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -81,7 +81,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildCampElements(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -101,7 +101,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildInfectionKillers(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -121,7 +121,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildMedicines(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -140,7 +140,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildProvisions(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -160,7 +160,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildRangedWeapons(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -184,7 +184,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildMeleeWeapons(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -207,7 +207,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 
     private static void BuildContainers(
-        LocationDescriptor locationDescriptor,
+        ItemsStorageDescriptor locationDescriptor,
         Map map,
         IItemsBuilders itemsBuilders
     )
@@ -268,12 +268,12 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     private class ItemDescriptor
     {
         public string Name { get; set; } = "";
-        public int[] Position { get; set; } = [0, 0];
+        public int[]? Position { get; set; } = [0, 0];
         public double? Weight { get; set; }
         public double? PassabilityPenalty { get; set; }
 
-        public int Line => Position[0];
-        public int Column => Position[1];
+        public int Line => Position is null ? -1 : Position[0];
+        public int Column => Position is null ? -1 : Position[1];
     }
 
     private sealed class ArmorDescriptor : ItemDescriptor
@@ -333,7 +333,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
     }
 #pragma warning restore S1144
 
-    private sealed class LocationDescriptor
+    private sealed class ItemsStorageDescriptor
     {
         public string Name { get; set; } = "";
         public List<ArmorDescriptor> Armors { get; set; } = new();

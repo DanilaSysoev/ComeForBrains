@@ -21,7 +21,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Worlds/TestWorld/Borshevka/BeetWarehouse/" />
     <Folder Include="Worlds/TestWorld/Borshevka/CabbageFarm/" />
     <Folder Include="Worlds/TestWorld/Kvasovo/Backery/" />
     <Folder Include="Worlds/TestWorld/Kvasovo/Mill/" />
