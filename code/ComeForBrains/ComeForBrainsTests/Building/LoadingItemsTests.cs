@@ -30,7 +30,8 @@ public class LoadingItemsTests : Tests
                 new AllItemsMapDataProvider(),
                 new DummyTileDescriptorJsonProvider()
             ),
-            new AllItemsLocationJsonProvider()
+            new AllItemsLocationJsonProvider().LocationProvider,
+            new AllItemsLocationJsonProvider().ItemsProvider
         );
     }
 

@@ -20,6 +20,7 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
             )!;
         mapBuilders = new Dictionary<string, IMapBuilder>();
         locationInfo = new Dictionary<string, IJsonProvider>();
+        itemsInfo = new Dictionary<string, IJsonProvider>();
         CreateBuilders(pathToFiles, settlementDescr);
         this.itemsBuilders = itemsBuilders;
     }
@@ -27,11 +28,13 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
         IJsonProvider settlementInfo,
         IDictionary<string, IMapBuilder> mapBuilders,
         IDictionary<string, IJsonProvider> locationInfo,
+        IDictionary<string, IJsonProvider> itemsInfo,
         IItemsBuilders itemsBuilders
     ) {
         this.settlementInfo = settlementInfo;
         this.mapBuilders = mapBuilders;
         this.locationInfo = locationInfo;
+        this.itemsInfo = itemsInfo;
         this.itemsBuilders = itemsBuilders;
     }
 
@@ -45,7 +48,8 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
                         locationName => new Location(
                             new JsonFilesLocationBuilder(
                                 mapBuilders[locationName],
-                                locationInfo[locationName]
+                                locationInfo[locationName],
+                                itemsInfo[locationName]
                             ),
                             itemsBuilders
                         )
@@ -92,6 +96,12 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
                     Path.Combine(pathToFiles, locationName, "Location.json")
                 )
             );
+            itemsInfo.Add(
+                locationName,
+                new FromFileJsonProvider(
+                    Path.Combine(pathToFiles, locationName, "Items.json")
+                )
+            );
         }
     }
 
@@ -99,4 +109,5 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
     private readonly IJsonProvider settlementInfo;
     private readonly IDictionary<string, IMapBuilder> mapBuilders;
     private readonly IDictionary<string, IJsonProvider> locationInfo;
+    private readonly IDictionary<string, IJsonProvider> itemsInfo;
 }

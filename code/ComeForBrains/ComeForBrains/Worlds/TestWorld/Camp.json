@@ -1,42 +1,5 @@
 {
     "type": "DailyLinearlyIncreasing",
     "baseDamage": 100,
-    "dailyDamageIncrease": 20,
-    "storage": [
-        {
-            "Name": "Jacket"
-        },
-        {
-            "Name": "Jeans"
-        },
-        {
-            "Name": "Knife"
-        },
-        {
-            "Name": "Pistol"
-        },
-        {
-            "Name": "Bread"
-        },
-        {
-            "Name": "Water"
-        },
-        {
-            "Name": "SheetOfIron"
-        },
-        {
-            "Name": "SheetOfIron",
-            "Strength": 670
-        },
-        {
-            "Name": "Armchair"
-        },
-        {
-            "Name": "Analgin",
-            "Count": 5
-        },
-        {
-            "Name": "BengalLight"
-        }
-    ]
+    "dailyDamageIncrease": 20
 }

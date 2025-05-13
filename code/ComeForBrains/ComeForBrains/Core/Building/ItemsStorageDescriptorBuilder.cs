@@ -13,7 +13,8 @@ internal class ItemsStorageDescriptorBuilder
     {
         return JsonSerializer.Deserialize<ItemsStorageDescriptor>(
             json.GetJson()
-        ) ?? new();
+        ) ??
+        throw new InvalidOperationException("No location descriptors found");
     }
 
     private readonly IJsonProvider json;

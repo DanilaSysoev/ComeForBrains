@@ -1,62 +1,33 @@
-using System.Text.Json;
 using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Core.Items;
 
-namespace ComeForBrains.Core.Building.GameWorld;
+namespace ComeForBrains.Core.Building;
 
-public class JsonFilesLocationBuilder : ILocationBuilder
+public class CampStorageBuilder
 {
-    public JsonFilesLocationBuilder(string pathToFiles)
+    public CampStorageBuilder(IJsonProvider itemsProvider)
     {
-        mapBuilder = new TextFileMapBuilder(Path.Combine(pathToFiles, "Map"));
-        locationDataProvider = new FromFileJsonProvider(
-            Path.Combine(pathToFiles, "Location.json")
-        );
-        itemsStorageDataProvider = new FromFileJsonProvider(
-            Path.Combine(pathToFiles, "Items.json")
-        );
-    }
-    public JsonFilesLocationBuilder(
-        IMapBuilder mapBuilder,
-        IJsonProvider locationDataProvider,
-        IJsonProvider itemsStorageDataProvider
-    )
-    {
-        this.mapBuilder = mapBuilder;
-        this.locationDataProvider = locationDataProvider;
-        this.itemsStorageDataProvider = itemsStorageDataProvider;
+        this.itemsProvider = itemsProvider;
     }
 
-    public Map BuildMap()
-    {
-        return new Map(mapBuilder);
-    }
-
-    public string BuildName()
-    {
-        return JsonSerializer.Deserialize<Dictionary<string, string>>(
-            locationDataProvider.GetJson()
-        )!["Name"];
-    }
-
-    public void PlaceItems(Map map, IItemsBuilders itemsBuilders)
+    public void PlaceItems(Camp camp, IItemsBuilders itemsBuilders)
     {
         var locationDescriptor =
-            new ItemsStorageDescriptorBuilder(itemsStorageDataProvider).Build();
-        BuildArmors(locationDescriptor, map, itemsBuilders);
-        BuildCampElements(locationDescriptor, map, itemsBuilders);
-        BuildInfectionKillers(locationDescriptor, map, itemsBuilders);
-        BuildMedicines(locationDescriptor, map, itemsBuilders);
-        BuildProvisions(locationDescriptor, map, itemsBuilders);
-        BuildRangedWeapons(locationDescriptor, map, itemsBuilders);
-        BuildMeleeWeapons(locationDescriptor, map, itemsBuilders);
-        BuildContainers(locationDescriptor, map, itemsBuilders);
+            new ItemsStorageDescriptorBuilder(itemsProvider).Build();
+        BuildArmors(locationDescriptor, camp, itemsBuilders);
+        BuildCampElements(locationDescriptor, camp, itemsBuilders);
+        BuildInfectionKillers(locationDescriptor, camp, itemsBuilders);
+        BuildMedicines(locationDescriptor, camp, itemsBuilders);
+        BuildProvisions(locationDescriptor, camp, itemsBuilders);
+        BuildRangedWeapons(locationDescriptor, camp, itemsBuilders);
+        BuildMeleeWeapons(locationDescriptor, camp, itemsBuilders);
+        BuildContainers(locationDescriptor, camp, itemsBuilders);
     }
 
     private static void BuildArmors(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -72,13 +43,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "Thikness");
 
             Armor armor = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(armor);
+            camp.AddToStorage(armor);
         }
     }
 
     private static void BuildCampElements(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -92,13 +63,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionStrengthProperty(descriptor, builder);
 
             CampElement campElement = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(campElement);
+            camp.AddToStorage(campElement);
         }
     }
 
     private static void BuildInfectionKillers(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -112,13 +83,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "EffectiveTime");
 
             InfectionKiller infectionKiller = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(infectionKiller);
+            camp.AddToStorage(infectionKiller);
         }
     }
 
     private static void BuildMedicines(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -131,13 +102,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "Count");
 
             Medicine medicine = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(medicine);
+            camp.AddToStorage(medicine);
         }
     }
 
     private static void BuildProvisions(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -151,13 +122,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "EnergyPower");
 
             Provision provision = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(provision);
+            camp.AddToStorage(provision);
         }
     }
 
     private static void BuildRangedWeapons(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -175,13 +146,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "NoiseDistance");
 
             RangedWeapon rangedWeapon = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(rangedWeapon);
+            camp.AddToStorage(rangedWeapon);
         }
     }
 
     private static void BuildMeleeWeapons(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -198,13 +169,13 @@ public class JsonFilesLocationBuilder : ILocationBuilder
             CorrectionItemProperty(descriptor, builder, "MaxEffectiveDistance");
 
             MeleeWeapon meleeWeapon = new(builder);
-            map[descriptor.Line, descriptor.Column].Place(meleeWeapon);
+            camp.AddToStorage(meleeWeapon);
         }
     }
 
     private static void BuildContainers(
         ItemsStorageDescriptor locationDescriptor,
-        Map map,
+        Camp camp,
         IItemsBuilders itemsBuilders
     )
     {
@@ -221,7 +192,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
                     itemsBuilders.GetBuilder(itemName).Build()
                 );
             }
-            map[descriptor.Line, descriptor.Column].Place(container);
+            camp.AddToStorage(container);
         }
     }
 
@@ -261,7 +232,5 @@ public class JsonFilesLocationBuilder : ILocationBuilder
         CorrectionItemProperty(descriptor, builder, "Weight");
     }
 
-    private readonly IMapBuilder mapBuilder;
-    private readonly IJsonProvider locationDataProvider;
-    private readonly IJsonProvider itemsStorageDataProvider;
+    private readonly IJsonProvider itemsProvider;
 }

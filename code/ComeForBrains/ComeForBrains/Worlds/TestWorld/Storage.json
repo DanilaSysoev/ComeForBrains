@@ -1,0 +1,84 @@
+{
+    "Armors": [
+        {
+            "Name": "Jacket",
+            "Position": [3, 13]
+        },
+        {
+            "Name": "Jeans",
+            "Position": [4, 48]
+        }
+    ],
+    "MeleeWeapons": [
+        {
+            "Name": "Knife",
+            "Position": [15, 11]
+        }
+    ],
+    "RangedWeapons": [
+        {
+            "Name": "Pistol",
+            "Position": [14, 68]
+        }
+    ],
+    "Provisions": [
+        {
+            "Name": "Bread",
+            "Position": [3, 23]
+        },
+        {
+            "Name": "Water",
+            "Position": [3, 24]
+        }
+    ],
+    "CampElements": [
+        {
+            "Name": "SheetOfIron",
+            "Position": [3, 57]
+        },
+        {
+            "Name": "SheetOfIron",
+            "Position": [3, 58],
+            "Strength": 670
+        },
+        {
+            "Name": "Armchair",
+            "Position": [6, 9]
+        }
+    ],
+    "Medicines": [
+        {
+            "Name": "Analgin",
+            "Position": [13, 35],
+            "Count": 5
+        }
+    ],
+    "InfectionKillers": [
+        {
+            "Name": "BengalLight",
+            "Position": [3, 36]
+        }
+    ],
+    "Containers": [
+        {
+            "Name": "WoodenBox",
+            "Content": [
+                "Analgin",
+                "SheetOfIron",
+                "Knife"
+            ],
+            "Position": [3, 71]
+        },
+        {
+            "Name": "WoodenBox",
+            "Content": [
+                "SheetOfIron",
+                "SheetOfIron",
+                "SheetOfIron",
+                "SheetOfIron",
+                "SheetOfIron"
+            ],
+            "Position": [4, 71]
+        }
+    ]
+}

@@ -30,8 +30,13 @@ public class JsonFilesSettlementBuilderTests
             },
             new Dictionary<string, IJsonProvider>
             {
-                {"Mill", new DummyLocationJsonProvider()},
+                {"Mill", new DummyLocationJsonProvider().LocationProvider},
                 {"Village", new DummyVillageProvider()}
+            },
+            new Dictionary<string, IJsonProvider>
+            {
+                {"Mill", new DummyLocationJsonProvider().ItemsProvider},
+                {"Village", new FromTextJsonProvider("{}")}
             },
             new FromJsonItemBuilders(
                 new DummyArmorJsonProvider(),

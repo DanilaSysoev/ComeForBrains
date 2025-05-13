@@ -1,4 +1,6 @@
+using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Building.GameWorld;
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.Items;
 using ComeForBrains.Core.Mechanics.Base;
 
@@ -19,6 +21,16 @@ public class Camp
     public Camp(ICampBuilder builder)
     {
         destructor = builder.BuildDestructor();
+    }
+
+    public Camp(
+        ICampBuilder builder,
+        CampStorageBuilder storageBuilder,
+        IItemsBuilders itemsBuilders
+    )
+    {
+        destructor = builder.BuildDestructor();
+        storageBuilder.PlaceItems(this, itemsBuilders);
     }
 
     public void AddToStorage(Item item)

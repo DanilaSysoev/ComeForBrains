@@ -16,23 +16,26 @@ public class Environment
     {
         if(ExistSaveWorld())
         {
+            string pathToItemsDescriptors = Path.Combine("Data", "Items");
             string worldName = ExtractWorldName();
             IWorldBuilder worldBuilder = new JsonFilesWorldBuilder(
-                Path.Combine("Worlds", worldName), Path.Combine("Data", "Items")
+                Path.Combine(WorldsDirectory, worldName), pathToItemsDescriptors
             );
             IGameContextBuilder contextBuilder = new GameContextBuilder(
                 new BaseJsonPersonBuilder(
                     new FromFileJsonProvider(
-                        Path.Combine("Worlds", worldName, "Person.json")
+                        Path.Combine(WorldsDirectory, worldName, "Person.json")
                     )
                 ),
                 new BaseJsonCampBuilder(
                     new FromFileJsonProvider(
-                        Path.Combine("Worlds", worldName, "Camp.json")
+                        Path.Combine(WorldsDirectory, worldName, "Camp.json")
                     )
                 ),
                 ExtractDayNumber(),
-                ExtractDayStageName()
+                ExtractDayStageName(),
+                Path.Combine(WorldsDirectory, worldName, "Storage.json"),
+                pathToItemsDescriptors
             );
 
             Environment environment = new()
@@ -41,8 +44,6 @@ public class Environment
                 Context = new GameContext(contextBuilder),
             };
             Instance = environment;
-
-            LoadCampStorage();
         }
         else
         {
@@ -50,15 +51,6 @@ public class Environment
                 "Процедурный генератор мира пока не реализован"
             );
         }
-    }
-
-    private static void LoadCampStorage()
-    {
-        var items = uint.Parse(
-            JsonSerializer.Deserialize<Dictionary<string, string>>(
-                File.ReadAllText(SavedWorldPath)
-            )!["dayNumber"]
-        );
     }
 
     public static Environment Instance { get; private set; } = null!;
@@ -97,4 +89,5 @@ public class Environment
     }
 
     private const string SavedWorldPath = "saved_world.json";
+    private const string WorldsDirectory = "Worlds";
 }

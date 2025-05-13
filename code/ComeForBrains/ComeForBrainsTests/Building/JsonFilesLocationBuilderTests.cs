@@ -19,7 +19,8 @@ public class JsonFilesLocationBuilderTests : Tests
         );
         locationBuilder = new JsonFilesLocationBuilder(
             mapBuilder,
-            new DummyLocationJsonProvider()
+            new DummyLocationJsonProvider().LocationProvider,
+            new DummyLocationJsonProvider().ItemsProvider
         );
     }
 

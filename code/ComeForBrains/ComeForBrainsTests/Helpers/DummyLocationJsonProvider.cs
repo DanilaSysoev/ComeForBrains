@@ -2,13 +2,15 @@ using ComeForBrains.Core.Building;
 
 namespace ComeForBrainsTests.Helpers;
 
-public class DummyLocationJsonProvider : IJsonProvider
+public class DummyLocationJsonProvider
 {
-    public string GetJson()
-    {
-        return
+    public IJsonProvider LocationProvider { get; } = new FromTextJsonProvider(
         @"{
-            ""Name"": ""Mill"",
+            ""Name"": ""Mill""           
+        }"
+    );
+    public IJsonProvider ItemsProvider { get; } = new FromTextJsonProvider(
+        @"{
             ""Armors"": [
                 {
                     ""Name"": ""Jacket"",
@@ -38,6 +40,6 @@ public class DummyLocationJsonProvider : IJsonProvider
                     ""Position"": [2, 1]
                 }
             ]            
-        }";
-    }
+        }"
+    );
 }

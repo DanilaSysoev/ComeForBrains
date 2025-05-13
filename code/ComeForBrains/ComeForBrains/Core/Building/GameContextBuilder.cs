@@ -1,5 +1,6 @@
 using ComeForBrains.Core.Building.Characters;
 using ComeForBrains.Core.Building.GameWorld;
+using ComeForBrains.Core.Building.Items;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.GameWorld;
 
@@ -11,13 +12,17 @@ public class GameContextBuilder : IGameContextBuilder
         IPersonBuilder personBuilder,
         ICampBuilder campBuilder,
         uint dayNumber,
-        string dayStageName
+        string dayStageName,
+        string pathToStorageItems,
+        string pathToItemsDescriptorsFiles
     )
     {
         DayNumber = dayNumber;
         this.personBuilder = personBuilder;
         this.campBuilder = campBuilder;
         DayStageName = dayStageName;
+        this.pathToStorageItems = pathToStorageItems;
+        this.pathToItemsDescriptorsFiles = pathToItemsDescriptorsFiles;
     }
 
     public uint DayNumber { get; set; }
@@ -26,7 +31,17 @@ public class GameContextBuilder : IGameContextBuilder
 
     public Camp BuildCamp()
     {
-        return new Camp(campBuilder);
+        return new Camp(
+            campBuilder,
+            new CampStorageBuilder(
+                new FromFileJsonProvider(
+                    pathToStorageItems
+                )
+            ),
+            new FromJsonItemBuilders(
+                pathToItemsDescriptorsFiles
+            )
+        );
     }
 
     public Person BuildPerson()
@@ -36,4 +51,6 @@ public class GameContextBuilder : IGameContextBuilder
 
     private readonly IPersonBuilder personBuilder;
     private readonly ICampBuilder campBuilder;
+    private readonly string pathToItemsDescriptorsFiles;
+    private readonly string pathToStorageItems;
 }
