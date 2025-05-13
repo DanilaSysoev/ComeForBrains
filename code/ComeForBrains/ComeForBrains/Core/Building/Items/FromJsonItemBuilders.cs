@@ -156,8 +156,10 @@ public class FromJsonItemBuilders : IItemsBuilders
             JsonSerializer.Deserialize<Dictionary<string, T>>(
                 itemBuildersJson.GetJson()
             );
+
         if (itemBuilders == null)
             throw new ArgumentException($"Item Builder from '{itemBuildersJson.GetJson()}' is null");
+
         return itemBuilders;
     }
     private void AddToGeneral<T>(Dictionary<string, T> typifiedBuilders)

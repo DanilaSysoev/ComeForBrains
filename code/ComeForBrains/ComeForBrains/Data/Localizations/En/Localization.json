@@ -98,5 +98,21 @@
     "RIP": " ____    ___   ____  \n|  _ \\  |_ _| |  _ \\ \n| |_) |  | |  | |_) |\n|  _ <   | |  |  __/ \n|_| \\_\\ |___| |_|    ",
     "Day": "Day",
     "Midday": "Midday",
-    "Night": "Night"
+    "Night": "Night",
+
+    "MeleeWeaponsButton": "Melee Weapons",
+    "RangedWeaponsButton": "Ranged Weapons",
+    "ArmorsButton": "Armors",
+    "MedicinesButton": "Medicines",
+    "InfectionKillersButton": "Infection Killers",
+    "ProvisionsButton": "Provisions",
+    "CampElementsButton": "Camp Elements",
+
+    "MeleeWeapons": "Melee Weapons",
+    "RangedWeapons": "Ranged Weapons",
+    "Armors": "Armors",
+    "Medicines": "Medicines",
+    "InfectionKillers": "Infection Killers",
+    "Provisions": "Provisions",
+    "CampElements": "Camp Elements"
 }

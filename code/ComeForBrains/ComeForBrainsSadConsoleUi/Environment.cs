@@ -41,6 +41,8 @@ public class Environment
                 Context = new GameContext(contextBuilder),
             };
             Instance = environment;
+
+            LoadCampStorage();
         }
         else
         {
@@ -48,6 +50,15 @@ public class Environment
                 "Процедурный генератор мира пока не реализован"
             );
         }
+    }
+
+    private static void LoadCampStorage()
+    {
+        var items = uint.Parse(
+            JsonSerializer.Deserialize<Dictionary<string, string>>(
+                File.ReadAllText(SavedWorldPath)
+            )!["dayNumber"]
+        );
     }
 
     public static Environment Instance { get; private set; } = null!;

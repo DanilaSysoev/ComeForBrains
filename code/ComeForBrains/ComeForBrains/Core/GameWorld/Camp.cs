@@ -52,6 +52,10 @@ public class Camp
     {
         destructor.DamageCamp(GameContext);
     }
+    public List<T> GetFromStorage<T>() where T : Item
+    {
+        return storage.OfType<T>().ToList();
+    }
 
 
     private void CalculateFortificationAndComfort()
