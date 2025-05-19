@@ -14,6 +14,8 @@ public class StoragePanel : BasePanel
         CreateItemsLists();
         CreateSwitchButtons();
         CreateDescriptionPanel();
+        CreatePersonPanel();
+        CreateMenuPanel();
         Setup();
     }
 
@@ -36,15 +38,26 @@ public class StoragePanel : BasePanel
         CreateButton((posX, 1), L["ProvisionsButton"], provisions);
         posX += L["ProvisionsButton"].Length + 2 + SpaceBetweenButtons + ButtonXPadding;
         CreateButton((posX, 1), L["CampElementsButton"], campElements);
+    }
 
-        DrawButtonsBorder();
+
+    private int CalcItemsListsWidth()
+    {
+        return Width * 4 / 10;
+    }
+
+    private int CalcDescriptionPanelWidth()
+    {
+        return Width * 4 / 10;
     }
 
     private void CreateItemsLists()
     {
+        var width = CalcItemsListsWidth();
+
         meleeWeapons = new MeleeWeaponsListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<MeleeWeapon>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -53,8 +66,8 @@ public class StoragePanel : BasePanel
         Children.Add(meleeWeapons);
 
         rangedWeapons = new RangedWeaponsListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<RangedWeapon>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -63,8 +76,8 @@ public class StoragePanel : BasePanel
         Children.Add(rangedWeapons);
 
         armors = new ArmorsListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<Armor>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -73,8 +86,8 @@ public class StoragePanel : BasePanel
         Children.Add(armors);
 
         infectionKillers = new InfectionKillersListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<InfectionKiller>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -83,8 +96,8 @@ public class StoragePanel : BasePanel
         Children.Add(infectionKillers);
 
         campElements = new CampElementsListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<CampElement>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -93,8 +106,8 @@ public class StoragePanel : BasePanel
         Children.Add(campElements);
 
         medicines = new MedicinesListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<Medicine>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -103,8 +116,8 @@ public class StoragePanel : BasePanel
         Children.Add(medicines);
 
         provisions = new ProvisionsListPanel(
-            Width / 2,
-            Height - ButtonsPanelHeight,
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
             Environment.Instance.Context.Camp.GetFromStorage<Provision>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
@@ -133,8 +146,9 @@ public class StoragePanel : BasePanel
     private void CreateDescriptionPanel()
     {
         descriptionPanel = new BorderedPanel(
-            Width / 2, Height - ButtonsPanelHeight
-        ) { Position = (Width / 2, ButtonsPanelHeight) };
+            CalcDescriptionPanelWidth(),
+            Height - ButtonsPanelHeight - MenuPanelHeight
+        ) { Position = (CalcItemsListsWidth(), ButtonsPanelHeight) };
         Children.Add(descriptionPanel);
     }
 
@@ -156,20 +170,6 @@ public class StoragePanel : BasePanel
         SelectItem();
     }
 
-    private void DrawButtonsBorder()
-    {
-        Surface.DrawBox(
-            new Rectangle(0, 0, Width, ButtonsPanelHeight),
-            ShapeParameters.CreateStyledBox(
-                ICellSurface.ConnectedLineThin,
-                new ColoredGlyph(
-                    Surface.DefaultForeground,
-                    Surface.DefaultBackground
-                )
-            )
-        );
-    }
-
     private void SelectItem()
     {
         descriptionPanel.Children.Clear();
@@ -180,6 +180,30 @@ public class StoragePanel : BasePanel
         var view = currentListPanel.CreateItemView(selectedItem);
         view.Position = (2, 1);
         descriptionPanel.Children.Add(view);
+    }
+
+    private void CreateMenuPanel()
+    {
+        ButtonBox button =
+            new(L["Back to camp"].Length + 2, 3)
+            {
+                Position = (2, Height - MenuPanelHeight + 1),
+                Text = L["Back to camp"],
+            };
+        button.Click +=
+            (_, _) => GameScreen.SwitchToScreen(new CampScreen());
+        controls.Add(button);
+    }
+
+    private void CreatePersonPanel()
+    {
+        var posX = CalcDescriptionPanelWidth() + CalcItemsListsWidth();
+
+        var panel = new PersonInfoPanel(
+            Game.Instance.ScreenCellsX - posX,
+            Height - ButtonsPanelHeight - MenuPanelHeight
+        ) { Position = (posX, ButtonsPanelHeight) };
+        Children.Add(panel);
     }
 
 
@@ -198,4 +222,5 @@ public class StoragePanel : BasePanel
     private const int ButtonsPanelHeight = 5;
     private const int SpaceBetweenButtons = 1;
     private const int ButtonXPadding = 2;
+    private const int MenuPanelHeight = 5;
 }
