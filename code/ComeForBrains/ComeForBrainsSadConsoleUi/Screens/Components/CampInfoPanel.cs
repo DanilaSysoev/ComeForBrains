@@ -27,12 +27,12 @@ public class CampInfoPanel : BorderedPanel
     private static string FortificationLabel()
     {
         return $"{L["Fortification"]}: " +
-               $"{Environment.Instance.Context.Camp.Fortification:N2}";
+               $"{Environment.Instance.Context.Camp.Fortification:0.##}";
     }
 
     private static string ComfortLabel()
     {
         return $"{L["Comfort"]}: " +
-               $"{Environment.Instance.Context.Camp.Comfort:N2}";
+               $"{Environment.Instance.Context.Camp.Comfort:0.##}";
     }
 }

@@ -49,6 +49,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        meleeWeapons.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(meleeWeapons);
 
         rangedWeapons = new RangedWeaponsListPanel(
@@ -58,6 +59,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        rangedWeapons.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(rangedWeapons);
 
         armors = new ArmorsListPanel(
@@ -67,6 +69,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        armors.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(armors);
 
         infectionKillers = new InfectionKillersListPanel(
@@ -76,6 +79,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        infectionKillers.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(infectionKillers);
 
         campElements = new CampElementsListPanel(
@@ -85,6 +89,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        campElements.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(campElements);
 
         medicines = new MedicinesListPanel(
@@ -94,6 +99,7 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        medicines.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(medicines);
 
         provisions = new ProvisionsListPanel(
@@ -103,13 +109,14 @@ public class StoragePanel : BasePanel
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
+        provisions.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(provisions);
     }
 
     private void CreateButton(
         Point position,
         string text,
-        ScreenSurface itemsListPanel
+        ItemListPanelBase itemsListPanel
     )
     {
         ButtonBox button =
@@ -125,9 +132,10 @@ public class StoragePanel : BasePanel
 
     private void CreateDescriptionPanel()
     {
-        descriptionPanel = new ScreenSurface(
+        descriptionPanel = new BorderedPanel(
             Width / 2, Height - ButtonsPanelHeight
         ) { Position = (Width / 2, ButtonsPanelHeight) };
+        Children.Add(descriptionPanel);
     }
 
     private void Setup()
@@ -138,13 +146,14 @@ public class StoragePanel : BasePanel
     }
 
     private void SwitchListPanel(
-        ScreenSurface newListPanel
+        ItemListPanelBase newListPanel
     ) {
         currentListPanel.IsEnabled = false;
         currentListPanel.IsVisible = false;
         newListPanel.IsEnabled = true;
         newListPanel.IsVisible = true;
         currentListPanel = newListPanel;
+        SelectItem();
     }
 
     private void DrawButtonsBorder()
@@ -161,6 +170,19 @@ public class StoragePanel : BasePanel
         );
     }
 
+    private void SelectItem()
+    {
+        descriptionPanel.Children.Clear();
+        if(currentListPanel.ListBox.SelectedItem is null)
+            return;
+        
+        Item selectedItem = (Item)currentListPanel.ListBox.SelectedItem;
+        var view = currentListPanel.CreateItemView(selectedItem);
+        view.Position = (2, 1);
+        descriptionPanel.Children.Add(view);
+    }
+
+
     private MeleeWeaponsListPanel meleeWeapons = null!;
     private RangedWeaponsListPanel rangedWeapons = null!;
     private ArmorsListPanel armors = null!;
@@ -169,8 +191,8 @@ public class StoragePanel : BasePanel
     private MedicinesListPanel medicines = null!;
     private ProvisionsListPanel provisions = null!;
 
-    private ScreenSurface currentListPanel = null!;
-    private ScreenObject descriptionPanel = null!;
+    private ItemListPanelBase currentListPanel = null!;
+    private BorderedPanel descriptionPanel = null!;
     private ControlHost controls = null!;
 
     private const int ButtonsPanelHeight = 5;

@@ -4,6 +4,7 @@ using ComeForBrains.Core.Building;
 using ComeForBrains.Core.Building.GameWorld;
 using ComeForBrains.Core.GameWorld;
 using ComeForBrains.Localizations;
+using ComeForBrains.Service;
 
 namespace ComeForBrainsSadConsoleUi;
 
@@ -16,6 +17,7 @@ public class Environment
     {
         if(ExistSaveWorld())
         {
+            CreateIdProvider();
             string pathToItemsDescriptors = Path.Combine("Data", "Items");
             string worldName = ExtractWorldName();
             IWorldBuilder worldBuilder = new JsonFilesWorldBuilder(
@@ -55,6 +57,12 @@ public class Environment
 
     public static Environment Instance { get; private set; } = null!;
     public static ILocalization L { get; private set; }
+
+
+    private static void CreateIdProvider()
+    {
+        IdProvider.Initialize(new IncrementalIdProvider());
+    }
 
     private static uint ExtractDayNumber()
     {

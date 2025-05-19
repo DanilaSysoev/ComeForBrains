@@ -1,47 +1,48 @@
 using ComeForBrains.Core.Items;
-using SadConsole.UI;
-using SadConsole.UI.Controls;
 
 namespace ComeForBrainsSadConsoleUi.Screens.Components.Items;
 
-public class ItemsListPanel<TItem> : BorderedPanel
+public abstract class ItemsListPanel<TItem> : ItemListPanelBase
     where TItem : Item
 {
-    public string Title { get; private set; }
-
-    public ItemsListPanel(
+    protected ItemsListPanel(
         int width,
         int height,
-        IEnumerable<TItem> items,
-        string title
+        string title,
+        IEnumerable<TItem> items
     )
-        : base(width, height)
+        : base(width, height, title, items)
     {
-        Items = [.. items];
-        Title = title;
-
-        CreateListBox();
     }
 
-    private void CreateListBox()
+
+    public override ScreenSurface CreateItemView(Item item)
     {
-        ListBox listBox = new ListBox(Width - 2, Height - 4);
-        listBox.Position = (1, 3);
-        foreach (var item in Items)
-            listBox.Items.Add(item);
-        
-        ControlHost controls = new ControlHost();
-        controls.Add(listBox);
-        SadComponents.Add(controls);
-        DrawTitle();
-        DrawBorder();
+        return CreateItemView((TItem)item);
+    }
+    
+    public ScreenSurface CreateItemView(TItem item)
+    {
+        lines = CreateLines(item);
+        ScreenSurface result = new(CalcWidth(), CalcHeight());
+
+        for(int i = 0; i < lines.Count; ++i)
+            result.Print(0, i, lines[i]);
+
+        return result;
     }
 
-    private void DrawTitle()
+    protected abstract List<string> CreateLines(TItem item);
+
+    virtual protected int CalcHeight()
     {
-        Surface.Print(1, 1, Title);
-        Surface.DrawLine((1, 2), (Width - 1, 2), '-');
+        return lines.Count;
     }
 
-    private List<TItem> Items { get; }
+    virtual protected int CalcWidth()
+    {
+        return lines.Select(line => line.Length).Max();
+    }
+
+    private List<string> lines = [];
 }

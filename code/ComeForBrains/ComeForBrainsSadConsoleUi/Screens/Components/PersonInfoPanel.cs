@@ -70,13 +70,13 @@ public class PersonInfoPanel : BorderedPanel
     {
         Surface.Print(
             1, 16,
-            $"{L["MaxWeight"]}: {person.MaxWeight:N2} {L["kg"]}"
+            $"{L["MaxWeight"]}: {person.MaxWeight:0.##} {L["kg"]}"
         );
     }
 
     private void FillSpeed()
     {
-        Surface.Print(1, 14, $"{L["Speed"]}: {person.Speed:N2}");
+        Surface.Print(1, 14, $"{L["Speed"]}: {person.Speed:0.##}");
     }
 
     private void FillName()
