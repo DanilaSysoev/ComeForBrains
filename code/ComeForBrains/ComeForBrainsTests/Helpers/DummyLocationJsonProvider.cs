@@ -6,7 +6,8 @@ public class DummyLocationJsonProvider
 {
     public IJsonProvider LocationProvider { get; } = new FromTextJsonProvider(
         @"{
-            ""Name"": ""Mill""           
+            ""Name"": ""Mill"",
+            ""Description"": ""Here is a small mill""
         }"
     );
     public IJsonProvider ItemsProvider { get; } = new FromTextJsonProvider(

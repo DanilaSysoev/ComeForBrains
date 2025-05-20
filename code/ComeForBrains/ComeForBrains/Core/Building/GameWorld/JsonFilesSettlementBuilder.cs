@@ -63,6 +63,13 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
         )!.Name;
     }
 
+    public string BuildDescription()
+    {
+        return JsonSerializer.Deserialize<SettlementDescriptor>(
+            settlementInfo.GetJson()
+        )!.Description;
+    }
+
     public double BuildDistanceToCamp()
     {
         return JsonSerializer.Deserialize<SettlementDescriptor>(
@@ -74,6 +81,7 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
     private sealed class SettlementDescriptor
     {
         public string Name { get; set; } = "";
+        public string Description { get; set; } = "";
         public string[] Locations { get; set; } = Array.Empty<string>();
         public double DistanceToCamp { get; set; } = 0;
     }

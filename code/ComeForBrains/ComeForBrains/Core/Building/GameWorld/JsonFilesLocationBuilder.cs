@@ -35,9 +35,16 @@ public class JsonFilesLocationBuilder : ILocationBuilder
 
     public string BuildName()
     {
-        return JsonSerializer.Deserialize<Dictionary<string, string>>(
+        return JsonSerializer.Deserialize<Dictionary<string, object>>(
             locationDataProvider.GetJson()
-        )!["Name"];
+        )!["Name"].ToString()!;
+    }
+
+    public string BuildDescription()
+    {
+        return JsonSerializer.Deserialize<Dictionary<string, object>>(
+            locationDataProvider.GetJson()
+        )!["Description"].ToString()!;
     }
 
     public void PlaceItems(Map map, IItemsBuilders itemsBuilders)

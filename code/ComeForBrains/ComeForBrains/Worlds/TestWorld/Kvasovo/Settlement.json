@@ -1,5 +1,6 @@
 {
     "Name": "Kvasovo",
+    "Description": "A village that specialized in wheat.",
     "Locations": [
         "Mill",
         "Backery"

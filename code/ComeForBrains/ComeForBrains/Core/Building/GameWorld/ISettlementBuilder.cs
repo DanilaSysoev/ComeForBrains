@@ -7,5 +7,6 @@ public interface ISettlementBuilder
 {
     IEnumerable<Location> BuildLocations();
     string BuildName();
+    string BuildDescription();
     double BuildDistanceToCamp();
 }

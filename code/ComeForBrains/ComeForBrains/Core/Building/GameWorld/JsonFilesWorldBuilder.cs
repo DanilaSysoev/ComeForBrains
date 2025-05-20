@@ -35,7 +35,7 @@ public class JsonFilesWorldBuilder : IWorldBuilder
     
     private sealed class WorldDescriptor
     {
-        public List<string> Settlements { get; } = new();
+        public List<string> Settlements { get; set; } = new();
     }
 
     private readonly List<ISettlementBuilder> settlementBuilders;

@@ -25,6 +25,11 @@ public class DummyLocationBuilder : ILocationBuilder
         return name;
     }
 
+    public string BuildDescription()
+    {
+        return name + " descr";
+    }
+
     public void PlaceItems(Map map, IItemsBuilders itemsBuilders)
     {
     }

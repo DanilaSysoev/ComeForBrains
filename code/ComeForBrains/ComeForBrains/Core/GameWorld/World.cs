@@ -4,6 +4,8 @@ namespace ComeForBrains.Core.GameWorld;
 
 public class World : GameEntity
 {
+    public IEnumerable<Settlement> Settlements => settlements.Values;
+
     public World(IWorldBuilder builder)
     {
         foreach(var settlement in builder.BuildSettlements())

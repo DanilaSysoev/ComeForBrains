@@ -7,7 +7,8 @@ public class AllItemsLocationJsonProvider
     public IJsonProvider LocationProvider { get; } = new FromTextJsonProvider(
         @"
             {
-                ""Name"": ""BeetWarehouse""
+                ""Name"": ""BeetWarehouse"",
+                ""Description"": ""BeetWarehouse Description""
             }
         "
     );
@@ -16,6 +17,7 @@ public class AllItemsLocationJsonProvider
         @"
             {
                 ""Name"": ""BeetWarehouse"",
+                ""Description"": ""BeetWarehouse Description"",
                 ""Armors"": [
                     {
                         ""Name"": ""Jacket"",

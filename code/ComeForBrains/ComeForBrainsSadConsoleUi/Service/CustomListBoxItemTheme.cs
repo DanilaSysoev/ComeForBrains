@@ -7,6 +7,7 @@ public class CustomListBoxItemTheme : ListBoxItemTheme
 {
     public override void Draw(ControlBase control, Rectangle area, object item, ControlStates itemState)
     {
+        control.Resize(control.Width, control.Height + 1);
         if(item is Item gameItem)
         {
             if(Environment.Instance.Context.Person.Inventory.Contains(gameItem))

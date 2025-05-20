@@ -2,7 +2,7 @@ using ComeForBrains.Core.Building.GameWorld;
 
 namespace ComeForBrains.Core.GameWorld;
 
-public class Settlement : NamedEntity
+public class Settlement : DescribedEntity
 {
     public World World
     {
@@ -13,7 +13,7 @@ public class Settlement : NamedEntity
     public double DistanceToCamp { get; internal set; }
 
     public Settlement(ISettlementBuilder builder)
-        : base(builder.BuildName())
+        : base(builder.BuildName(), builder.BuildDescription())
     {
         DistanceToCamp = builder.BuildDistanceToCamp();
         foreach(var location in builder.BuildLocations())
@@ -25,9 +25,10 @@ public class Settlement : NamedEntity
 
     public Settlement(
         string name,
+        string description,
         double distanceToCamp,
         IEnumerable<Location> locations
-    ) : base(name)
+    ) : base(name, description)
     {
         DistanceToCamp = distanceToCamp;        
         foreach(var location in locations)

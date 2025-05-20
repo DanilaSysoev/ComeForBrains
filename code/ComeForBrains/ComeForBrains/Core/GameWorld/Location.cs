@@ -3,7 +3,7 @@ using ComeForBrains.Core.Building.Items;
 
 namespace ComeForBrains.Core.GameWorld;
 
-public class Location : NamedEntity
+public class Location : DescribedEntity
 {
     public Map Map { get; private set; }
 
@@ -14,13 +14,17 @@ public class Location : NamedEntity
     }
 
     public Location(ILocationBuilder builder, IItemsBuilders itemsBuilders)
-        : base(builder.BuildName())
+        : base(builder.BuildName(), builder.BuildDescription())
     {
         Map = builder.BuildMap();
         builder.PlaceItems(Map, itemsBuilders);
     }
 
-    public Location(string name, Map map) : base(name)
+    public Location(
+        string name,
+        string description,
+        Map map
+    ) : base(name, description)
     {
         Map = map;
     }

@@ -25,7 +25,8 @@ public class DummyVillageProvider : IJsonProvider, IMapDataProvider
     {        
         return
         @"{
-            ""Name"": ""Village""
+            ""Name"": ""Village"",
+            ""Description"": ""Village is nice place to live""
         }";
     }
 

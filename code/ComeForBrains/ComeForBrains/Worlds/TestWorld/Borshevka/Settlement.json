@@ -1,5 +1,6 @@
 {
     "Name": "Borshevka",
+    "Description": "A small village that specialized in growing vegetables.",
     "Locations": [
         "CabbageFarm",
         "BeetWarehouse"

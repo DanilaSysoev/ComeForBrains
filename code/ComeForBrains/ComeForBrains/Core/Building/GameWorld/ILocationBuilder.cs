@@ -7,5 +7,6 @@ public interface ILocationBuilder
 {
     Map BuildMap();
     string BuildName();
+    string BuildDescription();
     void PlaceItems(Map map, IItemsBuilders itemsBuilders);
 }
