@@ -43,6 +43,11 @@ public class Settlement : DescribedEntity
         return locations[locationName];
     }
 
+    public override string ToString()
+    {
+        return Name;
+    }
+
     private World world = null!;
     private readonly Dictionary<string, Location> locations = new();
 }

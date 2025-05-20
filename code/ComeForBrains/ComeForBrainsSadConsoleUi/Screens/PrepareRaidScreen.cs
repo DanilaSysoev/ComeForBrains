@@ -1,9 +1,13 @@
+using ComeForBrains.Core.GameWorld;
 using ComeForBrainsSadConsoleUi.Screens.Components;
 
 namespace ComeForBrainsSadConsoleUi.Screens;
 
 public class PrepareRaidScreen : GameScreen
 {
+    public SettlementsPanel SettlementPanel { get; private set; } = null!;
+    public LocationsPanel LocationsPanel { get; private set; } = null!;
+
     public PrepareRaidScreen()
     {
         CreateEnvironmentInfoPanel();
@@ -38,21 +42,47 @@ public class PrepareRaidScreen : GameScreen
 
     private void CreateSettlementsPanel()
     {
-        Children.Add(
-            new SettlementsPanel(
-                (Game.Instance.ScreenCellsX - PersonPanelWidth) / 2,
-                Game.Instance.ScreenCellsY -
-                     ButtonsPanelHeight -
-                     EnvInfoHeight
-            ) {
-                Position = (PersonPanelWidth, EnvInfoHeight)
-            }
-        );
+        SettlementPanel = new SettlementsPanel(
+            (Game.Instance.ScreenCellsX - PersonPanelWidth) / 2,
+            Game.Instance.ScreenCellsY -
+                    ButtonsPanelHeight -
+                    EnvInfoHeight
+        ) {
+            Position = (PersonPanelWidth, EnvInfoHeight)
+        };
+
+        SettlementPanel.ListBox.SelectedItemChanged += 
+            (_, _) => SelectSettlement();
+
+        Children.Add(SettlementPanel);
+    }
+
+    private void SelectSettlement()
+    {
+        if(SettlementPanel.ListBox.SelectedItem is null)
+        {
+            LocationsPanel.ClearPanel();
+        }
+        else
+        {
+            LocationsPanel.SetInfo(
+                (Settlement)SettlementPanel.ListBox.SelectedItem
+            );
+        }
     }
 
     private void CreateLocationsPanel()
     {
-        
+        var width = (Game.Instance.ScreenCellsX - PersonPanelWidth) / 2;
+        LocationsPanel = new LocationsPanel(
+            width,
+            Game.Instance.ScreenCellsY -
+                    ButtonsPanelHeight -
+                    EnvInfoHeight
+        ) {
+            Position = (PersonPanelWidth + width, EnvInfoHeight)
+        };
+        Children.Add(LocationsPanel);
     }
 
     private void CreateButtonsPanel()

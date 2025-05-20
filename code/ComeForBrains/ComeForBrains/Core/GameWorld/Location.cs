@@ -39,6 +39,10 @@ public class Location : DescribedEntity
     {
         return HashCode.Combine(Name, Settlement.Name);
     }
+    public override string ToString()
+    {
+        return Name;
+    }
 
     private Settlement settlement = null!;
 }
