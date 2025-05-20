@@ -28,7 +28,9 @@ public class Person
     public double MeleeFightModifier => CalculateModifier(meleeFight);
     public double OverloadModifier => CalculateOverloadModifier();
 
-    public double MaxWeight => GameSettings.BaseWeight + 5 * StrengthModifier;
+    public double MaxWeight =>
+        GameSettings.BaseWeight + 
+        GameSettings.StrengthWeightModifier * StrengthModifier;
 
     public Inventory Inventory { get; init; }
 
@@ -100,10 +102,13 @@ public class Person
                 armorValuesByPart[bodyPart] -= armor.ArmorValue;
                 armorThiknessByPart[bodyPart] -= armor.Thikness;
             }
+            armor.IsEquiped = false;
         }
     }
     public void Unequip(Weapon weapon)
     {
+        if(this.weapon is not null)
+            this.weapon.IsEquiped = false;
         this.weapon = null;
     }
     public double GetArmorValue(BodyPart bodyPart)
@@ -116,7 +121,10 @@ public class Person
     }
     public void Equip(Weapon weapon)
     {
+        if(this.weapon is not null)
+            Unequip(this.weapon);
         this.weapon = weapon;
+        weapon.IsEquiped = true;
     }
     public void Equip(Armor armor)
     {
@@ -132,6 +140,7 @@ public class Person
             armorThiknessByPart[bodyPart] += armor.Thikness;
         }
         armors.Add(armor);
+        armor.IsEquiped = true;
     }
 
 

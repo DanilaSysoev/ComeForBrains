@@ -63,14 +63,15 @@ public class PersonInfoPanel : BorderedPanel
         );
 
         FillSpeed();
-        FillMaxWeight();
+        FillWeight();
     }
 
-    private void FillMaxWeight()
+    private void FillWeight()
     {
         Surface.Print(
             1, 16,
-            $"{L["MaxWeight"]}: {person.MaxWeight:0.##} {L["kg"]}"
+            $"{L["W"]}: {person.Inventory.Weight / 1000:0.##} / " +
+            $"{person.MaxWeight / 1000:0.##} {L["kg"]}"
         );
     }
 

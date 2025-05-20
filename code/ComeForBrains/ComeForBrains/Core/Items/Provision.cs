@@ -38,5 +38,6 @@ public class Provision : Item
         context.Person.Energy.Value += EnergyPower;
 
         context.Person.Inventory.RemoveItem(this);
+        context.Camp.RemoveFromStorage(this);
     }
 }

@@ -24,23 +24,29 @@ public abstract class Weapon : Item
 
     public override void Interact(GameContext context)
     {
-        if(!isEquiped)
+        if(!IsEquiped)
         {
             context.Person.Equip(this);
             context.Person.Inventory.RemoveItem(this);
-            isEquiped = true;
         }
         else
         {
             context.Person.Unequip(this);
             context.Person.Inventory.AddItem(this);
-            isEquiped = false;
         }
+    }
+
+    public override string ToString()
+    {
+        var res = $"{Name}: {Description}";
+        if(IsEquiped)
+            return $"[ {res} ]";
+        return res;
     }
 
     public abstract double GetAccuracy(double distance);
 
-    private bool isEquiped = false;
+    public bool IsEquiped { get; internal set; } = false;
 
     private readonly double baseDamage;
     private readonly double instantKillChance;

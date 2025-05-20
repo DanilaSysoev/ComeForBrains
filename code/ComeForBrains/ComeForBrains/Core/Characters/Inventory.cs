@@ -42,6 +42,7 @@ public class Inventory
             itemsByType[item.GetType()].Remove(item);
         }
     }
+    public bool Contains(Item item) => items.Contains(item);
 
     private readonly List<Item> items = new();
     private readonly Dictionary<Type, List<Item>> itemsByType = new();

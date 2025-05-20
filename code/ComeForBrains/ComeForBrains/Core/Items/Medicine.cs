@@ -47,7 +47,10 @@ public class Medicine : Item
             Count--;
         }
         if(Count == 0)
+        {
+            context.Camp.RemoveFromStorage(this);
             context.Person.Inventory.RemoveItem(this);
+        }
     }
 
     public const double DefaultPassabilityPenalty = 0.0002;

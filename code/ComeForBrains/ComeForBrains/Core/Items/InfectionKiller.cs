@@ -43,5 +43,6 @@ public class InfectionKiller : Item
         }
 
         context.Person.Inventory.RemoveItem(this);
+        context.Camp.RemoveFromStorage(this);
     }
 }

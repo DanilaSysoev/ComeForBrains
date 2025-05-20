@@ -1,4 +1,6 @@
 using ComeForBrains.Core.Items;
+using ComeForBrainsSadConsoleUi.Service;
+using SadConsole.UI.Controls;
 
 namespace ComeForBrainsSadConsoleUi.Screens.Components.Items;
 
@@ -8,16 +10,22 @@ public abstract class ItemListPanelBase : ListBoxPanel
         int width,
         int height,
         string title,
-        IEnumerable<Item> items
+        IItemsProvider itemsProvider
     )
         : base(width, height, title)
     {
-        Items = [.. items];
+        Items = [.. itemsProvider.GetItems()];
         foreach (var item in Items)
             ListBox.Items.Add(item);
+
+        ItemsProvider = itemsProvider;
     }
 
     public abstract ScreenSurface CreateItemView(Item item);
 
-    private List<Item> Items { get; }
+    protected List<Item> Items { get; set; }
+    protected IItemsProvider ItemsProvider { get; private set; }
+    public ButtonBox? InteractButton { get; protected set; }
+    public ButtonBox? TakeButton { get; protected set; }
+    public ButtonBox? PutButton { get; protected set; }
 }

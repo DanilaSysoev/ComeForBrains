@@ -11,7 +11,7 @@ public class Armor : Item
     public double ArmorValue => armorValue;
     public double EnergyConsumptionModifier => energyConsumptionModifier;
 
-    public bool IsEquiped => isEquiped;
+    public bool IsEquiped { get; internal set; }
 
     public Armor(
         string name,
@@ -43,18 +43,24 @@ public class Armor : Item
 
     public override void Interact(GameContext context)
     {
-        if(!isEquiped && context.Person.CanEquip(this))
+        if(!IsEquiped && context.Person.CanEquip(this))
         {
             context.Person.Equip(this);
             context.Person.Inventory.RemoveItem(this);
-            isEquiped = true;
         }
-        else if(isEquiped)
+        else if(IsEquiped)
         {
             context.Person.Unequip(this);
             context.Person.Inventory.AddItem(this);
-            isEquiped = false;
         }
+    }
+
+    public override string ToString()
+    {
+        var res = $"{Name}: {Description}";
+        if(IsEquiped)
+            return $"[ {res} ]";
+        return res;
     }
 
 
@@ -63,6 +69,4 @@ public class Armor : Item
     private readonly double infectionModifier;
     private readonly double armorValue;
     private readonly double energyConsumptionModifier;
-    
-    private bool isEquiped = false;
 }

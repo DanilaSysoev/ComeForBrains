@@ -1,6 +1,7 @@
 
 using ComeForBrains.Core.Items;
 using ComeForBrainsSadConsoleUi.Screens.Components.Items;
+using ComeForBrainsSadConsoleUi.Service;
 using SadConsole.UI;
 using SadConsole.UI.Controls;
 
@@ -58,7 +59,7 @@ public class StoragePanel : BasePanel
         meleeWeapons = new MeleeWeaponsListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<MeleeWeapon>()
+            new FromStorageItemsProvider<MeleeWeapon>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -68,7 +69,7 @@ public class StoragePanel : BasePanel
         rangedWeapons = new RangedWeaponsListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<RangedWeapon>()
+            new FromStorageItemsProvider<RangedWeapon>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -78,7 +79,7 @@ public class StoragePanel : BasePanel
         armors = new ArmorsListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<Armor>()
+            new FromStorageItemsProvider<Armor>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -88,7 +89,7 @@ public class StoragePanel : BasePanel
         infectionKillers = new InfectionKillersListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<InfectionKiller>()
+            new FromStorageItemsProvider<InfectionKiller>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -98,7 +99,7 @@ public class StoragePanel : BasePanel
         campElements = new CampElementsListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<CampElement>()
+            new FromStorageItemsProvider<CampElement>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -108,7 +109,7 @@ public class StoragePanel : BasePanel
         medicines = new MedicinesListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<Medicine>()
+            new FromStorageItemsProvider<Medicine>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -118,7 +119,7 @@ public class StoragePanel : BasePanel
         provisions = new ProvisionsListPanel(
             width,
             Height - ButtonsPanelHeight - MenuPanelHeight,
-            Environment.Instance.Context.Camp.GetFromStorage<Provision>()
+            new FromStorageItemsProvider<Provision>()
         ) { Position = (0, ButtonsPanelHeight),
             IsVisible = false,
             IsEnabled = false };
@@ -176,10 +177,25 @@ public class StoragePanel : BasePanel
         if(currentListPanel.ListBox.SelectedItem is null)
             return;
         
-        Item selectedItem = (Item)currentListPanel.ListBox.SelectedItem;
+        Item? selectedItem = (Item?)currentListPanel.ListBox.SelectedItem;
+        if(selectedItem is null)
+            return;
         var view = currentListPanel.CreateItemView(selectedItem);
+        if(currentListPanel.InteractButton is not null)
+            currentListPanel.InteractButton.Click += (_, _) => ActivateRadraw();
+        if(currentListPanel.TakeButton is not null)
+            currentListPanel.TakeButton.Click += (_, _) => ActivateRadraw();
+        if(currentListPanel.PutButton is not null)
+            currentListPanel.PutButton.Click += (_, _) => ActivateRadraw();
+
         view.Position = (2, 1);
         descriptionPanel.Children.Add(view);
+    }
+
+    private void ActivateRadraw()
+    {
+        CreatePersonPanel();
+        SelectItem();
     }
 
     private void CreateMenuPanel()
@@ -197,13 +213,16 @@ public class StoragePanel : BasePanel
 
     private void CreatePersonPanel()
     {
+        if(Children.Contains(personInfoPanel))
+            Children.Remove(personInfoPanel);
+
         var posX = CalcDescriptionPanelWidth() + CalcItemsListsWidth();
 
-        var panel = new PersonInfoPanel(
+        personInfoPanel = new PersonInfoPanel(
             Game.Instance.ScreenCellsX - posX,
             Height - ButtonsPanelHeight - MenuPanelHeight
         ) { Position = (posX, ButtonsPanelHeight) };
-        Children.Add(panel);
+        Children.Add(personInfoPanel);
     }
 
 
@@ -218,6 +237,8 @@ public class StoragePanel : BasePanel
     private ItemListPanelBase currentListPanel = null!;
     private BorderedPanel descriptionPanel = null!;
     private ControlHost controls = null!;
+
+    private PersonInfoPanel personInfoPanel = null!;
 
     private const int ButtonsPanelHeight = 5;
     private const int SpaceBetweenButtons = 1;

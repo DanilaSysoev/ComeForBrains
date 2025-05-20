@@ -3,7 +3,8 @@
 public static class GameSettings
 {
     public readonly static long FeatureBase = 10;
-    public readonly static long BaseWeight = 50;
+    public readonly static long BaseWeight = 50000;
+    public readonly static long StrengthWeightModifier = 5000;
     public readonly static double MaxArmorThikness = 1.0;
     public readonly static double ArmorBaseValue = 0;
     public readonly static int NemberOfIterationsInRandomDistributor = 10;
