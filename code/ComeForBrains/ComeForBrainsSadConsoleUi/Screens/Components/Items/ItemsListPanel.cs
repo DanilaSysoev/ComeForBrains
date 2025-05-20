@@ -16,6 +16,7 @@ public abstract class ItemsListPanel<TItem> : ItemListPanelBase
     )
         : base(width, height, title, itemsProvider)
     {
+        ListBox.ItemTheme = new CustomListBoxItemTheme();
     }
 
     public override ScreenSurface CreateItemView(Item item)

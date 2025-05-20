@@ -6,4 +6,5 @@ static class SadUiGameSettings
     public const int GameHeight = 40;
     public static readonly Color DefaultForeground = Color.White;
     public static readonly Color DefaultBackground = Color.Black;
+    public static readonly string InventoryMarker = "* ";
 }

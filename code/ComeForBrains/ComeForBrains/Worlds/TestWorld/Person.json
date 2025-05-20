@@ -69,7 +69,7 @@
     "Thirst":  {
         "MinValue": 0,
         "MaxValue": 100,
-        "Value": 10,
+        "Value": 30,
         "Penalties": [
             {
                 "FromInclusive": 40,
