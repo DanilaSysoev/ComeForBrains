@@ -67,6 +67,37 @@ public class PersonInfoPanel : BorderedPanel
         FillWeight();
 
         FillArmorThiknessInfo();
+
+        FillCarInfo();
+    }
+
+    private void FillCarInfo()
+    {
+        var car = Environment.Instance.Context.Car;
+        int posY = Height - 7;
+        Surface.Print(1, posY++, L["Car"]);
+        Surface.DrawLine((1, posY), (Width - 2, posY), '-');
+        posY++;
+        Surface.Print(
+            1,
+            posY++,
+            $"Name: {L[car.Name]}"
+        );
+        Surface.Print(
+            1,
+            posY++,
+            $"Fuel: {car.CurrentFuelLevel:0.##} / {car.TankVolume:0.##}"
+        );
+        Surface.Print(
+            1,
+            posY++,
+            $"Max weight: {car.TrunkWeightCapacity:0.##}"
+        );
+        Surface.Print(
+            1,
+            posY,
+            $"Max volume: {car.TrunkPassabilityCapacity:0.##}"
+        );
     }
 
     private void FillArmorThiknessInfo()

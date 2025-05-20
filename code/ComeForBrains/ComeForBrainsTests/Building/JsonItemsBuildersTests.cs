@@ -19,7 +19,8 @@ public class JsonItemsBuildersTests
             new DummyMedicineJsonProvider(),
             new DummyMeleeWeaponJsonProvider(),
             new DummyProvosionJsonProvider(),
-            new DummyRangedWeaponJsonProvider()
+            new DummyRangedWeaponJsonProvider(),
+            new DummyFuelJsonProvider()
         );  
     }
 
@@ -35,7 +36,8 @@ public class JsonItemsBuildersTests
                 new DummyMedicineJsonProvider(),
                 new DummyMeleeWeaponJsonProvider(),
                 new DummyProvosionJsonProvider(),
-                new DummyRangedWeaponJsonProvider()
+                new DummyRangedWeaponJsonProvider(),
+                new DummyFuelJsonProvider()
             )
         );
     }

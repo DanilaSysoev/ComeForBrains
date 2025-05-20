@@ -52,6 +52,7 @@ public class JsonFilesLocationBuilder : ILocationBuilder
         BuildRangedWeapons(locationDescriptor, map, itemsBuilders);
         BuildMeleeWeapons(locationDescriptor, map, itemsBuilders);
         BuildContainers(locationDescriptor, map, itemsBuilders);
+        BuildFuels(locationDescriptor, map, itemsBuilders);
     }
 
     private static void BuildArmors(
@@ -199,6 +200,25 @@ public class JsonFilesLocationBuilder : ILocationBuilder
 
             MeleeWeapon meleeWeapon = new(builder);
             map[descriptor.Line, descriptor.Column].Place(meleeWeapon);
+        }
+    }
+
+    private static void BuildFuels(
+        ItemsStorageDescriptor locationDescriptor,
+        Map map,
+        IItemsBuilders itemsBuilders
+    )
+    {
+        foreach(var descriptor in locationDescriptor.Fuels)
+        {
+            var builder =
+                itemsBuilders.GetFuelBuilder(descriptor.Name);
+            CorrectionBaseProperties(descriptor, builder);
+            CorrectionItemProperty(descriptor, builder, "EmptyWeight");
+            CorrectionItemProperty(descriptor, builder, "Volume");
+
+            Fuel fuel = new(builder);
+            map[descriptor.Line, descriptor.Column].Place(fuel);
         }
     }
 

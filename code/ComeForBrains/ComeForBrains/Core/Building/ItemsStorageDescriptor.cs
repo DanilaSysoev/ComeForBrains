@@ -68,6 +68,12 @@ internal sealed class ContainerDescriptor : ItemDescriptor
     public string[] Content { get; set; } = Array.Empty<string>();
 }
 
+internal class FuelDescriptor : ItemDescriptor
+{
+    public double? Volume { get; set; }
+    public double? EmptyWeight { get; set; }
+}
+
 
 internal class ItemsStorageDescriptor
 {
@@ -79,4 +85,5 @@ internal class ItemsStorageDescriptor
     public List<WeaponDescriptor> MeleeWeapons { get; set; } = new();
     public List<RangedWeaponDescriptor> RangedWeapons { get; set; } = new();
     public List<ContainerDescriptor> Containers { get; set; } = new();
+    public List<FuelDescriptor> Fuels { get; set; } = new();
 }

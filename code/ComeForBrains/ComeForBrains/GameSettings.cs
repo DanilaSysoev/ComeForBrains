@@ -17,4 +17,5 @@ public static class GameSettings
     public readonly static string Locale = "En";
     public readonly static string PathToLocalizations = Path.Combine("Data", "Localizations");
     public readonly static string PathToWorlds = "Worlds";
+    public readonly static double GasolineDencity = 0.75;
 }

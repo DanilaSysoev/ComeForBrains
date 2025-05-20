@@ -46,7 +46,8 @@ public class JsonFilesSettlementBuilderTests
                 new DummyMedicineJsonProvider(),
                 new DummyMeleeWeaponJsonProvider(),
                 new DummyProvosionJsonProvider(),
-                new DummyRangedWeaponJsonProvider()
+                new DummyRangedWeaponJsonProvider(),
+                new DummyFuelJsonProvider()
             )
         );
     private Settlement settlement = null!;

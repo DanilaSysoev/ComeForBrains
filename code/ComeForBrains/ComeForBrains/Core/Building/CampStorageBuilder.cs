@@ -23,6 +23,7 @@ public class CampStorageBuilder
         BuildRangedWeapons(locationDescriptor, camp, itemsBuilders);
         BuildMeleeWeapons(locationDescriptor, camp, itemsBuilders);
         BuildContainers(locationDescriptor, camp, itemsBuilders);
+        BuildFuels(locationDescriptor, camp, itemsBuilders);
     }
 
     private static void BuildArmors(
@@ -170,6 +171,25 @@ public class CampStorageBuilder
 
             MeleeWeapon meleeWeapon = new(builder);
             camp.AddToStorage(meleeWeapon);
+        }
+    }
+
+    private static void BuildFuels(
+        ItemsStorageDescriptor locationDescriptor,
+        Camp camp,
+        IItemsBuilders itemsBuilders
+    )
+    {
+        foreach(var descriptor in locationDescriptor.Fuels)
+        {
+            var builder =
+                itemsBuilders.GetFuelBuilder(descriptor.Name);
+            CorrectionBaseProperties(descriptor, builder);
+            CorrectionItemProperty(descriptor, builder, "EmptyWeight");
+            CorrectionItemProperty(descriptor, builder, "Volume");
+
+            Fuel fuel = new(builder);
+            camp.AddToStorage(fuel);
         }
     }
 

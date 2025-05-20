@@ -49,6 +49,11 @@ public class FromJsonItemBuilders : IItemsBuilders
                 new FromFileJsonProvider(Path.Combine(pathToFiles, "RangedWeapon.json"))
             );
         AddToGeneral(rangedWeaponsBuilders);
+        fuelBuilders =
+            CreateBuilders<FuelBuilder>(
+                new FromFileJsonProvider(Path.Combine(pathToFiles, "Fuel.json"))
+            );
+        AddToGeneral(rangedWeaponsBuilders);
     }
 
 #pragma warning disable S107
@@ -61,7 +66,8 @@ public class FromJsonItemBuilders : IItemsBuilders
         IJsonProvider medicinesBuildersJson,
         IJsonProvider meleeWeaponsBuildersJson,
         IJsonProvider provisionsBuildersJson,
-        IJsonProvider rangedWeaponsBuildersJson
+        IJsonProvider rangedWeaponsBuildersJson,
+        IJsonProvider fuelBuildersJson
     )
     {
         builders = new Dictionary<string, ItemBuilder>();
@@ -90,6 +96,9 @@ public class FromJsonItemBuilders : IItemsBuilders
         rangedWeaponsBuilders =
             CreateBuilders<RangedWeaponBuilder>(rangedWeaponsBuildersJson);
         AddToGeneral(rangedWeaponsBuilders);
+        fuelBuilders =
+            CreateBuilders<FuelBuilder>(fuelBuildersJson);
+        AddToGeneral(fuelBuilders);
     }
 
     public ArmorBuilder GetArmorBuilder(string armorName)
@@ -130,6 +139,11 @@ public class FromJsonItemBuilders : IItemsBuilders
     public RangedWeaponBuilder GetRangedWeaponBuilder(string rangedWeaponName)
     {
         return GetBuilder(rangedWeaponName, rangedWeaponsBuilders);
+    }
+
+    public FuelBuilder GetFuelBuilder(string fuelName)
+    {
+        return GetBuilder(fuelName, fuelBuilders);
     }
 
     public ItemBuilder GetBuilder(string name)
@@ -188,6 +202,8 @@ public class FromJsonItemBuilders : IItemsBuilders
     Dictionary<string, ProvisionBuilder> provisionsBuilders;
     private readonly
     Dictionary<string, RangedWeaponBuilder> rangedWeaponsBuilders;
+    private readonly
+    Dictionary<string, FuelBuilder> fuelBuilders;
 
     private readonly Dictionary<string, ItemBuilder> builders;
 }

@@ -67,6 +67,11 @@
     "WaterName": "Water",
     "WaterDescription": "A bottle of clean water",
 
+    "GasolineCanisterName": "Canister",
+    "GasolineCanisterDescription": "Up to 5 liters of fuel",
+    "BigGasolineCanisterName": "Big Canister",
+    "BigGasolineCanisterDescription": "Up to 20 liters of fuel",
+
     "GameTitle": "  ____                       \n / ___|___  _ __ ___   ___   \n| |   / _ \\| '_ ` _ \\ / _ \\  \n| |__| (_) | | | | | |  __/  \n \\____\\___/|_| |_| |_|\\___|  \n       / _| ___  _ __        \n      | |_ / _ \\| '__|       \n      |  _| (_) | |          \n _    |_|  \\___/|_|          \n| |__  _ __ __ _(_)_ __  ___ \n| '_ \\| '__/ _` | | '_ \\/ __|\n| |_) | | | (_| | | | | \\__ \\\n|_.__/|_|  \\__,_|_|_| |_|___/",
     
     "StartGame": "Start game",
@@ -107,6 +112,7 @@
     "InfectionKillersButton": "Infection Killers",
     "ProvisionsButton": "Provisions",
     "CampElementsButton": "Camp Elements",
+    "FuelsButton": "Fuel",
 
     "MeleeWeapons": "Melee Weapons",
     "RangedWeapons": "Ranged Weapons",

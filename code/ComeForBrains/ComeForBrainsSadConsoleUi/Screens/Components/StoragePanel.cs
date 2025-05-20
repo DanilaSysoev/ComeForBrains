@@ -39,6 +39,8 @@ public class StoragePanel : BasePanel
         CreateButton((posX, 1), L["ProvisionsButton"], provisions);
         posX += L["ProvisionsButton"].Length + 2 + SpaceBetweenButtons + ButtonXPadding;
         CreateButton((posX, 1), L["CampElementsButton"], campElements);
+        posX += L["CampElementsButton"].Length + 2 + SpaceBetweenButtons + ButtonXPadding;
+        CreateButton((posX, 1), L["FuelsButton"], fuels);
     }
 
 
@@ -125,6 +127,16 @@ public class StoragePanel : BasePanel
             IsEnabled = false };
         provisions.ListBox.SelectedItemChanged += (_, _) => SelectItem();
         Children.Add(provisions);
+
+        fuels = new FuelListPanel(
+            width,
+            Height - ButtonsPanelHeight - MenuPanelHeight,
+            new FromStorageItemsProvider<Fuel>()
+        ) { Position = (0, ButtonsPanelHeight),
+            IsVisible = false,
+            IsEnabled = false };
+        fuels.ListBox.SelectedItemChanged += (_, _) => SelectItem();
+        Children.Add(fuels);
     }
 
     private void CreateButton(
@@ -233,6 +245,7 @@ public class StoragePanel : BasePanel
     private CampElementsListPanel campElements = null!;
     private MedicinesListPanel medicines = null!;
     private ProvisionsListPanel provisions = null!;
+    private FuelListPanel fuels = null!;
 
     private ItemListPanelBase currentListPanel = null!;
     private BorderedPanel descriptionPanel = null!;

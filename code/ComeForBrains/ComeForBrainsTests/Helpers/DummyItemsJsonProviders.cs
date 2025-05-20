@@ -200,3 +200,21 @@ class DummyRangedWeaponJsonProvider : IJsonProvider
             }";
     }
 }
+
+
+class DummyFuelJsonProvider : IJsonProvider
+{
+    public string GetJson()
+    {
+        return @"
+            {
+                ""BigGasolineCanister"": {
+                    ""Name"": ""BigGasolineCanusterName"",
+                    ""Description"": ""BigGasolineCanisterDescription"",
+                    ""Weight"": 2000,
+                    ""PassabilityPenalty"": 0.05,
+                    ""Volume"": 20
+                }
+            }";
+    }
+}

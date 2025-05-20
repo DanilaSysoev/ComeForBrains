@@ -1,0 +1,16 @@
+{
+    "GasolineCanister": {
+        "Name": "GasolineCanisterName",
+        "Description": "GasolineCanisterDescription",
+        "Weight": 1000,
+        "PassabilityPenalty": 0.05,
+        "Volume": 5
+    },
+    "BigGasolineCanister": {
+        "Name": "BigGasolineCanisterName",
+        "Description": "BigGasolineCanisterDescription",
+        "Weight": 2000,
+        "PassabilityPenalty": 0.05,
+        "Volume": 20
+    }
+}

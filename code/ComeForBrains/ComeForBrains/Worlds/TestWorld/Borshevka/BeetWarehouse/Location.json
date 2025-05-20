@@ -60,6 +60,12 @@
             "Position": [3, 36]
         }
     ],
+    "Fuels": [
+        {
+            "Name": "BigGasolineCanister",
+            "Position": [3, 36]
+        }
+    ],
     "Containers": [
         {
             "Name": "WoodenBox",

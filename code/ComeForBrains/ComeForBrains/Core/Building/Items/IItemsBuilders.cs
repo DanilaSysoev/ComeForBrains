@@ -10,6 +10,7 @@ public interface IItemsBuilders
     ProvisionBuilder GetProvisionBuilder(string provisionName);
     MeleeWeaponBuilder GetMeleeWeaponBuilder(string meleeWeaponName);
     RangedWeaponBuilder GetRangedWeaponBuilder(string rangedWeaponName);
+    FuelBuilder GetFuelBuilder(string fuelName);
 
     ItemBuilder GetBuilder(string name);
 }

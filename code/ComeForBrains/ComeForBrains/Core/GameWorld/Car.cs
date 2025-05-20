@@ -10,6 +10,8 @@ public class Car : DescribedEntity
     public double FuelConsumptionRate { get; set; }
     public double CurrentFuelLevel { get; set; }
 
+    public double TankEmptySpace => TankVolume - CurrentFuelLevel;
+
     public Car(CarBuilder builder)
         : base(builder.Name, builder.Description)
     {

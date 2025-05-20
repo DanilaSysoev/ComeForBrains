@@ -19,7 +19,8 @@ public class SettlementTests : Tests
         new DummyMedicineJsonProvider(),
         new DummyMeleeWeaponJsonProvider(),
         new DummyProvosionJsonProvider(),
-        new DummyRangedWeaponJsonProvider()
+        new DummyRangedWeaponJsonProvider(),
+        new DummyFuelJsonProvider()
     );
 
     [SetUp]
