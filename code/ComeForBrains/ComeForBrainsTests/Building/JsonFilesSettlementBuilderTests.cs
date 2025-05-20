@@ -64,10 +64,9 @@ public class JsonFilesSettlementBuilderTests
         Assert.That(settlement.Name, Is.EqualTo("Borshevka"));
     }
     [Test]
-    public void Building_BuildSettlement_ConnectionsSetupCorrectly()
+    public void Building_BuildSettlement_DistanceToCampSetupCorrectly()
     {
-        Assert.That(settlement.HasConnection("Kvasovo"), Is.True);
-        Assert.That(settlement.GetDistance("Kvasovo"), Is.EqualTo(10));
+        Assert.That(settlement.DistanceToCamp, Is.EqualTo(10));
     }
     [Test]
     public void Building_BuildSettlement_LocationsIsBuilded()

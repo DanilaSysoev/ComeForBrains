@@ -9,9 +9,9 @@ public class WorldTests : Tests
     public void Create_WithSomeSettlements_AllSettlementsExistsByName()
     {
         List<Settlement> settlements = new () {
-            new Settlement("S1", new List<Location>()),
-            new Settlement("S2", new List<Location>()),
-            new Settlement("S3", new List<Location>()),
+            new Settlement("S1", 10, new List<Location>()),
+            new Settlement("S2", 10, new List<Location>()),
+            new Settlement("S3", 10, new List<Location>()),
         };
 
         World world = new World(settlements);
@@ -25,9 +25,9 @@ public class WorldTests : Tests
     public void Create_WithSomeSettlements_AllSettlementsContainsWorldReference()
     {
         List<Settlement> settlements = new () {
-            new Settlement("S1", new List<Location>()),
-            new Settlement("S2", new List<Location>()),
-            new Settlement("S3", new List<Location>()),
+            new Settlement("S1", 10, new List<Location>()),
+            new Settlement("S2", 10, new List<Location>()),
+            new Settlement("S3", 10, new List<Location>()),
         };
 
         World world = new World(settlements);

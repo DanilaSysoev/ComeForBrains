@@ -36,7 +36,7 @@ public class SettlementTests : Tests
     [Test]
     public void Creation_WithSomeLocations_AllLocationsExistsByName()
     {
-        Settlement settlement = new Settlement("S", locations);
+        Settlement settlement = new Settlement("S", 10, locations);
 
         Assert.That(settlement.GetLocation("L1"), Is.EqualTo(locations[0]));
         Assert.That(settlement.GetLocation("L2"), Is.EqualTo(locations[1]));
@@ -45,7 +45,7 @@ public class SettlementTests : Tests
     [Test]
     public void Create_WithSomeLocations_AllLocationsContainsSettlementReference()
     {
-        Settlement settlement = new Settlement("S", locations);
+        Settlement settlement = new Settlement("S", 10, locations);
 
         Assert.That(locations[0].Settlement, Is.SameAs(settlement));
         Assert.That(locations[1].Settlement, Is.SameAs(settlement));

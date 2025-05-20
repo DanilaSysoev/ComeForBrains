@@ -4,7 +4,5 @@
         "Mill",
         "Backery"
     ],
-    "Connections": {
-        "Borshevka": 15
-    }
+    "DistanceToCamp": 20
 }

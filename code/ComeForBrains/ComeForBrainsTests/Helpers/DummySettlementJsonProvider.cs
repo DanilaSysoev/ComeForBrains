@@ -14,9 +14,7 @@ public class DummySettlementJsonProvider : IJsonProvider
                 ""Mill"",
                 ""Village""
             ],
-            ""Connections"": {
-                ""Kvasovo"": 10
-            }
+            ""DistanceToCamp"": 10
         }";
     }
 }

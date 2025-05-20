@@ -4,7 +4,5 @@
         "CabbageFarm",
         "BeetWarehouse"
     ],
-    "Connections": {
-        "Kvasovo": 10
-    }
+    "DistanceToCamp": 50
 }

@@ -63,13 +63,11 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
         )!.Name;
     }
 
-    public void AddConnections(Settlement settlement)
+    public double BuildDistanceToCamp()
     {
-        var descr = JsonSerializer.Deserialize<SettlementDescriptor>(
+        return JsonSerializer.Deserialize<SettlementDescriptor>(
             settlementInfo.GetJson()
-        )!;
-        foreach (var (settlementName, distance) in descr.Connections)
-            settlement.AddConnection(settlementName, distance);
+        )!.DistanceToCamp;
     }
 
 
@@ -77,7 +75,7 @@ public class JsonFilesSettlementBuilder : ISettlementBuilder
     {
         public string Name { get; set; } = "";
         public string[] Locations { get; set; } = Array.Empty<string>();
-        public Dictionary<string, int> Connections { get; set; } = new();
+        public double DistanceToCamp { get; set; } = 0;
     }
 
     private void CreateBuilders(string pathToFiles, SettlementDescriptor settlementDescr)
