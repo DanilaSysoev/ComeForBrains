@@ -1,4 +1,5 @@
 
+using ComeForBrains;
 using ComeForBrains.Core.Characters;
 
 namespace ComeForBrainsSadConsoleUi.Screens.Components;
@@ -64,6 +65,23 @@ public class PersonInfoPanel : BorderedPanel
 
         FillSpeed();
         FillWeight();
+
+        FillArmorThiknessInfo();
+    }
+
+    private void FillArmorThiknessInfo()
+    {
+        int yPos = 18;        
+        foreach(var bodyPart in Enum.GetValues<BodyPart>())
+        {
+            Surface.Print(
+                1,
+                yPos,
+                $"{L[bodyPart.ToString()]}: " + 
+                    $"{person.GetArmorThikness(bodyPart):0.##} / " + 
+                    $"{GameSettings.MaxArmorThikness}");
+            ++yPos;
+        }
     }
 
     private void FillWeight()
