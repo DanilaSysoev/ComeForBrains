@@ -81,7 +81,7 @@ public class PersonInfoPanel : BorderedPanel
         Surface.Print(
             1,
             posY++,
-            $"Name: {L[car.Name]}"
+            $"Name: {car.Name}"
         );
         Surface.Print(
             1,
