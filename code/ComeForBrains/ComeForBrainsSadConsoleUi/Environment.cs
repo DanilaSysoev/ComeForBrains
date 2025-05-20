@@ -34,6 +34,11 @@ public class Environment
                         Path.Combine(WorldsDirectory, worldName, "Camp.json")
                     )
                 ),
+                JsonSerializer.Deserialize<CarBuilder>(
+                    new FromFileJsonProvider(
+                        Path.Combine(WorldsDirectory, worldName, "Car.json")
+                    ).GetJson()
+                )!,
                 ExtractDayNumber(),
                 ExtractDayStageName(),
                 Path.Combine(WorldsDirectory, worldName, "Storage.json"),

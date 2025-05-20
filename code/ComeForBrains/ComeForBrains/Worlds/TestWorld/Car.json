@@ -1,0 +1,9 @@
+{
+    "Name": "Lada Vesta",
+    "Description": "Better than nothing",
+    "TrunkWeightCapacity": 300,
+    "TrunkPassabilityCapacity": 1,
+    "TankVolume": 50,
+    "FuelConsumptionRate": 0.1,
+    "CurrentFuelLevel": 30
+}

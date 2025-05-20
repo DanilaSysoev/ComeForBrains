@@ -17,6 +17,7 @@ public class GameContext
     public Camp Camp { get; init; }
     public uint DayNumber { get; internal set; }
     public DayStage DayStage { get; internal set; }
+    public Car Car { get; internal set; }
 
     public bool PersonInCamp { get; private set; } = true;
 
@@ -30,6 +31,7 @@ public class GameContext
     {
         Person = builder.BuildPerson();
         Camp = builder.BuildCamp();
+        Car = builder.BuildCar();
         DayNumber = builder.DayNumber;
         DayStage = builder.DayStage;
 

@@ -1,5 +1,6 @@
 using ComeForBrains.Core;
 using ComeForBrains.Core.Building;
+using ComeForBrains.Core.Building.GameWorld;
 using ComeForBrains.Core.Characters;
 using ComeForBrains.Core.GameWorld;
 
@@ -20,6 +21,11 @@ public class PersonContextBuilder : IGameContextBuilder
     public Person BuildPerson()
     {
         return person;
+    }
+
+    public Car BuildCar()
+    {
+        return new Car(new CarBuilder());
     }
 
     private readonly Person person;

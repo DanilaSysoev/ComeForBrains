@@ -11,6 +11,7 @@ public class GameContextBuilder : IGameContextBuilder
     public GameContextBuilder(
         IPersonBuilder personBuilder,
         ICampBuilder campBuilder,
+        CarBuilder carBuilder,
         uint dayNumber,
         string dayStageName,
         string pathToStorageItems,
@@ -20,6 +21,7 @@ public class GameContextBuilder : IGameContextBuilder
         DayNumber = dayNumber;
         this.personBuilder = personBuilder;
         this.campBuilder = campBuilder;
+        this.carBuilder = carBuilder;
         DayStageName = dayStageName;
         this.pathToStorageItems = pathToStorageItems;
         this.pathToItemsDescriptorsFiles = pathToItemsDescriptorsFiles;
@@ -49,8 +51,14 @@ public class GameContextBuilder : IGameContextBuilder
         return new Person(personBuilder);
     }
 
+    public Car BuildCar()
+    {
+        return new Car(carBuilder);
+    }
+
     private readonly IPersonBuilder personBuilder;
     private readonly ICampBuilder campBuilder;
+    private readonly CarBuilder carBuilder;
     private readonly string pathToItemsDescriptorsFiles;
     private readonly string pathToStorageItems;
 }

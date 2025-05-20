@@ -7,6 +7,7 @@ public interface IGameContextBuilder
 {
     Person BuildPerson();
     Camp BuildCamp();
+    Car BuildCar();
 
     uint DayNumber { get; }
     DayStage DayStage { get; }
