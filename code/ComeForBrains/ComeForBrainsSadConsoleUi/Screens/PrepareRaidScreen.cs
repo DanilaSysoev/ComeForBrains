@@ -20,7 +20,16 @@ public class PrepareRaidScreen : GameScreen
 
     private void CreatePersonPanel()
     {
-        
+        int height = Game.Instance.ScreenCellsY -
+                     ButtonsPanelHeight -
+                     EnvInfoHeight;
+        int width = (int)(Game.Instance.ScreenCellsX * PersonPanelWidthPerc);
+
+        var panel = new PersonInfoPanel(width, height)
+        {
+            Position = new Point(0, EnvInfoHeight)
+        };
+        Children.Add(panel);
     }
 
     private void CreateSettlementsPanel()
@@ -45,4 +54,6 @@ public class PrepareRaidScreen : GameScreen
     }
 
     private const int ButtonsPanelHeight = 5;
+    private const int EnvInfoHeight = 7;
+    private const double PersonPanelWidthPerc = 0.2;
 }
