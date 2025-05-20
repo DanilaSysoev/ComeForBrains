@@ -15,7 +15,12 @@ public class PrepareRaidScreen : GameScreen
 
     private void CreateEnvironmentInfoPanel()
     {
-        
+        Children.Add(
+            new EnvironmentInfoPanel(
+                Game.Instance.ScreenCellsX,
+                EnvInfoHeight
+            )
+        );
     }
 
     private void CreatePersonPanel()
@@ -54,6 +59,6 @@ public class PrepareRaidScreen : GameScreen
     }
 
     private const int ButtonsPanelHeight = 5;
-    private const int EnvInfoHeight = 7;
+    private const int EnvInfoHeight = 5;
     private const double PersonPanelWidthPerc = 0.2;
 }
