@@ -27,6 +27,8 @@ public class GameContext
     public SleepProcessor SleepProcessor { get; private set; }
     public GameEndChecker GameEndChecker { get; private set; }
 
+    public DaySleepModifier DaySleepModifier { get; private set; }
+
     public GameContext(IGameContextBuilder builder)
     {
         Person = builder.BuildPerson();
@@ -41,6 +43,8 @@ public class GameContext
         DayStageSwitcher = new DayStageSwitcher(this);
         SleepProcessor = new SleepProcessor(this);
         GameEndChecker = new GameEndChecker(this);
+
+        DaySleepModifier = new DaySleepModifier(this);
     }
 
     public void MovePersonToCamp()

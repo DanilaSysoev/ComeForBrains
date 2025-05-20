@@ -4,25 +4,25 @@ namespace ComeForBrains.Core.Building.Mechanics;
 
 public class SleepProcessor : MechanicBase
 {
+    internal double Multiplier { get; set; } = 1.0;
+
     public SleepProcessor(GameContext context)
         : base(context)
     {}
 
     public void Process()
     {
+        Context.DaySleepModifier.Apply();
         RestoreEnergy();
+        Context.DaySleepModifier.Undo();
         Context.DayStageSwitcher.Switch();
     }
 
 
     private void RestoreEnergy()
-    {
-        double multiplier = 1.0;
-        if (Context.DayStage == DayStage.Day)
-            multiplier += GameSettings.DaySleepIncrease;
-        
+    {        
         var restoredEnergy = (GameSettings.EnergyRestoreBase +
-                              Context.Camp.Comfort / 5) * multiplier;
+                              Context.Camp.Comfort / 5) * Multiplier;
         Context.Person.Energy.Value += restoredEnergy;
     }
 }
